@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6V70QHYGQ3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6V70QHYGQ3');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x1w5as0y69");
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CarryOn: Capture. Curate. Carry on.</title>
+<meta name="description" content="CarryOn is a quiet, personal space for the knowledge only you hold. Talk it out, and we organize it into a guide the people you love can follow: the care routines, the wisdom, the little things that keep everyone going. By Fallon Scott." />
+<meta name="keywords" content="family knowledge app, caregiver care plan app, legacy app, record family wisdom, continuity of care, what happens to my family, voice to guide, family operations, carryon app" />
+<link rel="canonical" href="https://fallonscott.com/carryon.html" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Fallon Scott" />
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="CarryOn · by Fallon Scott" />
+<meta property="og:url" content="https://fallonscott.com/carryon.html" />
+<meta property="og:title" content="CarryOn: Because love shouldn't end where knowledge does." />
+<meta property="og:description" content="A quiet, personal space for the things that matter most. Talk it out, and CarryOn organizes it into a guide the people you love can follow." />
+<meta property="og:image" content="https://fallonscott.com/assets/og-carryon.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="CarryOn: Capture. Curate. Carry on." />
+<meta name="twitter:description" content="Capture the knowledge only you hold. We organize it into a guide the people you love can follow." />
+<meta name="twitter:image" content="https://fallonscott.com/assets/og-carryon.jpg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "CarryOn",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "iOS, Android, Web",
+      "brand": {"@type": "Brand", "name": "Fallon Scott"},
+      "url": "https://fallonscott.com/carryon.html",
+      "description": "CarryOn is a quiet, personal space for the knowledge only you hold. Talk it out and CarryOn organizes it into a guide the people you love can follow: care routines, household knowledge, and the wisdom that keeps everyone going.",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    },
+    {
+      "@type": "Person",
+      "name": "Fallon Scott",
+      "jobTitle": "Founder, CarryOn · Fractional COO & Operations Architect",
+      "url": "https://fallonscott.com/about.html",
+      "sameAs": ["https://www.linkedin.com/in/fallonricescott/"]
+    }
+  ]
+}
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Figtree:wght@300;400;500;600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --paper:#F6F1E7;      /* warm cream page */
+  --paper-2:#EDE7D6;     /* deeper card cream */
+  --paper-3:#E7DECC;
+  --ink:#33402A;         /* deep olive - grounds, wordmark, text */
+  --ink-2:#3E4B32;
+  --ink-soft:#5E634C;    /* muted olive body */
+  --gold:#CE8A12;        /* ochre - CTA + accent */
+  --gold-deep:#966412;   /* readable gold text on cream */
+  --sage:#8C9575;
+  --sage-deep:#525C3C;   /* deeper olive ground */
+  --rust:#A0480E;
+  --line:rgba(51,64,42,.14);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--paper);color:var(--ink);font-family:'Figtree',sans-serif;-webkit-font-smoothing:antialiased;}
+.serif{font-family:'Cormorant Garamond',serif;}
+h1,h2,h3{text-wrap:balance;}
+p{text-wrap:pretty;}
+
+/* ---------- SITE NAV (F28 continuity) ---------- */
+nav.top{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:14px 48px;background:var(--ink);border-bottom:1px solid rgba(190,138,46,.16);}
+nav.top .logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--paper);text-decoration:none;letter-spacing:.01em;display:flex;align-items:center;gap:9px;}
+nav.top .logo .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block;}
+nav.top .nav-links{display:flex;gap:24px;align-items:center;font-family:'Figtree',sans-serif;font-size:13.5px;font-weight:500;}
+nav.top .nav-links a{color:rgba(244,239,230,.8);text-decoration:none;position:relative;padding:4px 0;transition:color .2s;}
+nav.top .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .25s;}
+nav.top .nav-links a:hover{color:var(--paper);}
+nav.top .nav-links a:not(.cta):hover::after{width:100%;}
+nav.top .nav-links a.cta{color:var(--ink);background:var(--gold);padding:9px 18px;border-radius:999px;font-weight:600;white-space:nowrap;}
+nav.top .nav-links a.cta::after{display:none;}
+nav.top .nav-links a.cta:hover{background:#d69f3c;color:var(--ink);}
+.mm-toggle{color:var(--paper) !important;}
+@media(max-width:1080px){nav.top{padding:14px 24px;}nav.top .nav-links{gap:16px;font-size:13px;}}
+
+/* ---------- BRAND MARK (thread wordmark) ---------- */
+.brandmark{display:inline-flex;flex-direction:column;align-items:center;gap:4px;}
+.brandmark svg{display:block;overflow:visible;}
+.brandmark .thread-path{fill:none;stroke:var(--gold);stroke-width:2.4;stroke-linecap:round;}
+.brandmark .word{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--ink);line-height:1;letter-spacing:.005em;}
+.brandmark .tag{font-family:'Figtree',sans-serif;font-weight:600;letter-spacing:.19em;color:var(--gold-deep);text-transform:uppercase;white-space:nowrap;}
+/* section eyebrow - warm italic serif kicker (not a generic tracked label) */
+.section-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:clamp(18px,1.7vw,22px);letter-spacing:0;color:var(--gold-deep);margin-bottom:14px;text-transform:none;}
+
+/* draw-on animation */
+@media (prefers-reduced-motion: no-preference){
+  .brandmark.animate .thread-path{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw 1.7s cubic-bezier(.5,0,.2,1) .15s forwards;}
+  .brandmark.animate .word,.brandmark.animate .tag{opacity:0;animation:riseIn .9s ease 1.15s forwards;}
+}
+@keyframes draw{to{stroke-dashoffset:0;}}
+@keyframes riseIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+/* ---------- HERO ---------- */
+.hero{background:linear-gradient(180deg,var(--paper) 0%,var(--paper) 62%,var(--paper-2) 100%);padding:76px 48px 92px;text-align:center;position:relative;overflow:hidden;}
+.hero-brand{margin:0 auto 46px;}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5.6vw,68px);line-height:1.04;font-weight:500;color:var(--ink);max-width:15ch;margin:0 auto 30px;letter-spacing:-.005em;}
+.hero-h1 em{font-style:italic;color:var(--gold-deep);}
+.hero-tag{display:flex;flex-direction:column;gap:6px;align-items:center;margin:0 auto 30px;font-family:'Figtree',sans-serif;font-weight:600;letter-spacing:.24em;font-size:clamp(11px,1.15vw,13px);text-transform:uppercase;color:var(--gold-deep);}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(19px,2.2vw,26px);font-weight:400;color:var(--ink-soft);max-width:30ch;margin:0 auto 40px;line-height:1.4;font-style:italic;}
+.btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;align-items:center;}
+.btn-primary{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#fff;text-decoration:none;font-family:'Figtree',sans-serif;font-weight:600;font-size:16px;padding:16px 32px;border-radius:999px;transition:background .2s,transform .2s;box-shadow:0 14px 30px -16px rgba(206,138,18,.7);white-space:nowrap;}
+.btn-primary:hover{background:#b5760c;transform:translateY(-2px);}
+.btn-primary svg{transition:transform .2s;}
+.btn-primary:hover svg{transform:translateX(4px);}
+.notify-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;align-items:center;margin-top:18px;}
+.notify-pill{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--ink);text-decoration:none;font-family:'Figtree',sans-serif;font-weight:500;font-size:13.5px;padding:11px 20px;border:1px solid var(--line);border-radius:999px;transition:border-color .2s,background .2s;}
+.notify-pill:hover{border-color:var(--gold);background:rgba(206,138,18,.07);}
+.notify-pill svg{opacity:.6;flex-shrink:0;}
+.home-hint{display:inline-flex;align-items:center;gap:9px;margin-top:22px;padding:9px 18px;border-radius:999px;background:rgba(51,64,42,.05);border:1px solid var(--line);font-family:'Figtree',sans-serif;font-size:13.5px;color:var(--ink-soft);}
+.home-hint svg{color:var(--gold-deep);flex-shrink:0;}
+.home-hint span{text-align:left;}
+.hero-note{font-size:12.5px;color:var(--ink-soft);opacity:.7;margin-top:22px;letter-spacing:.02em;}
+
+/* section scaffolding */
+.section-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:clamp(18px,1.7vw,22px);letter-spacing:0;color:var(--gold-deep);margin-bottom:14px;text-transform:none;}
+.wrap{max-width:1080px;margin:0 auto;}
+.wrap-narrow{max-width:760px;margin:0 auto;}
+
+/* ---------- SCENARIOS (Imagine…) ---------- */
+.imagine{padding:96px 48px;background:var(--ink);position:relative;overflow:hidden;}
+.imagine::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(190,138,46,.12),transparent 60%);pointer-events:none;}
+.imagine .inner{max-width:1000px;margin:0 auto;position:relative;}
+.imagine-head{text-align:center;margin-bottom:52px;}
+.imagine .section-label{color:var(--gold);}
+.imagine h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.6vw,46px);font-weight:500;color:var(--paper);line-height:1.14;max-width:18ch;margin:0 auto;}
+.imagine h2 em{font-style:italic;color:var(--gold);}
+.imagine-sub{color:rgba(244,239,230,.6);font-size:16px;margin-top:16px;max-width:46ch;margin-left:auto;margin-right:auto;line-height:1.6;}
+.scen-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.scen{display:flex;gap:18px;align-items:center;padding:24px 26px;background:rgba(244,239,230,.045);border:1px solid rgba(244,239,230,.09);border-radius:16px;transition:background .25s,border-color .25s;cursor:default;}
+.scen:hover{background:rgba(244,239,230,.07);border-color:rgba(190,138,46,.4);}
+.play{width:52px;height:52px;flex-shrink:0;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 0 rgba(190,138,46,.45);transition:box-shadow .3s;}
+.scen:hover .play{box-shadow:0 0 0 8px rgba(190,138,46,.14);}
+.play svg{margin-left:3px;}
+.scen-body{flex:1;min-width:0;}
+.scen-who{font-family:'Figtree',sans-serif;font-weight:700;font-size:13px;letter-spacing:.01em;text-transform:none;color:var(--gold);margin-bottom:6px;}
+.scen-line{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--paper);line-height:1.3;margin-bottom:10px;}
+.wave{display:flex;align-items:center;gap:3px;height:16px;}
+.wave span{width:3px;border-radius:2px;background:rgba(190,138,46,.55);}
+.imagine-foot{text-align:center;margin-top:44px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2vw,23px);color:rgba(244,239,230,.85);max-width:34ch;margin-left:auto;margin-right:auto;line-height:1.4;}
+
+/* ---------- HOW IT WORKS ---------- */
+.how{padding:100px 48px 90px;background:var(--paper);}
+.how-head{text-align:center;margin-bottom:72px;}
+.how-head h2{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,52px);font-weight:500;line-height:1.08;color:var(--ink);}
+.how-head h2 em{font-style:italic;color:var(--gold-deep);}
+.how-head p{font-size:17px;color:var(--ink-soft);margin-top:16px;max-width:44ch;margin-left:auto;margin-right:auto;line-height:1.6;}
+.step{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:104px;}
+.step:last-child{margin-bottom:0;}
+.step:nth-child(even) .step-media{order:2;}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);font-style:italic;margin-bottom:14px;display:flex;align-items:center;gap:12px;}
+.step-num::before{content:"";width:34px;height:1px;background:var(--gold);opacity:.6;}
+.step h3{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,40px);font-weight:500;line-height:1.1;color:var(--ink);margin-bottom:16px;}
+.step h3 em{font-style:italic;color:var(--gold-deep);}
+.step p{font-size:16px;line-height:1.72;color:var(--ink-soft);margin-bottom:14px;}
+.step p strong{color:var(--ink);font-weight:600;}
+.step-media{position:relative;}
+.shot{width:100%;border-radius:20px;border:1px solid var(--line);box-shadow:0 30px 60px -28px rgba(34,48,63,.4);background:var(--paper-2);display:block;}
+.shot-frame{border-radius:22px;padding:10px;background:linear-gradient(160deg,#fff,var(--paper-2));border:1px solid var(--line);box-shadow:0 40px 80px -40px rgba(34,48,63,.5);}
+.shot-frame .shot{border-radius:14px;box-shadow:none;border:1px solid rgba(34,48,63,.06);aspect-ratio:auto;}
+/* auto-crossfade between two app screens */
+.shot-swap{position:relative;width:100%;aspect-ratio:4/3;background:var(--paper-2);border-radius:14px;overflow:hidden;}
+.shot-swap .layer{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:top center;border-radius:14px;opacity:0;transition:opacity .8s ease;}
+.shot-swap .layer.is-active{opacity:1;}
+.step-tag{display:inline-flex;align-items:center;gap:8px;font-family:'Figtree',sans-serif;font-weight:600;font-size:13px;letter-spacing:.01em;text-transform:none;color:var(--gold-deep);background:rgba(190,138,46,.09);border:1px solid rgba(190,138,46,.22);padding:8px 15px;border-radius:999px;margin-top:6px;}
+
+/* privacy note */
+.privacy{max-width:760px;margin:8px auto 0;background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:26px 30px;display:flex;gap:18px;align-items:flex-start;}
+.privacy .lock{flex-shrink:0;width:40px;height:40px;border-radius:10px;background:var(--sage);display:flex;align-items:center;justify-content:center;}
+.privacy h4{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin-bottom:4px;color:var(--ink);}
+.privacy p{font-size:14px;color:var(--ink-soft);line-height:1.6;}
+.privacy p strong{color:var(--ink);font-weight:700;}
+
+/* ---------- WHAT BELONGS ---------- */
+.belongs{padding:96px 48px;background:var(--sage-deep);color:var(--paper);}
+.belongs-head{text-align:center;margin-bottom:56px;}
+.belongs .section-label{color:#D8C79A;}
+.belongs h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.6vw,46px);font-weight:500;line-height:1.1;color:var(--paper);max-width:20ch;margin:0 auto;}
+.belongs h2 em{font-style:italic;color:#E6D6A8;}
+.belongs-sub{color:rgba(244,239,230,.72);font-size:16px;margin-top:16px;}
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.cat{background:rgba(244,239,230,.06);border:1px solid rgba(244,239,230,.1);border-radius:14px;padding:22px 20px;transition:background .2s;}
+.cat:hover{background:rgba(244,239,230,.1);}
+.cat-emoji{font-size:22px;margin-bottom:12px;display:block;}
+.cat-name{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--paper);margin-bottom:7px;}
+.cat-desc{font-size:12.5px;line-height:1.55;color:rgba(244,239,230,.62);}
+.belongs-foot{text-align:center;margin-top:40px;font-size:14px;color:rgba(244,239,230,.62);font-style:italic;font-family:'Cormorant Garamond',serif;font-size:18px;}
+.belongs-lead{text-align:center;max-width:60ch;margin:0 auto 40px;font-size:16.5px;line-height:1.7;color:rgba(244,239,230,.82);}
+.belongs-lead strong{color:var(--paper);font-weight:600;}
+/* voice callout */
+.voice-note{max-width:44ch;margin:44px auto 0;text-align:center;}
+.voice-note .vn-lead{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,2.1vw,25px);color:var(--paper);line-height:1.4;margin-bottom:14px;}
+.voice-note .vn-lead em{color:var(--gold);}
+.voice-note .vn-body{font-size:15px;line-height:1.7;color:rgba(244,239,230,.66);}
+/* final CTA lead line */
+.final-lead{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(20px,2.4vw,28px);color:var(--ink);line-height:1.4;max-width:26ch;margin:0 auto 30px;}
+.final-lead em{color:var(--gold-deep);}
+
+/* ---------- WHO IT'S FOR ---------- */
+.who{padding:100px 48px;background:var(--paper);}
+.who-head{text-align:center;margin-bottom:56px;}
+.who-head h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.6vw,46px);font-weight:500;line-height:1.12;color:var(--ink);max-width:20ch;margin:0 auto;}
+.who-head h2 em{font-style:italic;color:var(--gold-deep);}
+.who-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.who-card{background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:32px 30px;}
+.who-card-icon{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;letter-spacing:0;color:var(--gold-deep);margin-bottom:9px;text-transform:none;}
+.who-card-title{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--ink);font-weight:600;margin-bottom:11px;line-height:1.2;}
+.who-card-title em{font-style:italic;color:var(--gold-deep);}
+.who-card-body{font-size:14.5px;color:var(--ink-soft);line-height:1.7;}
+
+/* ---------- TESTIMONIALS ---------- */
+.quotes{padding:96px 48px;background:var(--paper-2);}
+.quotes-head{text-align:center;margin-bottom:52px;}
+.quotes-head h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.4vw,44px);font-weight:500;color:var(--ink);line-height:1.12;}
+.quotes-head h2 em{font-style:italic;color:var(--gold-deep);}
+.quote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.quote{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:32px 30px;display:flex;flex-direction:column;}
+.quote .mark{font-family:'Cormorant Garamond',serif;font-size:52px;line-height:.6;color:var(--gold);opacity:.5;margin-bottom:8px;height:26px;}
+.quote p{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;line-height:1.4;color:var(--ink);margin-bottom:22px;flex:1;}
+.quote .attr{font-size:13px;color:var(--ink-soft);font-weight:600;}
+.quote .attr span{display:block;font-weight:400;opacity:.75;margin-top:2px;}
+
+/* ---------- FOUNDER STORY ---------- */
+.why{padding:100px 48px;background:var(--ink);color:var(--paper);}
+.why-inner{max-width:900px;margin:0 auto;}
+.why .section-label{color:var(--gold);}
+.why h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.6vw,46px);font-weight:500;line-height:1.14;color:var(--paper);margin-bottom:26px;max-width:22ch;}
+.why h2 em{font-style:italic;color:var(--gold);}
+.why-body{font-size:16.5px;line-height:1.8;color:rgba(244,239,230,.74);margin-bottom:20px;}
+.why-body strong{color:var(--paper);font-weight:600;}
+.why-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:40px 0;}
+.why-photo{margin:0;}
+.why-photo-img{width:100%;aspect-ratio:3/4;background-size:cover;background-position:center 20%;border-radius:12px;}
+.why-photo figcaption{font-size:12.5px;line-height:1.5;color:rgba(244,239,230,.5);margin-top:11px;font-style:italic;}
+.pull{border-left:2px solid var(--gold);padding:8px 0 8px 28px;margin:36px 0 0;}
+.pull p{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.6vw,30px);color:var(--paper);font-weight:400;line-height:1.32;font-style:italic;}
+.pull p em{color:var(--gold);}
+
+/* founder card */
+.founder{display:flex;gap:20px;align-items:center;margin-top:44px;padding-top:34px;border-top:1px solid rgba(244,239,230,.12);}
+.founder-img{width:76px;height:76px;border-radius:50%;background-size:cover;background-position:center 15%;flex-shrink:0;border:1px solid rgba(190,138,46,.4);}
+.founder-name{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--paper);font-weight:600;}
+.founder-role{font-size:13px;color:rgba(244,239,230,.6);line-height:1.5;margin-top:3px;}
+.founder-link{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-family:'Figtree',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.02em;color:var(--gold);text-decoration:none;}
+.founder-link svg{transition:transform .18s ease;}
+.founder-link:hover svg{transform:translateX(4px);}
+
+/* business-version link */
+.biz-note{margin-top:40px;padding:26px 30px;border:1px solid rgba(244,239,230,.14);border-left:2px solid var(--gold);border-radius:4px;background:rgba(244,239,230,.03);}
+.biz-note-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:18px;color:var(--gold);margin-bottom:8px;}
+.biz-note p{font-size:15px;line-height:1.6;color:rgba(244,239,230,.72);max-width:60ch;margin:0 0 16px;}
+.biz-link{display:inline-flex;align-items:center;gap:7px;font-family:'Figtree',sans-serif;font-weight:600;font-size:13px;letter-spacing:.02em;color:var(--gold);text-decoration:none;}
+.biz-link svg{transition:transform .18s ease;}
+.biz-link:hover svg{transform:translateX(4px);}
+
+/* ---------- FINAL CTA ---------- */
+.final{padding:110px 48px;text-align:center;background:var(--paper);position:relative;overflow:hidden;}
+.final .thread-wrap{max-width:420px;margin:0 auto 30px;}
+.final h2{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5vw,64px);font-weight:500;color:var(--ink);line-height:1.05;margin-bottom:18px;letter-spacing:-.01em;}
+.final h2 em{font-style:italic;color:var(--gold-deep);}
+.final-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(19px,2.2vw,26px);font-style:italic;color:var(--ink-soft);max-width:30ch;margin:0 auto 40px;line-height:1.4;}
+.final-note{font-size:12.5px;color:var(--ink-soft);opacity:.7;margin-top:22px;letter-spacing:.02em;}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink);padding:40px 48px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(190,138,46,.16);}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--paper);font-weight:600;display:flex;align-items:center;gap:8px;}
+.footer-logo .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block;}
+.footer-mid{font-size:13px;color:rgba(244,239,230,.55);}
+.footer-mid a{color:rgba(244,239,230,.7);text-decoration:none;}
+.footer-mid a:hover{color:var(--gold);}
+.footer-copy{font-family:'Figtree',sans-serif;font-weight:500;font-size:11px;letter-spacing:.08em;color:rgba(244,239,230,.35);}
+
+@media(max-width:900px){
+  .scen-grid,.who-cards{grid-template-columns:1fr;}
+  .cat-grid{grid-template-columns:repeat(2,1fr);}
+  .quote-grid{grid-template-columns:1fr;}
+  .step{grid-template-columns:1fr;gap:32px;margin-bottom:72px;}
+  .step:nth-child(even) .step-media{order:0;}
+  .why-photos{grid-template-columns:1fr;max-width:360px;margin-left:auto;margin-right:auto;}
+}
+@media(max-width:680px){
+  .hero{padding:52px 22px 64px;}
+  .imagine,.how,.belongs,.who,.quotes,.why,.final{padding-left:22px;padding-right:22px;}
+  .imagine,.belongs,.who,.quotes,.why{padding-top:64px;padding-bottom:64px;}
+  .how{padding-top:64px;}
+  .final{padding-top:80px;padding-bottom:80px;}
+  .cat-grid{grid-template-columns:1fr 1fr;}
+  footer{flex-direction:column;text-align:center;justify-content:center;}
+}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <a href="index.html" class="logo"><span class="dot"></span>CarryOn</a>
+  <div class="nav-links">
+    <a href="index.html">Fallon Scott</a>
+    <a href="#how">How it works</a>
+    <a href="#belongs">What's inside</a>
+    <a href="#story">Our story</a>
+    <a href="https://life-brief-capture.replit.app" class="cta">Open the app</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-brand">
+    <span class="brandmark" id="heroMark">
+      <svg width="230" height="60" viewBox="0 0 230 60" aria-hidden="true">
+        <path class="thread-path" d="M6,42 C46,42 78,40 108,33 C150,23 158,8 182,14 C202,19 200,42 176,42 C150,42 150,20 196,29 C210,32 220,36 224,35"></path>
+      </svg>
+      <span class="word" style="font-size:56px;">CarryOn</span>
+      <span class="tag" style="font-size:12px;margin-top:8px;">Capture · Curate · Carry on</span>
+    </span>
+  </div>
+  <h1 class="hero-h1">One day, someone you love will need knowledge that <em>only you have.</em></h1>
+  <p class="hero-sub">Record it once, in your own voice. The people you love will know what to do when it matters most.</p>
+  <div class="btn-row" id="download">
+    <a href="https://life-brief-capture.replit.app" class="btn-primary">Open CarryOn
+      <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h8M8 4l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <div class="home-hint">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3" stroke-linecap="round"/></svg>
+    <span>Add it to your home screen and CarryOn opens just like any other app.</span>
+  </div>
+  <p class="hero-note">Works on any phone, tablet, or computer · Private by design · Nothing to install.</p>
+</section>
+
+<!-- ================= IMAGINE / SCENARIOS ================= -->
+<section class="imagine">
+  <div class="inner">
+    <div class="imagine-head">
+      <div class="section-label">Imagine, years from now</div>
+      <h2>The people you love can still <em>hear how you would have done it.</em></h2>
+      <p class="imagine-sub">Not a document they have to decode. Your knowledge, in your voice, ready the moment they need it.</p>
+    </div>
+    <div class="scen-grid">
+      <div class="scen">
+        <div class="play"><svg width="16" height="18" viewBox="0 0 16 18" fill="var(--ink)"><path d="M2 1.5 14 9 2 16.5z"/></svg></div>
+        <div class="scen-body">
+          <div class="scen-who">Play · Grandma</div>
+          <div class="scen-line">"Here's how I make the sauce every Sunday…"</div>
+          <div class="wave" data-wave></div>
+        </div>
+      </div>
+      <div class="scen">
+        <div class="play"><svg width="16" height="18" viewBox="0 0 16 18" fill="var(--ink)"><path d="M2 1.5 14 9 2 16.5z"/></svg></div>
+        <div class="scen-body">
+          <div class="scen-who">Listen · Mom</div>
+          <div class="scen-line">"The morning routine that keeps him calm."</div>
+          <div class="wave" data-wave></div>
+        </div>
+      </div>
+      <div class="scen">
+        <div class="play"><svg width="16" height="18" viewBox="0 0 16 18" fill="var(--ink)"><path d="M2 1.5 14 9 2 16.5z"/></svg></div>
+        <div class="scen-body">
+          <div class="scen-who">Play · Dad</div>
+          <div class="scen-line">"What I want the holidays to feel like."</div>
+          <div class="wave" data-wave></div>
+        </div>
+      </div>
+      <div class="scen">
+        <div class="play"><svg width="16" height="18" viewBox="0 0 16 18" fill="var(--ink)"><path d="M2 1.5 14 9 2 16.5z"/></svg></div>
+        <div class="scen-body">
+          <div class="scen-who">Listen · You</div>
+          <div class="scen-line">"Everything a sitter needs to know for the baby."</div>
+          <div class="wave" data-wave></div>
+        </div>
+      </div>
+    </div>
+    <div class="voice-note">
+      <p class="vn-lead">Some things are better <em>heard than read.</em></p>
+      <p class="vn-body">You've made her cake thirty times, but some nights you just want to hear her say it. A voice carries reassurance, context, and love that a document never can.</p>
+    </div>
+    <p class="imagine-foot">The instructions fade. The voice, the warmth, the <em>why</em>. Those are what carry on.</p>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="how" id="how">
+  <div class="how-head">
+    <div class="section-label" style="text-align:center;">How CarryOn works</div>
+    <h2>Talk it out. We'll <em>organize it for you.</em></h2>
+    <p>No blank page, no forms to dread. Three quiet steps turn what's in your head into a guide anyone you trust can follow.</p>
+  </div>
+  <div class="wrap">
+    <!-- Capture -->
+    <div class="step">
+      <div class="step-media">
+        <div class="shot-frame"><div class="shot-swap" data-swap>
+          <img class="shot layer is-active" src="assets/carryon/app-mic.png" alt="CarryOn asks a question and you tap to speak your answer">
+          <img class="shot layer" src="assets/carryon/app-capture.png" alt="Your answers saved as recordings CarryOn turns into a guide">
+        </div></div>
+      </div>
+      <div class="step-body">
+        <div class="step-num">Capture</div>
+        <h3>Just <em>start talking.</em></h3>
+        <p>CarryOn asks gentle questions and you answer out loud, the way you'd explain it to a friend. The recipe, the routine, the thing only you know how to handle. <strong>No typing, no structure to figure out.</strong></p>
+        <p>Record when it comes to you, waiting in the pickup line, folding laundry, lying awake at 2am. A minute here, a minute there.</p>
+        <div class="step-tag">Voice-first · Video when it helps</div>
+      </div>
+    </div>
+    <!-- Curate -->
+    <div class="step">
+      <div class="step-media">
+        <div class="shot-frame"><img class="shot" src="assets/carryon/app-curate.png" alt="CarryOn organizing captured knowledge into clear, browsable categories"></div>
+      </div>
+      <div class="step-body">
+        <div class="step-num">Curate</div>
+        <h3>We turn it into something <em>they can follow.</em></h3>
+        <p>CarryOn listens and organizes what you share into clear, findable sections like household, medical, and the people you care for, so nothing lives loose in a notebook or lost in your head.</p>
+        <p><strong>Start anywhere. Record what feels most urgent.</strong> It fills in over time, and it's always there to add to.</p>
+        <div class="step-tag">Organized automatically</div>
+      </div>
+    </div>
+    <!-- Carry -->
+    <div class="step">
+      <div class="step-media">
+        <div class="shot-frame"><img class="shot" src="assets/carryon/app-carry.png" alt="The CarryOn vault, waiting for the people who need it"></div>
+      </div>
+      <div class="step-body">
+        <div class="step-num">Carry on</div>
+        <h3>It's <em>there when they need it.</em></h3>
+        <p>Everything lives in your private vault. You choose who can reach it and when, so the people you love aren't left guessing on the hardest day.</p>
+        <p>Some things they get today. Some things wait until they need them. <strong>Either way, the knowledge is safe, and it's ready.</strong></p>
+        <div class="step-tag">Your vault · You control access</div>
+      </div>
+    </div>
+  </div>
+  <!-- privacy note -->
+  <div class="privacy">
+    <div class="lock"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#F4EFE6" stroke-width="1.5"><rect x="3.5" y="8" width="11" height="7.5" rx="1.5"/><path d="M6 8V5.5a3 3 0 0 1 6 0V8"/></svg></div>
+    <div>
+      <h4>This holds knowledge, not secrets.</h4>
+      <p>CarryOn is for the things that keep the people you love going: care routines, wisdom, the little things only you know. <strong>Never enter passwords, account numbers, or sensitive financial data.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT BELONGS INSIDE ================= -->
+<section class="belongs" id="belongs">
+  <div class="belongs-head">
+    <div class="section-label">What belongs inside</div>
+    <h2>Everything someone you trust would need <em>to step in for you.</em></h2>
+    <p class="belongs-sub">Start with whatever feels most urgent. CarryOn holds the rest.</p>
+  </div>
+  <div class="wrap">
+    <p class="belongs-lead">From medications and school routines to recipes, where the important papers live (not the passwords themselves), pet care, family traditions, and <strong>everything only you know.</strong></p>
+    <div class="cat-grid">
+      <div class="cat"><span class="cat-emoji">🏠</span><div class="cat-name">Household</div><div class="cat-desc">The routines, contacts, and invisible systems only you know how to run.</div></div>
+      <div class="cat"><span class="cat-emoji">🔧</span><div class="cat-name">Home Maintenance</div><div class="cat-desc">The shutoffs, the service people, and the seasonal things only you remember.</div></div>
+      <div class="cat"><span class="cat-emoji">🏥</span><div class="cat-name">Medical</div><div class="cat-desc">What someone needs to know to help you, or to step in if they have to.</div></div>
+      <div class="cat"><span class="cat-emoji">👧</span><div class="cat-name">Children</div><div class="cat-desc">The routines, comfort, and little things that make your kids feel safe.</div></div>
+      <div class="cat"><span class="cat-emoji">🍼</span><div class="cat-name">Baby &amp; Infant</div><div class="cat-desc">Everything someone needs to care for your baby when you're not there.</div></div>
+      <div class="cat"><span class="cat-emoji">💙</span><div class="cat-name">Special Needs</div><div class="cat-desc">The care details and hard-won knowledge only a loving person holds.</div></div>
+      <div class="cat"><span class="cat-emoji">👵</span><div class="cat-name">Aging Parents</div><div class="cat-desc">The care details, wishes, and handoff knowledge for the parent you're helping hold up.</div></div>
+      <div class="cat"><span class="cat-emoji">🐾</span><div class="cat-name">Pets</div><div class="cat-desc">Everything a pet-sitter would need, and everything they'd get wrong without you.</div></div>
+    </div>
+    <p class="belongs-foot">Recipes, rituals, and the things only you know, the ones that matter most.</p>
+  </div>
+</section>
+
+<!-- ================= WHO IT'S FOR ================= -->
+<section class="who" id="who">
+  <div class="who-head">
+    <div class="section-label" style="text-align:center;">Who CarryOn is for</div>
+    <h2>Anyone whose loved ones depend on knowledge that <em>only lives in them.</em></h2>
+  </div>
+  <div class="wrap">
+    <div class="who-cards">
+      <div class="who-card">
+        <div class="who-card-icon">The caregiver</div>
+        <div class="who-card-title">The <em>medical parent</em> or caregiver.</div>
+        <div class="who-card-body">Medications, dosages, specialists, what soothes them, how they communicate. When all of it lives in one person, the people counting on you are one hard day away from crisis. CarryOn gets it out, gently, in your own words.</div>
+      </div>
+      <div class="who-card">
+        <div class="who-card-icon">The military spouse</div>
+        <div class="who-card-title">The one holding it <em>together at home.</em></div>
+        <div class="who-card-body">Before a deployment, someone needs to know how the household actually runs: the routines, the kids' schedules, the things you never had to explain. CarryOn is the handoff before the goodbye.</div>
+      </div>
+      <div class="who-card">
+        <div class="who-card-icon">Planning ahead</div>
+        <div class="who-card-title">The person <em>facing a hard diagnosis.</em></div>
+        <div class="who-card-body">Planning ahead isn't giving up hope. It's giving peace. Getting what's in your head into a place your people can reach, so they have what they need no matter what comes. You keep fighting. They stay held.</div>
+      </div>
+      <div class="who-card">
+        <div class="who-card-icon">The one who runs it all</div>
+        <div class="who-card-title">Anyone carrying <em>the whole household</em> in their head.</div>
+        <div class="who-card-body">The appointments, the birthdays, the maintenance, the thousand small things. If everything slows down when you slow down, you're a single point of failure, and the people you love deserve a backup that isn't just you.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="quotes" id="quotes">
+  <div class="quotes-head">
+    <div class="section-label" style="text-align:center;">In their words</div>
+    <h2>What early testers said after their <em>first time using it.</em></h2>
+  </div>
+  <div class="wrap">
+    <div class="quote-grid">
+      <div class="quote">
+        <div class="mark">&ldquo;</div>
+        <p>You've thought of questions I would have never thought of. The follow-ups touch on every possible scenario, and in a time of need, those are the answers people need.</p>
+        <div class="attr">Keenya E.<span>CarryOn focus-group tester</span></div>
+      </div>
+      <div class="quote">
+        <div class="mark">&ldquo;</div>
+        <p>I've already added stuff for one of my kids, but I have to go back and add stuff for my other child. I've got way more to add for my other kid.</p>
+        <div class="attr">Sabrina C.<span>Mom, CarryOn focus-group tester</span></div>
+      </div>
+      <div class="quote">
+        <div class="mark">&ldquo;</div>
+        <p>The categories are very, very thorough. I wouldn't have even thought about all of this.</p>
+        <div class="attr">Brandi G.<span>CarryOn focus-group tester</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOUNDER STORY ================= -->
+<section class="why" id="story">
+  <div class="why-inner">
+    <div class="section-label">Why we built CarryOn</div>
+    <h2>The systems that keep businesses alive can help the people we love <em>carry on, too.</em></h2>
+    <p class="why-body">I've spent 16 years going under the hood of businesses, finding what only lives in one person's head and building the systems that let it live somewhere else. Somewhere along the way I realized the same thing quietly breaking companies is breaking the people we love.</p>
+    <p class="why-body"><strong>My sister is a full-time caregiver for her son, who cannot walk, talk, or eat.</strong> Almost everything he needs lives in her head. If something happened to her tomorrow, the people who love him most wouldn't know how to care for him the way she does.</p>
+    <p class="why-body">My husband is a veteran of the U.S. Air Force. For years I'd lie awake imagining uniformed officers at our door with a folded flag, and everything he carried in his head gone with him. CarryOn is the answer I wished I'd had: a way to get it all out, in your own voice, before you ever need it.</p>
+    <div class="why-photos">
+      <figure class="why-photo">
+        <div class="why-photo-img" style="background-image:url('assets/photos/lb-sister-son.jpg');"></div>
+        <figcaption>Me and my nephew. Most of what he needs lives in my sister's head. This was a way to help get it out.</figcaption>
+      </figure>
+      <figure class="why-photo">
+        <div class="why-photo-img" style="background-image:url('assets/photos/lb-husband-af.jpg');background-position:center 28%;"></div>
+        <figcaption>On FaceTime with my husband, U.S. Air Force. For so many military spouses, this is how you hold a family together.</figcaption>
+      </figure>
+      <figure class="why-photo">
+        <div class="why-photo-img" style="background-image:url('assets/photos/lb-family-isaac.jpg');background-position:center 30%;"></div>
+        <figcaption>My sister and her husband with Isaac on his 10th birthday.</figcaption>
+      </figure>
+    </div>
+    <div class="pull">
+      <p>You can't have peace if the whole system still lives in your brain and nowhere else. That's true for a business. It's <em>just as true for a life.</em></p>
+    </div>
+    <div class="founder">
+      <div class="founder-img" style="background-image:url('assets/photos/fallon-kitchen-warm.png');"></div>
+      <div>
+        <div class="founder-name">Fallon Scott</div>
+        <div class="founder-role">Founder, CarryOn · CPA &amp; operations architect · military spouse<br>16 years building systems that outlast the people who built them.</div>
+        <a href="about.html" class="founder-link">Learn more about Fallon
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h8M8 4l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="biz-note">
+      <div class="biz-note-label">The business version</div>
+      <p>CarryOn started at work. The same method, getting what lives in one person's head into a system anyone can pick up, is how I help companies run without the founder in the room.</p>
+      <a href="sop-suite.html" class="biz-link">See CarryOn for businesses
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h8M8 4l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final">
+  <div class="thread-wrap">
+    <span class="brandmark" id="finalMark" style="width:100%;">
+      <svg width="260" height="46" viewBox="0 0 230 46" aria-hidden="true" style="width:min(320px,80%);height:auto;">
+        <path class="thread-path" d="M6,32 C46,32 78,30 108,23 C150,13 158,2 182,8 C202,13 200,32 176,32 C150,32 150,12 196,21 C210,24 220,28 224,27"></path>
+      </svg>
+    </span>
+  </div>
+  <h2>Carry On.</h2>
+  <p class="final-sub">Because love shouldn't end where knowledge does.</p>
+  <p class="final-lead">The best time to record these things is <em>while you're here to tell them.</em></p>
+  <div class="btn-row">
+    <a href="https://life-brief-capture.replit.app" class="btn-primary">Open CarryOn
+      <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h8M8 4l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <p class="final-note">Works on any phone, tablet, or computer · Add it to your home screen · Your story, their guide, carried forward.</p>
+</section>
+
+<footer>
+  <div class="footer-logo"><span class="dot"></span>CarryOn</div>
+  <div class="footer-mid">A product by <a href="index.html">Fallon Scott</a> · F28 &amp; Co.</div>
+  <div class="footer-copy">THECARRYON.APP · CAPTURE · CURATE · CARRY ON</div>
+</footer>
+
+<script>
+// waveform bars (decorative)
+document.querySelectorAll('[data-wave]').forEach(w=>{
+  const n=28;let html='';
+  for(let i=0;i<n;i++){const h=4+Math.round(Math.abs(Math.sin(i*0.9))*12+Math.random()*3);html+='<span style="height:'+h+'px"></span>';}
+  w.innerHTML=html;
+});
+// set thread dash length for draw-on animation
+document.querySelectorAll('.brandmark .thread-path').forEach(p=>{
+  const len=p.getTotalLength();
+  p.closest('.brandmark').style.setProperty('--len',len);
+});
+// trigger the hero draw once the length is set (avoids a first-paint race)
+requestAnimationFrame(function(){
+  const hm=document.getElementById('heroMark');
+  if(hm) hm.classList.add('animate');
+});
+// animate the final mark when it scrolls into view
+const fm=document.getElementById('finalMark');
+if(fm && 'IntersectionObserver' in window){
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('animate');io.unobserve(e.target);}});},{threshold:.4});
+  io.observe(fm);
+}
+// auto-crossfade the Capture step screens (mic -> saved recordings)
+document.querySelectorAll('[data-swap]').forEach(function(sw){
+  const layers=sw.querySelectorAll('.layer');
+  if(layers.length<2) return;
+  let i=0;
+  setInterval(function(){
+    layers[i].classList.remove('is-active');
+    i=(i+1)%layers.length;
+    layers[i].classList.add('is-active');
+  },2600);
+});
+</script>
+<script src="assets/mobile-menu.js" defer></script>
+</body>
+</html>

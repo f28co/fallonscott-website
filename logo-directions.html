@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Logo · Direction 01 refinements — Fallon Scott / F28</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ink:#1a1f2e;--paper:#f5f1ea;--paper-2:#ede7dc;--rule:#d8cfbf;
+    --muted:#6b7280;--accent:#b45309;--accent-2:#8b3a07;--accent-soft:#f3d9a7;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#e8e3d8;color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+  .page{max-width:1280px;margin:0 auto;padding:64px 48px}
+  .page-head{margin-bottom:48px}
+  .page-head .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .page-head h1{font-family:'Fraunces',serif;font-weight:340;font-size:46px;letter-spacing:-.018em;margin:0 0 14px;line-height:1}
+  .page-head h1 em{font-style:italic;color:var(--accent);font-weight:300}
+  .page-head p{font-family:'Fraunces',serif;font-style:italic;font-weight:380;font-size:17px;color:#2a3142;max-width:880px;margin:0;line-height:1.55}
+  .page-head p strong{font-style:normal;font-weight:500;color:var(--ink)}
+
+  .row{margin-bottom:44px}
+  .row-meta{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:14px;border-bottom:1px solid var(--rule)}
+  .row-meta .lab{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+  .row-meta .lab strong{color:var(--accent);font-weight:600}
+  .row-meta .name{font-family:'Fraunces',serif;font-weight:400;font-size:19px;letter-spacing:-.012em}
+  .row-meta .name em{font-style:italic;color:var(--accent);font-weight:380}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);border-top:none}
+  .cell{padding:56px 32px;display:flex;align-items:center;justify-content:center;min-height:140px;background:var(--paper);position:relative}
+  .cell.warm{background:var(--paper-2)}
+  .cell.dark{background:var(--ink)}
+  .cell .ctx{position:absolute;top:14px;left:18px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .cell.dark .ctx{color:rgba(245,241,234,.5)}
+
+  .mark{display:inline-flex;align-items:baseline;font-family:'Fraunces',serif;line-height:1;letter-spacing:-.012em;font-weight:600;font-size:28px;color:var(--ink)}
+  .dark .mark{color:var(--paper)}
+  .mark .name-dot{color:var(--accent)}
+  .dark .mark .name-dot{color:var(--accent-soft)}
+
+  /* === A — bordered chip (current frontrunner) === */
+  .vA .mark .chip{font-family:'JetBrains Mono',monospace;font-size:.42em;font-weight:500;letter-spacing:.14em;color:var(--accent);transform:translateY(-.45em);padding:5px 9px;border:1px solid currentColor;border-radius:3px;margin-left:14px}
+  .dark .vA .mark .chip{color:var(--accent-soft)}
+
+  /* === B — solid amber chip === */
+  .vB .mark .chip{font-family:'JetBrains Mono',monospace;font-size:.42em;font-weight:600;letter-spacing:.14em;color:var(--paper);background:var(--accent);transform:translateY(-.45em);padding:6px 10px;border-radius:3px;margin-left:14px}
+  .dark .vB .mark .chip{background:var(--accent);color:var(--paper)}
+
+  /* === C — italic Fraunces co-byline === */
+  .vC .mark .div{display:inline-block;width:1px;height:1.05em;background:var(--rule);margin:0 14px;transform:translateY(.05em)}
+  .dark .vC .mark .div{background:rgba(245,241,234,.28)}
+  .vC .mark .alt{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--accent);font-size:.92em}
+  .dark .vC .mark .alt{color:var(--accent-soft)}
+
+  /* === D — tight horizontal rule between === */
+  .vD .mark{align-items:center}
+  .vD .mark .rule{display:inline-block;width:22px;height:2px;background:var(--accent);margin:0 14px;transform:translateY(-2px)}
+  .vD .mark .alt{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:.52em;letter-spacing:.18em;color:var(--accent);transform:translateY(-.32em)}
+  .dark .vD .mark .rule{background:var(--accent-soft)}
+  .dark .vD .mark .alt{color:var(--accent-soft)}
+
+  /* === E — compact monospace inline === */
+  .vE .mark .sep{color:var(--rule);font-weight:300;margin:0 12px;transform:translateY(-.04em)}
+  .dark .vE .mark .sep{color:rgba(245,241,234,.4)}
+  .vE .mark .alt{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:.46em;letter-spacing:.18em;color:var(--accent);transform:translateY(-.38em)}
+  .dark .vE .mark .alt{color:var(--accent-soft)}
+
+  /* === F — outline circle mark === */
+  .vF .mark .alt{font-family:'JetBrains Mono',monospace;font-size:.40em;font-weight:600;letter-spacing:.12em;color:var(--accent);transform:translateY(-.45em);margin-left:14px;border:1px solid currentColor;border-radius:999px;padding:5px 11px}
+  .dark .vF .mark .alt{color:var(--accent-soft)}
+
+  /* size — nav simulation (real navbar size) */
+  .navsim{margin-top:36px;padding:18px 0;border-top:1px dashed var(--rule)}
+  .navsim-lab{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .navsim-bar{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:rgba(245,241,234,.82);backdrop-filter:blur(12px);border:1px solid var(--rule);border-radius:2px}
+  .navsim-bar .mark{font-size:22px}
+  .navsim-bar .links{display:flex;gap:24px;font-size:13px;color:var(--muted);font-family:'Inter',sans-serif;font-weight:500}
+
+  .notes{margin-top:16px;padding:16px 20px;background:var(--paper);border-left:3px solid var(--accent);font-family:'Fraunces',serif;font-size:14.5px;line-height:1.55;color:#2a3142}
+  .notes strong{color:var(--ink);font-weight:600;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;display:inline-block;margin-right:10px;vertical-align:middle}
+
+  @media (max-width:820px){
+    .page{padding:32px 20px}
+    .grid{grid-template-columns:1fr}
+    .row-meta{flex-direction:column;align-items:flex-start;gap:6px}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="page-head">
+    <div class="eyebrow">Logo · Direction 01 refinements · 6 variants</div>
+    <h1>Fallon Scott leads. <em>F28 follows.</em></h1>
+    <p>The pattern you picked: <strong>Fallon Scott · F28</strong>, your name as the brand, F28 as the co-mark behind it. Here are 6 tightened variants of that idea — different separator + treatment for the F28 mark. All shown on cream / warm / ink. Bottom of each row shows the mark at real nav-bar size so you can see how it sits next to nav links.</p>
+  </div>
+
+  <!-- A — original from set 1 -->
+  <div class="row vA">
+    <div class="row-meta">
+      <div class="lab"><strong>A</strong> · Bordered chip</div>
+      <div class="name">Fallon Scott<em> + bordered F28 tag</em></div>
+    </div>
+    <div class="grid">
+      <div class="cell"><span class="ctx">Cream</span><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="chip">F28</span></span></div>
+      <div class="cell warm"><span class="ctx">Warm</span><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="chip">F28</span></span></div>
+      <div class="cell dark"><span class="ctx">Ink</span><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="chip">F28</span></span></div>
+    </div>
+    <div class="navsim"><div class="navsim-lab">— Nav bar simulation @ real size</div><div class="navsim-bar"><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="chip">F28</span></span><div class="links"><span>About</span><span>Work</span><span>AI Systems</span><span>SOP Suite</span><span>Speaking</span></div></div></div>
+    <div class="notes"><strong>Read</strong> The version from the last batch — F28 in an outlined chip. Reads as a "tag" attached to the name. Cleanest "co-mark" feel without committing to a hierarchy.</div>
+  </div>
+
+  <!-- B — solid amber chip -->
+  <div class="row vB">
+    <div class="row-meta">
+      <div class="lab"><strong>B</strong> · Solid amber chip</div>
+      <div class="name">Fallon Scott<em> + F28 in solid burnt amber</em></div>
+    </div>
+    <div class="grid">
+      <div class="cell"><span class="ctx">Cream</span><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="chip">F28</span></span></div>
+      <div class="cell warm"><span class="ctx">Warm</span><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="chip">F28</span></span></div>
+      <div class="cell dark"><span class="ctx">Ink</span><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="chip">F28</span></span></div>
+    </div>
+    <div class="navsim"><div class="navsim-lab">— Nav bar simulation @ real size</div><div class="navsim-bar"><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="chip">F28</span></span><div class="links"><span>About</span><span>Work</span><span>AI Systems</span><span>SOP Suite</span><span>Speaking</span></div></div></div>
+    <div class="notes"><strong>Read</strong> Same idea as A but the chip is a filled burnt-amber pill — more weight, more visible at small sizes. F28 reads more decisively as a label. Trade-off: louder, less editorial.</div>
+  </div>
+
+  <!-- C — italic divider co-byline -->
+  <div class="row vC">
+    <div class="row-meta">
+      <div class="lab"><strong>C</strong> · Vertical hairline · italic F28</div>
+      <div class="name">Fallon Scott<em> | F28 in italic Fraunces</em></div>
+    </div>
+    <div class="grid">
+      <div class="cell"><span class="ctx">Cream</span><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="div"></span><span class="alt">F28</span></span></div>
+      <div class="cell warm"><span class="ctx">Warm</span><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="div"></span><span class="alt">F28</span></span></div>
+      <div class="cell dark"><span class="ctx">Ink</span><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="div"></span><span class="alt">F28</span></span></div>
+    </div>
+    <div class="navsim"><div class="navsim-lab">— Nav bar simulation @ real size</div><div class="navsim-bar"><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="div"></span><span class="alt">F28</span></span><div class="links"><span>About</span><span>Work</span><span>AI Systems</span><span>SOP Suite</span><span>Speaking</span></div></div></div>
+    <div class="notes"><strong>Read</strong> Hairline rule + italic F28 in the brand's own typeface. Most editorial / on-brand of the six. F28 reads as "associated mark," not a tag. My personal favorite.</div>
+  </div>
+
+  <!-- D — short rule between -->
+  <div class="row vD">
+    <div class="row-meta">
+      <div class="lab"><strong>D</strong> · Short amber rule</div>
+      <div class="name">Fallon Scott <em>—— F28</em></div>
+    </div>
+    <div class="grid">
+      <div class="cell"><span class="ctx">Cream</span><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="rule"></span><span class="alt">F28</span></span></div>
+      <div class="cell warm"><span class="ctx">Warm</span><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="rule"></span><span class="alt">F28</span></span></div>
+      <div class="cell dark"><span class="ctx">Ink</span><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="rule"></span><span class="alt">F28</span></span></div>
+    </div>
+    <div class="navsim"><div class="navsim-lab">— Nav bar simulation @ real size</div><div class="navsim-bar"><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="rule"></span><span class="alt">F28</span></span><div class="links"><span>About</span><span>Work</span><span>AI Systems</span><span>SOP Suite</span><span>Speaking</span></div></div></div>
+    <div class="notes"><strong>Read</strong> Short horizontal amber rule connecting name and mark. Feels like a "credit line" without saying "by." Subtle but elegant.</div>
+  </div>
+
+  <!-- E — middot mono -->
+  <div class="row vE">
+    <div class="row-meta">
+      <div class="lab"><strong>E</strong> · Middot · monospace F28</div>
+      <div class="name">Fallon Scott <em>· F28</em></div>
+    </div>
+    <div class="grid">
+      <div class="cell"><span class="ctx">Cream</span><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="sep">·</span><span class="alt">F28</span></span></div>
+      <div class="cell warm"><span class="ctx">Warm</span><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="sep">·</span><span class="alt">F28</span></span></div>
+      <div class="cell dark"><span class="ctx">Ink</span><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="sep">·</span><span class="alt">F28</span></span></div>
+    </div>
+    <div class="navsim"><div class="navsim-lab">— Nav bar simulation @ real size</div><div class="navsim-bar"><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="sep">·</span><span class="alt">F28</span></span><div class="links"><span>About</span><span>Work</span><span>AI Systems</span><span>SOP Suite</span><span>Speaking</span></div></div></div>
+    <div class="notes"><strong>Read</strong> Quietest of the six. Middot separator + small monospace F28. Tightest horizontal footprint — fits on every nav even at narrow widths.</div>
+  </div>
+
+  <!-- F — outline pill -->
+  <div class="row vF">
+    <div class="row-meta">
+      <div class="lab"><strong>F</strong> · Pill outline</div>
+      <div class="name">Fallon Scott<em> + pill-shape F28</em></div>
+    </div>
+    <div class="grid">
+      <div class="cell"><span class="ctx">Cream</span><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="alt">F28</span></span></div>
+      <div class="cell warm"><span class="ctx">Warm</span><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="alt">F28</span></span></div>
+      <div class="cell dark"><span class="ctx">Ink</span><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="alt">F28</span></span></div>
+    </div>
+    <div class="navsim"><div class="navsim-lab">— Nav bar simulation @ real size</div><div class="navsim-bar"><span class="mark">Fallon Scott<span class="name-dot">.</span><span class="alt">F28</span></span><div class="links"><span>About</span><span>Work</span><span>AI Systems</span><span>SOP Suite</span><span>Speaking</span></div></div></div>
+    <div class="notes"><strong>Read</strong> Pill outline (vs. squared in A). Slightly softer / friendlier. Same idea as A with rounded corners.</div>
+  </div>
+
+</div>
+</body>
+</html>

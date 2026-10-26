@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mockup — Waste + Inefficiency callouts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ink:#1a1f2e; --ink-2:#2a3142; --paper:#f5f1ea; --paper-2:#ede7dc;
+    --rule:#d8cfbf; --muted:#6b7280; --accent:#b45309; --accent-2:#8b3a07; --accent-soft:#f3d9a7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:120px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+  .topbar{background:var(--ink);color:var(--paper);padding:30px 0;margin-bottom:8px}
+  .topbar h1{font-family:'Fraunces',serif;font-weight:340;font-size:30px;letter-spacing:-.01em}
+  .topbar p{font-size:14px;color:rgba(245,241,234,.7);margin-top:8px;max-width:720px;line-height:1.5}
+  .lab{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-2);background:var(--paper-2);border:1px solid var(--rule);padding:7px 14px;border-radius:999px;margin:54px 0 22px}
+  .lab.dark{color:var(--accent-soft);background:rgba(245,241,234,.06);border-color:rgba(245,241,234,.2)}
+  .opt-tag{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:34px 0 14px;font-weight:500}
+
+  /* ===== WASTE — A: chocolate banner ===== */
+  .waste-a{background:var(--accent-2);color:var(--paper);padding:70px 0}
+  .waste-a .eye{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:22px}
+  .waste-a h2{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(34px,4.6vw,58px);line-height:1.04;letter-spacing:-.02em;max-width:880px}
+  .waste-a h2 em{font-style:italic;color:var(--accent-soft);font-weight:300}
+  .waste-a .sub{font-size:18px;line-height:1.6;color:rgba(245,241,234,.82);max-width:680px;margin-top:24px}
+
+  /* ===== WASTE — B: three-beat cream rule ===== */
+  .waste-b{background:var(--paper);padding:64px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .waste-b .eye{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-2);margin-bottom:18px}
+  .waste-b h2{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(30px,3.8vw,46px);line-height:1.06;letter-spacing:-.02em;max-width:760px;margin-bottom:36px}
+  .waste-b h2 em{font-style:italic;color:var(--accent);font-weight:300}
+  .beats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+  .beat{background:var(--paper);padding:32px 28px}
+  .beat .n{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;color:var(--accent-2);margin-bottom:14px}
+  .beat p{font-size:16px;line-height:1.5;color:var(--ink-2)}
+  .beat p strong{color:var(--ink);font-weight:600}
+  .waste-b .kicker{font-family:'Fraunces',serif;font-style:italic;font-size:21px;line-height:1.4;color:var(--ink);margin-top:30px;max-width:760px}
+  .waste-b .kicker em{color:var(--accent);font-style:italic}
+
+  /* ===== WASTE — C: inline pull-quote (compact) ===== */
+  .waste-c{background:var(--paper-2);padding:54px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .waste-c .row{display:flex;gap:30px;align-items:center}
+  .waste-c .bar{width:4px;align-self:stretch;background:var(--accent);flex:0 0 auto}
+  .waste-c h2{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(26px,3.2vw,38px);line-height:1.1;letter-spacing:-.015em}
+  .waste-c h2 em{font-style:italic;color:var(--accent);font-weight:300}
+  .waste-c .sub{font-size:15.5px;color:var(--ink-2);line-height:1.55;margin-top:12px;max-width:640px}
+
+  /* ===== INEFFICIENCY — A: navy full callout ===== */
+  .ineff-a{background:var(--ink);color:var(--paper);padding:72px 0}
+  .ineff-a .eye{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:22px}
+  .ineff-a h2{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(34px,4.6vw,58px);line-height:1.04;letter-spacing:-.02em;max-width:900px}
+  .ineff-a h2 em{font-style:italic;color:var(--accent-soft);font-weight:300}
+  .ineff-a .sub{font-size:18px;line-height:1.6;color:rgba(245,241,234,.82);max-width:700px;margin-top:24px}
+  .ineff-a .sub strong{color:var(--paper);font-weight:600}
+
+  /* ===== INEFFICIENCY — B: two-column contrast ===== */
+  .ineff-b{background:var(--paper);padding:64px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .ineff-b .eye{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-2);margin-bottom:18px}
+  .ineff-b h2{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(30px,3.8vw,46px);line-height:1.06;letter-spacing:-.02em;max-width:760px;margin-bottom:36px}
+  .ineff-b h2 em{font-style:italic;color:var(--accent);font-weight:300}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+  .col{padding:34px 30px}
+  .col.loud{background:var(--paper)}
+  .col.quiet{background:var(--ink);color:var(--paper)}
+  .col .t{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+  .col.loud .t{color:var(--accent-2)}
+  .col.quiet .t{color:var(--accent-soft)}
+  .col h3{font-family:'Fraunces',serif;font-weight:340;font-size:24px;line-height:1.15;margin-bottom:10px}
+  .col.quiet h3 em{font-style:italic;color:var(--accent-soft)}
+  .col p{font-size:15px;line-height:1.55}
+  .col.loud p{color:var(--ink-2)}
+  .col.quiet p{color:rgba(245,241,234,.82)}
+
+  .note{background:var(--ink);color:var(--accent-soft);font-size:13.5px;line-height:1.6;padding:18px 22px;border-radius:10px;margin-top:24px;font-family:'Inter',sans-serif}
+  .note b{color:var(--paper)}
+</style>
+</head>
+<body>
+  <div class="topbar"><div class="wrap">
+    <h1>Two callouts, a few treatments each</h1>
+    <p>Top group: "don't document or automate waste." Bottom group: "you don't have to be drowning to be in danger" (chaos vs inefficiency). Pick one treatment from each, or mix. Each is shown at full homepage width.</p>
+  </div></div>
+
+  <!-- ============ WASTE ============ -->
+  <div class="wrap"><span class="lab">Callout 1 · Don't automate waste</span></div>
+
+  <div class="wrap"><div class="opt-tag">Option A · Chocolate banner (loud, section-scale)</div></div>
+  <section class="waste-a"><div class="wrap">
+    <div class="eye">— Architect before automate</div>
+    <h2>Don't document waste. Don't pay to <em>automate</em> it.</h2>
+    <p class="sub">You can't automate your way out of a broken process. Document a disjointed one and your SOP library doubles. Automate the steps that shouldn't exist, and you just pay to run waste faster. We simplify and connect first, then automate what's left.</p>
+  </div></section>
+
+  <div class="wrap"><div class="opt-tag">Option B · Three-beat cream (structured, explanatory)</div></div>
+  <section class="waste-b"><div class="wrap">
+    <div class="eye">— The Lean Six Sigma lens</div>
+    <h2>Automation makes a process <em>faster.</em> It doesn't make it <em>right.</em></h2>
+    <div class="beats">
+      <div class="beat"><div class="n">01 · Document</div><p>Document a disjointed process and you just get <strong>a bigger pile of disjointed SOPs.</strong></p></div>
+      <div class="beat"><div class="n">02 · Automate</div><p>Automate steps that shouldn't exist and you <strong>pay to run waste faster.</strong></p></div>
+      <div class="beat"><div class="n">03 · Architect</div><p>Simplify and connect first. <strong>Then automate what actually earns its place.</strong></p></div>
+    </div>
+    <p class="kicker">An auditor's first question isn't "how do we speed this up?" It's <em>"does this step need to exist at all?"</em></p>
+  </div></section>
+
+  <div class="wrap"><div class="opt-tag">Option C · Compact pull-quote (quietest, slots between sections)</div></div>
+  <section class="waste-c"><div class="wrap"><div class="row">
+    <div class="bar"></div>
+    <div>
+      <h2>Don't automate <em>waste.</em> Simplify and connect <em>first.</em></h2>
+      <p class="sub">Most "AI rollouts" automate a broken process. You end up paying to run the mess faster. The audit comes before the build for a reason.</p>
+    </div>
+  </div></div></section>
+
+  <!-- ============ INEFFICIENCY ============ -->
+  <div class="wrap"><span class="lab dark">Callout 2 · You don't have to be drowning</span></div>
+
+  <div class="wrap"><div class="opt-tag">Option A · Navy full callout (reaches the "we're fine" founder)</div></div>
+  <section class="ineff-a"><div class="wrap">
+    <div class="eye">— A note for the "we're fine" founder</div>
+    <h2>You don't have to be <em>drowning</em> to be in danger.</h2>
+    <p class="sub">Chaos is loud, so it gets fixed. Inefficiency is quiet, so it gets carried, up the curve, into the raise, into the sale. <strong>If you're just fine, so is your competition. And fine is not a moat.</strong></p>
+  </div></section>
+
+  <div class="wrap"><div class="opt-tag">Option B · Loud vs quiet, two columns (makes the idea visual)</div></div>
+  <section class="ineff-b"><div class="wrap">
+    <div class="eye">— Chaos vs inefficiency</div>
+    <h2>The dangerous problems are the <em>quiet</em> ones.</h2>
+    <div class="cols">
+      <div class="col loud"><div class="t">Loud · chaos</div><h3>You know it's broken.</h3><p>Fires, dropped balls, the 11pm scramble. It hurts, but at least you fix it, because you can feel it.</p></div>
+      <div class="col quiet"><div class="t">Quiet · inefficiency</div><h3>You think you're <em>fine.</em></h3><p>It still works, so nobody touches it. Then it scales with you, into the raise, into the sale, and quietly caps what the business is worth.</p></div>
+    </div>
+  </div></section>
+
+  <div class="wrap">
+    <div class="note"><b>My take:</b> For waste, <b>Option C</b> (compact pull-quote) earns its place best, drop it on the AI page right before the packages, where "architect before automate" is already the argument. A full chocolate section (A) on the homepage competes with your existing chocolate router. For inefficiency, <b>Option A</b> (navy callout) is strong on the homepage right under the diagnostic, it speaks to the founder who didn't click any of the four "stings." Reply with your picks and where you want each, and I'll ship.</div>
+  </div>
+</body>
+</html>

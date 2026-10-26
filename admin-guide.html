@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Site Admin Guide — Fallon Scott</title>
+<meta name="robots" content="noindex,nofollow" />
+<style>
+  :root{
+    --paper:#f5f1ea; --paper-2:#ece5d8; --ink:#1a1f2e; --ink-2:#2a2f3e;
+    --muted:#6b6557; --accent:#8b3a07; --accent-soft:#c97a3e; --rule:rgba(26,31,46,.12);
+    --code-bg:#ece5d8; --code-border:rgba(26,31,46,.18);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
+  body{font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.7}
+  .wrap{max-width:840px;margin:0 auto;padding:80px 32px 120px}
+  .topbar{position:sticky;top:0;background:var(--ink);color:var(--paper);padding:14px 32px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;z-index:10}
+  .topbar a{color:var(--paper);text-decoration:none;border-bottom:1px solid rgba(245,241,234,.4);padding-bottom:1px}
+  .topbar a:hover{border-color:var(--paper)}
+  h1{font-family:Georgia,serif;font-weight:400;font-size:54px;line-height:1.05;letter-spacing:-.02em;margin:0 0 8px}
+  h1 em{font-style:italic;color:var(--accent)}
+  .lede{font-size:19px;color:var(--ink-2);max-width:680px;margin:0 0 12px}
+  .meta{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:48px}
+  h2{font-family:Georgia,serif;font-weight:500;font-size:34px;line-height:1.15;letter-spacing:-.01em;margin:72px 0 8px;padding-top:32px;border-top:1px solid var(--rule)}
+  h2 .num{display:block;font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;font-weight:500}
+  h3{font-family:Georgia,serif;font-weight:600;font-size:22px;margin:36px 0 12px}
+  h4{font-family:Georgia,serif;font-weight:600;font-size:18px;margin:24px 0 8px;font-style:italic}
+  p{margin:0 0 16px;text-wrap:pretty}
+  strong{font-weight:700}
+  em{font-style:italic}
+  a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+  a:hover{color:var(--ink)}
+  ul,ol{margin:0 0 18px;padding-left:24px}
+  li{margin-bottom:8px}
+  code{font-family:ui-monospace,'SF Mono',Menlo,monospace;background:var(--code-bg);border:1px solid var(--code-border);border-radius:3px;padding:1px 6px;font-size:14px;color:var(--ink)}
+  pre{background:var(--ink);color:var(--paper);padding:20px 24px;border-radius:6px;overflow-x:auto;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;line-height:1.55;margin:0 0 24px}
+  pre code{background:none;border:none;padding:0;color:inherit;font-size:inherit}
+  hr{border:none;border-top:1px solid var(--rule);margin:48px 0}
+  table{width:100%;border-collapse:collapse;margin:0 0 24px;font-size:15px}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{background:var(--paper-2);font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--ink-2)}
+  td code{font-size:13px}
+  .toc{background:var(--paper-2);padding:28px 32px;border-left:4px solid var(--accent);margin:0 0 56px}
+  .toc h3{margin-top:0;font-style:italic}
+  .toc ol{margin:0;padding-left:22px}
+  .toc li{margin-bottom:6px}
+  .toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent}
+  .toc a:hover{border-color:var(--accent)}
+  .callout{background:#fff8ee;border-left:4px solid var(--accent-soft);padding:18px 24px;margin:0 0 24px;font-size:16px}
+  .callout strong{color:var(--accent)}
+  .closing{background:var(--ink);color:var(--paper);padding:48px;border-radius:8px;margin-top:64px;text-align:center;font-style:italic;font-size:22px;font-family:Georgia,serif}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin:0 0 24px}
+  .twocol h4{margin-top:0}
+  @media(max-width:680px){
+    .wrap{padding:48px 20px 80px}
+    h1{font-size:38px}
+    h2{font-size:26px}
+    .twocol{grid-template-columns:1fr}
+    table{font-size:14px}
+    th,td{padding:8px 10px}
+  }
+  @media print{
+    .topbar{display:none}
+    .wrap{padding:24px 0;max-width:100%}
+    h2{page-break-before:auto;page-break-after:avoid}
+    pre,table{page-break-inside:avoid}
+  }
+  .print-btn{display:inline-block;background:var(--accent);color:var(--paper);padding:6px 14px;border-radius:3px;border:none;font-family:inherit;font-size:12px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;text-decoration:none}
+  .print-btn:hover{background:var(--ink);color:var(--paper)}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>Fallon Scott · Admin Guide</span>
+  <a href="javascript:window.print()" class="print-btn">Print / Save as PDF</a>
+</div>
+
+<div class="wrap">
+
+<h1>Site Admin <em>Guide.</em></h1>
+<p class="lede">Everything you need to maintain the site yourself. Save chat-credits for the things only Claude can do — new sections, animations, structural changes.</p>
+<p class="meta">Pre-launch · Plain HTML/CSS/JS · No build step</p>
+
+<div class="toc">
+  <h3>What's in here</h3>
+  <ol>
+    <li><a href="#file-map">File map — what's where</a></li>
+    <li><a href="#editing-copy">Editing copy (headlines, body, FAQ)</a></li>
+    <li><a href="#pricing">Pricing — every place a price lives</a></li>
+    <li><a href="#booking-links">Booking links / Discovery Call</a></li>
+    <li><a href="#samcart">SOP Suite checkout links (SamCart)</a></li>
+    <li><a href="#images">Swapping or adding images</a></li>
+    <li><a href="#promo-banner">Editing the top promo banner</a></li>
+    <li><a href="#seo">SEO updates</a></li>
+    <li><a href="#deploy">Deploying to Netlify</a></li>
+    <li><a href="#domain">Domain — fallonrice vs fallonscott</a></li>
+    <li><a href="#gotchas">Common gotchas</a></li>
+    <li><a href="#credits">When to come back to Claude</a></li>
+  </ol>
+</div>
+
+<h2 id="file-map"><span class="num">— 01 / Structure</span>File map — what's where</h2>
+
+<pre><code>site-a/
+├── index.html          ← Home page
+├── about.html          ← About page (Fallon's story)
+├── sop-suite.html      ← SOP Suite product page
+├── speaking.html       ← Speaking & Podcasting page
+├── privacy.html        ← Privacy Policy
+├── terms.html          ← Terms of Service
+├── favicon.svg         ← Browser tab icon
+├── llms.txt            ← AI engine snapshot (don't delete)
+├── robots.txt          ← Search engine instructions
+├── sitemap.xml         ← Site map for Google
+├── _redirects          ← Netlify redirects
+├── _headers            ← Netlify security headers
+└── assets/
+    ├── og-cover.jpg          ← Social share image (home)
+    ├── og-about.jpg          ← Social share image (about)
+    ├── og-sop-suite.jpg      ← Social share image (SOP Suite)
+    ├── og-speaking.jpg       ← Social share image (speaking)
+    └── (your photos)         ← Profile photos referenced by HTML</code></pre>
+
+<div class="callout"><strong>The folder you upload to Netlify is <code>site-a/</code></strong> — that's the entire website.</div>
+
+<h2 id="editing-copy"><span class="num">— 02 / Copy</span>Editing copy</h2>
+
+<h3>Where to find sections inside each file</h3>
+<p>Each section is wrapped in HTML comments like this:</p>
+<pre><code>&lt;!-- HERO --&gt;
+&lt;section ...&gt;...&lt;/section&gt;
+
+&lt;!-- THE JOURNEY --&gt;
+&lt;section ...&gt;...&lt;/section&gt;</code></pre>
+<p>Use <strong>Ctrl+F / Cmd+F</strong> in your editor and search for the comment to jump to a section.</p>
+
+<h3>Common edits</h3>
+
+<h4>Change a headline</h4>
+<p>Look for <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, or <code>&lt;h3&gt;</code> tags. Change the text between the opening and closing tag.</p>
+<pre><code>&lt;h2&gt;You don't need a bigger team. You need &lt;em&gt;a system.&lt;/em&gt;&lt;/h2&gt;
+                                            ^^^^^^^^^^^^^^^^^^^
+                                            italics — keep the &lt;em&gt; tags
+                                            around words you want italicized</code></pre>
+
+<h4>Change body copy</h4>
+<p>Look for <code>&lt;p&gt;</code> tags.</p>
+
+<h4>Change a button label</h4>
+<p>Look for <code>&lt;a ...&gt;...&lt;/a&gt;</code> and change the text between the tags. Leave <code>class=</code> and <code>href=</code> alone.</p>
+<pre><code>&lt;a href="#contact" class="btn"&gt;Book a Discovery Call &lt;span class="arrow"&gt;→&lt;/span&gt;&lt;/a&gt;
+                                ^^^^^^^^^^^^^^^^^^^^^
+                                edit this text only</code></pre>
+
+<h4>Edit the FAQ</h4>
+<p>Scroll to the <code>&lt;!-- FAQ --&gt;</code> section. Each Q&amp;A is one block:</p>
+<pre><code>&lt;div class="faq-item"&gt;
+  &lt;div class="faq-q"&gt;&lt;span&gt;QUESTION GOES HERE&lt;/span&gt;&lt;span class="ico"&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="faq-a"&gt;&lt;div class="faq-a-inner"&gt;&lt;p&gt;ANSWER GOES HERE&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<p>Copy a whole block to add a new FAQ. Delete a whole block to remove one.</p>
+
+<h3>Special syntax</h3>
+<ul>
+  <li><code>&lt;em&gt;...&lt;/em&gt;</code> = italics</li>
+  <li><code>&lt;strong&gt;...&lt;/strong&gt;</code> = bold</li>
+  <li><code>&lt;br&gt;</code> = line break</li>
+  <li><code>&amp;amp;</code> = the character <code>&amp;</code></li>
+  <li><code>&amp;mdash;</code> or <code>—</code> = em dash</li>
+</ul>
+
+<h2 id="pricing"><span class="num">— 03 / Pricing</span>Every place a price lives</h2>
+
+<div class="callout">If you change a price, you must update it in <strong>all</strong> of these locations or your site will be inconsistent.</div>
+
+<h3>Engagement prices (Foundations, Optimization, etc.)</h3>
+<table>
+  <thead><tr><th>Where</th><th>File</th><th>Search for</th></tr></thead>
+  <tbody>
+    <tr><td>Homepage package cards</td><td><code>index.html</code></td><td><code>From $4,500/mo</code></td></tr>
+    <tr><td>Homepage JSON-LD schema</td><td><code>index.html</code></td><td><code>"price":"4000"</code></td></tr>
+    <tr><td>Homepage FAQ</td><td><code>index.html</code></td><td><code>engagement length and pricing</code></td></tr>
+    <tr><td>About page FAQ</td><td><code>about.html</code></td><td><code>engagement length and pricing</code></td></tr>
+    <tr><td>llms.txt</td><td><code>llms.txt</code></td><td><code>From $4,500/mo</code></td></tr>
+  </tbody>
+</table>
+
+<h3>SOP Suite price ($998)</h3>
+<table>
+  <thead><tr><th>Where</th><th>File</th><th>Search for</th></tr></thead>
+  <tbody>
+    <tr><td>SOP Suite hero</td><td><code>sop-suite.html</code></td><td><code>$998</code></td></tr>
+    <tr><td>SOP Suite JSON-LD</td><td><code>sop-suite.html</code></td><td><code>"price":"998"</code></td></tr>
+    <tr><td>Homepage SOP tier card</td><td><code>index.html</code></td><td><code>$998 launch</code></td></tr>
+    <tr><td>Homepage promo banner</td><td><code>index.html</code></td><td><code>The SOP Suite is live</code></td></tr>
+    <tr><td>About promo banner</td><td><code>about.html</code></td><td><code>The SOP Suite is live</code></td></tr>
+    <tr><td>Speaking promo banner</td><td><code>speaking.html</code></td><td><code>The SOP Suite is live</code></td></tr>
+    <tr><td>Homepage JSON-LD</td><td><code>index.html</code></td><td><code>"price":"998"</code></td></tr>
+    <tr><td>llms.txt</td><td><code>llms.txt</code></td><td><code>$998</code></td></tr>
+  </tbody>
+</table>
+
+<h3>Individual SOP bundle prices ($497, $297)</h3>
+<p>Only on <code>sop-suite.html</code> — search for <code>$497</code> or <code>$297</code>.</p>
+
+<h2 id="booking-links"><span class="num">— 04 / Booking</span>Discovery Call links — IMPORTANT</h2>
+
+<div class="callout"><strong>Right now, every "Book a Discovery Call" button links to <code>#contact</code></strong> — which scrolls to the bottom of the homepage. <strong>This is a placeholder.</strong> When you have your real booking link (Calendly, TidyCal, SavvyCal, Cal.com, whatever), replace it everywhere.</div>
+
+<h3>Find every booking link</h3>
+<p>Search across all files for: <code>href="#contact"</code></p>
+<p>You'll find it in:</p>
+<ul>
+  <li><code>index.html</code> — top nav button, hero CTA, multiple CTAs throughout, footer</li>
+  <li><code>about.html</code> — top nav button, hero CTA, multiple CTAs, footer</li>
+  <li><code>sop-suite.html</code> — "Done with you" path CTA</li>
+  <li><code>speaking.html</code> — top nav button, footer</li>
+</ul>
+
+<h3>Replace with your real link</h3>
+<p>Change every <code>href="#contact"</code> to <code>href="YOUR-BOOKING-URL"</code> and add <code>target="_blank" rel="noopener"</code> so it opens in a new tab.</p>
+<pre><code>&lt;!-- Before --&gt;
+&lt;a href="#contact" class="btn"&gt;Book a Discovery Call&lt;/a&gt;
+
+&lt;!-- After --&gt;
+&lt;a href="https://calendly.com/fallonscott/discovery"
+   target="_blank" rel="noopener" class="btn"&gt;Book a Discovery Call&lt;/a&gt;</code></pre>
+
+<h3>Tip — use Find &amp; Replace All</h3>
+<p>Most editors have <strong>Find &amp; Replace in All Files</strong> (VS Code: Ctrl+Shift+H / Cmd+Shift+H). Set find to <code>href="#contact"</code> and replace with <code>href="YOUR-LINK" target="_blank" rel="noopener"</code>. One operation, done.</p>
+
+<h3>Email contact &amp; the contact form</h3>
+<p>Search for <code>mailto:</code> to find email contact links. There's also a contact form section on the homepage (search <code>&lt;!-- CONTACT --&gt;</code>) — it's currently visual-only; you'll need to wire it up to a form service (Formspree, Netlify Forms) before launch, OR delete it and rely on email + booking link.</p>
+
+<h2 id="samcart"><span class="num">— 05 / Checkout</span>SOP Suite checkout links (SamCart)</h2>
+<p>Already wired to your real SamCart URLs — you shouldn't need to change them unless you migrate carts.</p>
+<table>
+  <thead><tr><th>Bundle</th><th>URL</th></tr></thead>
+  <tbody>
+    <tr><td>Full Suite ($998)</td><td><code>https://f28agency.samcart.com/products/full-sop-suite</code></td></tr>
+    <tr><td>Process Optimization ($497)</td><td><code>https://f28agency.samcart.com/products/process-optimization-bundle</code></td></tr>
+    <tr><td>Full SOP ($497)</td><td><code>https://f28agency.samcart.com/products/sopbundle</code></td></tr>
+    <tr><td>New Hire Onboarding ($297)</td><td><code>https://f28agency.samcart.com/products/new-hire-onboarding</code></td></tr>
+  </tbody>
+</table>
+
+<h2 id="images"><span class="num">— 06 / Photos</span>Swapping or adding images</h2>
+
+<h3>Swap an existing image</h3>
+<ol>
+  <li>Save the new photo as <code>.jpg</code> (NOT <code>.png</code>) at around <strong>1600px wide max</strong>, quality ~80%. Under 400KB if possible.</li>
+  <li>Drop it into <code>site-a/assets/</code>.</li>
+  <li>In your HTML, find the existing <code>&lt;img src="assets/old-name.jpg" ...&gt;</code> and change <code>old-name.jpg</code> to your new filename.</li>
+</ol>
+
+<h3>Add a new image somewhere</h3>
+<pre><code>&lt;img src="assets/your-new-image.jpg"
+     alt="Describe the photo for accessibility and SEO"
+     loading="lazy" /&gt;</code></pre>
+<p><code>loading="lazy"</code> keeps the page fast. <code>alt</code> text is required — describe the image.</p>
+
+<h3>Sizing photos for the web (free tools)</h3>
+<ul>
+  <li><a href="https://squoosh.app" target="_blank" rel="noopener">Squoosh.app</a> — drop in, resize, export — best quality-per-byte.</li>
+  <li><a href="https://tinypng.com" target="_blank" rel="noopener">TinyPNG.com</a> — also handles JPGs despite the name.</li>
+</ul>
+<p><strong>Rule of thumb:</strong></p>
+<ul>
+  <li>Hero images: 1600px wide, ~250KB</li>
+  <li>Section images: 1200px wide, ~150KB</li>
+  <li>Thumbnails: 600px wide, ~80KB</li>
+</ul>
+
+<h3>Updating social-share images (Open Graph)</h3>
+<p>When someone shares your site on LinkedIn / Facebook / iMessage, the image they see is from <code>assets/og-cover.jpg</code> (and the per-page OG images). To update:</p>
+<ol>
+  <li>Make a 1200×630px image (NOT square — landscape).</li>
+  <li>Save as <code>assets/og-cover.jpg</code> (overwrite the existing one).</li>
+  <li>Test: paste your URL into <a href="https://opengraph.xyz" target="_blank" rel="noopener">opengraph.xyz</a> to preview.</li>
+</ol>
+
+<h2 id="promo-banner"><span class="num">— 07 / Banner</span>Editing the top promo banner</h2>
+<p>Lives at the very top of <code>index.html</code>, <code>about.html</code>, and <code>speaking.html</code>. Search for <code>id="sopBanner"</code>.</p>
+
+<h3>Hide the banner entirely</h3>
+<p>Comment out the whole <code>&lt;div id="sopBanner"&gt;...&lt;/div&gt;</code> block by wrapping it in <code>&lt;!-- ... --&gt;</code>.</p>
+
+<h3>Change the link target</h3>
+<p>Change <code>href="sop-suite.html"</code> to wherever you want the banner to send people.</p>
+
+<h3>Reset banner for users who dismissed it</h3>
+<p>If you change the banner copy, users who already dismissed the old version won't see the new one (it's cached in their browser). To force-show it again, change <code>localStorage.setItem('sopBannerHidden','1')</code> to use a new key like <code>'sopBannerHidden_v2'</code> (and update the matching <code>getItem</code> check).</p>
+
+<h2 id="seo"><span class="num">— 08 / SEO</span>SEO updates</h2>
+
+<h3>Once you have your final domain</h3>
+<p><strong>Search for <code>fallonscott.com</code> across all files</strong> and replace with your actual domain. Specifically:</p>
+<ul>
+  <li>Every <code>&lt;link rel="canonical"&gt;</code> tag</li>
+  <li>Every <code>&lt;meta property="og:url"&gt;</code> tag</li>
+  <li><code>sitemap.xml</code> (every <code>&lt;loc&gt;</code> line)</li>
+  <li><code>llms.txt</code> (every URL)</li>
+  <li>Schema JSON-LD blocks (<code>"url":"..."</code> and <code>"image":"..."</code>)</li>
+  <li><code>robots.txt</code> (if it lists a sitemap URL)</li>
+</ul>
+
+<h3>Per-page SEO knobs</h3>
+<p>In each HTML file, the top of the <code>&lt;head&gt;</code> has:</p>
+<ul>
+  <li><code>&lt;title&gt;</code> — what shows in the browser tab and Google results (keep under 60 chars)</li>
+  <li><code>&lt;meta name="description"&gt;</code> — Google's preview snippet (keep under 160 chars)</li>
+  <li><code>&lt;meta name="keywords"&gt;</code> — minor SEO weight, keep relevant</li>
+  <li><code>&lt;meta property="og:title"&gt;</code> and <code>og:description</code> — what shows on social shares</li>
+</ul>
+
+<h3>Submit to Google</h3>
+<p>After deploying, go to <a href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a>, verify your domain, and submit <code>https://YOUR-DOMAIN/sitemap.xml</code>. Google starts indexing within days.</p>
+
+<h2 id="deploy"><span class="num">— 09 / Deploy</span>Deploying to Netlify</h2>
+
+<h3>First-time deploy</h3>
+<ol>
+  <li>Sign up at <a href="https://netlify.com" target="_blank" rel="noopener">netlify.com</a> — free.</li>
+  <li>Click <strong>Add new site → Deploy manually</strong>.</li>
+  <li>Drag the <strong>entire <code>site-a/</code> folder</strong> onto the upload area.</li>
+  <li>Done. Netlify gives you a URL like <code>https://random-name-12345.netlify.app</code>.</li>
+</ol>
+
+<h3>Updating after edits</h3>
+<p>Easiest method: <strong>drag the folder again</strong> onto your Netlify site dashboard ("Deploys" tab → "Drag and drop your site folder here"). It replaces the old version.</p>
+
+<h3>Better long-term: connect to GitHub</h3>
+<p>If you put <code>site-a/</code> into a GitHub repo, Netlify will auto-deploy every time you push a change. Worth setting up once you're past the soft-launch phase.</p>
+
+<h3>Pointing a custom domain</h3>
+<ol>
+  <li>In Netlify dashboard: <strong>Domain management → Add a custom domain</strong></li>
+  <li>Enter your domain.</li>
+  <li>Netlify shows you DNS records to set at your registrar.</li>
+  <li>At GoDaddy / Namecheap / wherever you bought the domain, paste those records into DNS settings.</li>
+  <li>Wait ~30 mins for propagation. SSL/HTTPS auto-enables.</li>
+</ol>
+
+<h2 id="domain"><span class="num">— 10 / Domain</span>fallonrice vs fallonscott</h2>
+<p>You currently own <code>fallonrice.com</code>. The site is branded as <strong>Fallon Scott</strong>.</p>
+
+<div class="twocol">
+  <div>
+    <h4>Option A — Keep fallonrice.com</h4>
+    <ul>
+      <li>No purchase needed.</li>
+      <li>Visitors who type "fallonrice.com" land on the site.</li>
+      <li>The brand on the site says "Fallon Scott." That's fine; the URL is just a handle.</li>
+    </ul>
+  </div>
+  <div>
+    <h4>Option B — Buy fallonscott.com</h4>
+    <ul>
+      <li>~$12/year at any registrar.</li>
+      <li>Set fallonscott.com as primary in Netlify.</li>
+      <li>Set fallonrice.com to redirect to fallonscott.com (Netlify makes this one click).</li>
+    </ul>
+  </div>
+</div>
+<div class="callout"><strong>Recommendation:</strong> Option B if available. The URL matching the brand is a small but real trust signal.</div>
+
+<h2 id="gotchas"><span class="num">— 11 / Troubleshooting</span>Common gotchas</h2>
+
+<h3>"I changed something but I don't see it on the site"</h3>
+<ul>
+  <li>You're looking at a cached version. Hard-refresh: <strong>Ctrl+Shift+R</strong> (Windows) / <strong>Cmd+Shift+R</strong> (Mac).</li>
+  <li>If you deployed to Netlify, give it 30 seconds to publish.</li>
+</ul>
+
+<h3>"I broke something and the page looks weird"</h3>
+<ul>
+  <li>HTML is unforgiving. A missing <code>&gt;</code> or stray quote can shatter the layout.</li>
+  <li>Open the page in your browser, right-click → "View Page Source" to see if HTML rendered correctly.</li>
+  <li><strong>Always keep a backup</strong> — copy the file to <code>index-backup.html</code> before big edits.</li>
+</ul>
+
+<h3>"The promo banner won't go away even after I edited it"</h3>
+<ul>
+  <li>Browsers cache <code>localStorage</code>. Open dev tools (F12) → Application → Local Storage → delete <code>sopBannerHidden</code>.</li>
+  <li>Or use a different browser to test.</li>
+</ul>
+
+<h3>"Photos look stretched or pixelated"</h3>
+<ul>
+  <li>Photo's aspect ratio doesn't match the container. Either crop the photo to match, or remove the <code>aspect-ratio</code> CSS rule on that section.</li>
+</ul>
+
+<h3>"Links to other pages are broken"</h3>
+<ul>
+  <li>Check the link spelling matches the filename exactly. Case matters: <code>About.html</code> ≠ <code>about.html</code>.</li>
+  <li>All inter-page links use lowercase: <code>index.html</code>, <code>about.html</code>, <code>sop-suite.html</code>, <code>speaking.html</code>.</li>
+</ul>
+
+<h2 id="credits"><span class="num">— 12 / Workflow</span>When to come back to Claude</h2>
+
+<div class="twocol">
+  <div>
+    <h4>You can do yourself</h4>
+    <ul>
+      <li>Copy edits, headline tweaks, FAQ changes</li>
+      <li>Pricing updates (use the checklist — hit every spot)</li>
+      <li>Swapping photos that fit existing slots</li>
+      <li>Updating booking links once you have them</li>
+      <li>Editing the promo banner</li>
+      <li>Deploying to Netlify</li>
+    </ul>
+  </div>
+  <div>
+    <h4>Save credits for Claude</h4>
+    <ul>
+      <li>Adding entire new sections (e.g., the Partnership beat)</li>
+      <li>Restructuring page order</li>
+      <li>Integrating new images that need new layouts</li>
+      <li>Adding new pages (resources hub, blog, etc.)</li>
+      <li>Fixing visual bugs you can't isolate</li>
+      <li>Building anything interactive (forms, animations)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="closing">
+  You've got this. The site is solid.<br>Now go ship it.
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AI Page Mockup — Integrator Angle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ink:#1a1f2e;--ink-2:#2a3142;--paper:#f5f1ea;--paper-2:#ede7dc;
+    --rule:#d8cfbf;--muted:#6b7280;--accent:#b45309;--accent-2:#8b3a07;--accent-soft:#f3d9a7;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#e8e3d8;color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+  .container{max-width:1240px;margin:0 auto;padding:0 32px}
+
+  /* Top bar */
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(232,227,216,.92);backdrop-filter:blur(10px);padding:18px 0;border-bottom:1px solid var(--rule)}
+  .topbar .row{display:flex;justify-content:space-between;align-items:center;gap:24px}
+  .topbar .lab{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:500}
+  .topbar h1{font-family:'Fraunces',serif;font-weight:340;font-size:22px;letter-spacing:-.012em;margin:0;line-height:1.2}
+  .topbar h1 em{font-style:italic;color:var(--accent);font-weight:300}
+
+  .intro{padding:40px 0 32px}
+  .intro h2{font-family:'Fraunces',serif;font-weight:340;font-size:42px;letter-spacing:-.018em;margin:0 0 14px;line-height:1}
+  .intro h2 em{font-style:italic;color:var(--accent);font-weight:300}
+  .intro p{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--ink-2);margin:0;max-width:880px;line-height:1.55}
+
+  .mock-canvas{background:var(--ink);color:var(--paper);position:relative;padding:90px 0 100px}
+  .mock-canvas.cream{background:var(--paper);color:var(--ink)}
+  .mock-canvas.paper-2{background:var(--paper-2);color:var(--ink)}
+  .mock-label{position:absolute;top:14px;right:24px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);background:rgba(245,241,234,.85);padding:5px 10px;border-radius:2px;font-weight:600;z-index:2}
+
+  /* HERO mockup */
+  .hero-mock{position:relative;overflow:hidden}
+  .hero-mock::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%, rgba(180,83,9,.22), transparent 55%),radial-gradient(ellipse at 15% 85%, rgba(243,217,167,.08), transparent 50%);pointer-events:none;z-index:0}
+  .hero-mock .container{position:relative;z-index:1}
+  .hero-mock .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent-soft);font-weight:500;margin-bottom:24px;display:inline-flex;align-items:center;gap:14px}
+  .hero-mock .eyebrow::before{content:"";width:32px;height:1px;background:var(--accent-soft)}
+  .hero-mock h1{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(52px,6.4vw,108px);line-height:.96;letter-spacing:-.024em;margin:0 0 28px;max-width:1500px;color:var(--paper)}
+  .hero-mock h1 em{font-style:italic;font-weight:300;color:var(--accent-soft)}
+  .hero-mock .sub{font-size:21px;line-height:1.55;color:rgba(245,241,234,.82);max-width:920px;margin:0 0 32px;font-family:'Fraunces',serif;font-weight:400}
+  .hero-mock .sub em{font-style:italic;color:var(--accent-soft);font-weight:500}
+  .hero-mock .sub strong{color:var(--paper);font-weight:500}
+
+  /* Self-identifier (two columns under hero) */
+  .ident{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1100px}
+  .ident-card{background:rgba(245,241,234,.06);border:1px solid rgba(245,241,234,.18);padding:32px 30px;display:flex;flex-direction:column;gap:14px}
+  .ident-card .tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent-soft);font-weight:600}
+  .ident-card h3{font-family:'Fraunces',serif;font-weight:380;font-size:30px;letter-spacing:-.014em;line-height:1.1;margin:0;color:var(--paper)}
+  .ident-card h3 em{font-style:italic;color:var(--accent-soft);font-weight:300}
+  .ident-card ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+  .ident-card ul li{font-size:15px;line-height:1.55;color:rgba(245,241,234,.85);padding-left:18px;position:relative}
+  .ident-card ul li::before{content:"·";position:absolute;left:6px;color:var(--accent-soft);font-weight:700;font-size:18px;top:-3px}
+
+  /* SECTION 2 — Why Integrations Fail */
+  .fail-mock{padding:90px 0 100px;background:var(--accent-2);color:var(--paper);position:relative;overflow:hidden}
+  .fail-mock::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 75% 15%, rgba(243,217,167,.14), transparent 55%);pointer-events:none}
+  .fail-mock .container{position:relative;z-index:1}
+  .fail-mock .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent-soft);font-weight:500;margin-bottom:22px;display:inline-flex;align-items:center;gap:14px}
+  .fail-mock .eyebrow::before{content:"";width:32px;height:1px;background:var(--accent-soft)}
+  .fail-mock h2{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(46px,5.5vw,84px);line-height:1;letter-spacing:-.022em;margin:0 0 22px;max-width:1300px;color:var(--paper)}
+  .fail-mock h2 em{font-style:italic;font-weight:300;color:var(--accent-soft)}
+  .fail-mock .lede{font-family:'Fraunces',serif;font-weight:380;font-size:21px;line-height:1.55;color:rgba(245,241,234,.85);max-width:880px;margin:0 0 60px;font-style:italic}
+  .fail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(245,241,234,.18);border:1px solid rgba(245,241,234,.22)}
+  .fail{background:var(--accent-2);padding:36px 32px;display:flex;flex-direction:column;gap:14px;min-height:340px;position:relative;transition:background .3s}
+  .fail:hover{background:rgba(26,31,46,.5)}
+  .fail .n{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:52px;line-height:.85;color:var(--accent-soft);letter-spacing:-.02em}
+  .fail h3{font-family:'Fraunces',serif;font-weight:400;font-size:26px;line-height:1.12;letter-spacing:-.012em;margin:0;color:var(--paper)}
+  .fail h3 em{font-style:italic;color:var(--accent-soft);font-weight:300}
+  .fail p{font-size:15px;line-height:1.55;color:rgba(245,241,234,.82);margin:0}
+  .fail .contrast{margin-top:auto;padding-top:14px;border-top:1px solid rgba(245,241,234,.18);font-family:'Fraunces',serif;font-style:italic;font-size:15px;line-height:1.4;color:var(--accent-soft);font-weight:380}
+  .fail .contrast strong{font-style:normal;font-weight:500;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(243,217,167,.65);display:block;margin-bottom:6px}
+
+  .fail-closer{margin-top:60px;padding:36px 40px;background:var(--ink);border-left:4px solid var(--accent);max-width:1100px}
+  .fail-closer p{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(24px,2.8vw,34px);line-height:1.25;letter-spacing:-.012em;color:var(--paper);margin:0}
+  .fail-closer p em{font-style:italic;color:var(--accent-soft);font-weight:300}
+  .fail-closer p strong{font-weight:500;color:var(--paper)}
+
+  /* Notes */
+  .notes{margin-top:48px;padding:22px 26px;background:var(--paper);border-left:3px solid var(--accent);font-family:'Fraunces',serif;font-size:15.5px;line-height:1.55;color:var(--ink-2)}
+  .notes strong{display:block;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:10px;font-style:normal}
+
+  @media (max-width:1100px){.ident{grid-template-columns:1fr}.fail-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:700px){.fail-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="row">
+      <h1>AI page — <em>integrator angle</em></h1>
+      <span class="lab">Mockup · 2 new sections</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="intro">
+    <h2>Two new sections for the <em>AI Integration</em> page.</h2>
+    <p>(1) <strong>New hero copy</strong> that speaks to both audiences in one decisive line, with a <strong>self-identifier card pair</strong> for founders / mid-market companies. (2) A <strong>"Why most AI integrations fail"</strong> section — six cards, plain truths, not accusatory. Designed at site fidelity. Approve before I push to live.</p>
+  </div>
+</div>
+
+<!-- HERO MOCKUP -->
+<div class="mock-canvas hero-mock">
+  <div class="mock-label">AI Page · proposed hero</div>
+  <div class="container">
+    <div class="eyebrow">For founders &amp; for company leaders</div>
+    <h1>You need AI. <em>You need someone who can actually integrate it.</em></h1>
+    <p class="sub">Whether you went down the Claude rabbit hole as a founder, or you're a leader at a mid-market company who knows you can't put this off anymore — <strong>the prerequisite is the same.</strong> An <em>audit</em> before a build. <em>Diagnosis</em> before prescription. Integration architected against your <strong>P&amp;L</strong>, not slapped on top of it.</p>
+
+    <div class="ident">
+      <div class="ident-card">
+        <span class="tag">— For founders</span>
+        <h3>You're a founder who <em>knows AI matters.</em></h3>
+        <ul>
+          <li>You've watched the cohorts, saved the TikToks, taken the courses</li>
+          <li>You know you need to build, but don't know what to build first</li>
+          <li>You don't have time to play in the rabbit hole anymore</li>
+          <li>You need an operator who'll architect, build, and document it</li>
+        </ul>
+      </div>
+      <div class="ident-card">
+        <span class="tag">— For companies</span>
+        <h3>You're a leader who <em>can't put this off.</em></h3>
+        <ul>
+          <li>You're a 10–500 person company, established, profitable, evolving</li>
+          <li>Your competitors are integrating AI and you can feel the gap</li>
+          <li>You're about to hire someone, and you're not sure you'll pick right</li>
+          <li>You need integration audited, scoped, and built against your P&amp;L</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY INTEGRATIONS FAIL -->
+<div class="mock-canvas fail-mock" style="padding:0">
+  <div class="mock-label">AI Page · new section</div>
+  <div style="padding:100px 0 110px">
+    <div class="container">
+      <div class="eyebrow">— Honest truths · before you hire anyone</div>
+      <h2>Why most AI integrations <em>fail.</em></h2>
+      <p class="lede">Not because AI is hard. Because most integrators are tool-fluent, not business-fluent. Six common reasons it goes sideways — and what changes when there's an auditor's eye in the room.</p>
+
+      <div class="fail-grid">
+
+        <div class="fail">
+          <div class="n">01</div>
+          <h3>AI <em>scales</em> what's broken.</h3>
+          <p>AI is a multiplier. Whatever's chaotic, manual, undocumented, or inefficient in your business doesn't get <em>fixed</em> when you bolt automation on top of it. It gets compounded. Faster handoffs through a broken process aren't a win — they're 10× the failures, 10× the rework, 10× the customer complaints.</p>
+          <p class="contrast"><strong>What we do instead</strong>Diagnose the chaos. Architect the system. Then integrate.</p>
+        </div>
+
+        <div class="fail">
+          <div class="n">02</div>
+          <h3>They build <em>before they audit.</em></h3>
+          <p>You can't automate your way out of a broken process. Most integrators start with the tools because the tools are what they know. Tools, not diagnosis.</p>
+          <p class="contrast"><strong>What we do instead</strong>The audit comes first. Always. Every time.</p>
+        </div>
+
+        <div class="fail">
+          <div class="n">03</div>
+          <h3>They're tool-fluent, <em>not business-fluent.</em></h3>
+          <p>Wiring Zapier ≠ understanding margin. AI that doesn't tie back to your P&amp;L is theater — it looks like progress, but doesn't move the numbers that matter.</p>
+          <p class="contrast"><strong>What we do instead</strong>Every build gets measured against the P&amp;L. CPA-trained, on purpose.</p>
+        </div>
+
+        <div class="fail">
+          <div class="n">04</div>
+          <h3>They miss the <em>interdependencies.</em></h3>
+          <p>An AI that 3×'s your inbound leads is great — until fulfillment, inventory, and customer service collapse under demand they weren't staffed for. Most integrators fix one area and break two others.</p>
+          <p class="contrast"><strong>What we do instead</strong>Map the whole business before we touch a single workflow.</p>
+        </div>
+
+        <div class="fail">
+          <div class="n">05</div>
+          <h3>They skip <em>risk and compliance.</em></h3>
+          <p>AI agents with database-delete permissions. Customer data piped through unaudited tools. Sales bots blasting 50,000 messages with no review layer. Most integrators don't think about the question that comes after — "why did we let it do that?"</p>
+          <p class="contrast"><strong>What we do instead</strong>Audit and risk training underneath every build. Compliance isn't optional.</p>
+        </div>
+
+        <div class="fail">
+          <div class="n">06</div>
+          <h3>They build, <em>then disappear.</em></h3>
+          <p>The most expensive AI build is the one nobody on your team knows how to use. No documentation. No training. No adoption layer. The system dies the day the consultant leaves.</p>
+          <p class="contrast"><strong>What we do instead</strong>Document, train, and stay through adoption. The system runs without us — by design.</p>
+        </div>
+
+      </div>
+
+      <div class="fail-closer">
+        <p>AI integration done <em>right</em> runs without you.<br/>AI integration done <strong>wrong</strong> runs you. And the bill is steeper than the rebuild. You pay in <em>trust</em> with your team, <em>credibility</em> with your clients, friction with vendors and suppliers, breaks in your delivery, and time you can't get back. <strong>The cost of hiring the wrong person to do AI isn't a line item. It's a relationship list.</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="notes">
+    <strong>What this changes on the live AI page</strong>
+    Hero copy + eyebrow get a rewrite (still ink-navy ground, same gradient treatment). Self-identifier card pair sits directly under the hero CTAs. "Why most AI integrations fail" lives as a new section between the hero and the existing levels/engagement structure. Page title in the nav: <em>AI Systems</em> → <em>AI Integration</em>. When we add a third engagement tier for larger company budgets, label it "<em>Custom scope</em>" (not <em>Enterprise</em>) and route to the AI Assessment Call. Founders see numbers and click; companies see numbers and disqualify themselves on budget before they ever talk to you.
+  </div>
+</div>
+
+</body>
+</html>

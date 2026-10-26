@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mockup — Service teasers + FAQ teasers + Four Ways</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ink:#1a1f2e;--ink-2:#2a3142;--paper:#f5f1ea;--paper-2:#ede7dc;
+    --rule:#d8cfbf;--muted:#6b7280;--accent:#b45309;--accent-2:#8b3a07;--accent-soft:#f3d9a7;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#e8e3d8;color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+  .container{max-width:1280px;margin:0 auto;padding:0 32px}
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(232,227,216,.92);backdrop-filter:blur(10px);padding:18px 0;border-bottom:1px solid var(--rule)}
+  .topbar .row{display:flex;justify-content:space-between;align-items:center;gap:24px}
+  .topbar h1{font-family:'Fraunces',serif;font-weight:340;font-size:22px;margin:0;letter-spacing:-.012em}
+  .topbar h1 em{font-style:italic;color:var(--accent);font-weight:300}
+  .topbar .lab{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:500}
+  .intro{padding:40px 0 28px}
+  .intro h2{font-family:'Fraunces',serif;font-weight:340;font-size:36px;letter-spacing:-.018em;margin:0 0 14px;line-height:1}
+  .intro h2 em{font-style:italic;color:var(--accent);font-weight:300}
+  .intro p{font-family:'Fraunces',serif;font-style:italic;font-size:16.5px;color:var(--ink-2);margin:0;max-width:880px;line-height:1.55}
+
+  .mock{position:relative;margin:32px 0}
+  .mock .lab{position:absolute;top:10px;right:14px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);background:rgba(245,241,234,.9);padding:5px 10px;border-radius:2px;font-weight:600;z-index:5}
+
+  /* ====== Service Teasers (paper section) ====== */
+  .services{background:var(--paper);padding:110px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .services .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:14px;display:inline-flex;align-items:center;gap:14px}
+  .services .eyebrow::before{content:"";width:32px;height:1px;background:var(--accent)}
+  .services h2{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(48px,5.4vw,76px);line-height:1;letter-spacing:-.022em;margin:0 0 14px;color:var(--ink)}
+  .services h2 em{font-style:italic;color:var(--accent);font-weight:300}
+  .services .subhead{font-family:'Fraunces',serif;font-weight:380;font-size:24px;font-style:italic;color:var(--ink-2);margin:0 0 18px;letter-spacing:-.008em}
+  .services .subhead em{font-style:italic;color:var(--accent);font-weight:380}
+  .services .lede{font-size:18px;line-height:1.55;color:var(--ink-2);max-width:780px;margin:0 0 48px}
+  .svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .svc{background:var(--paper-2);border:1px solid var(--rule);padding:30px 26px 28px;display:flex;flex-direction:column;gap:14px;text-decoration:none;color:inherit;transition:transform .25s, border-color .25s, box-shadow .25s}
+  .svc:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 28px 50px -32px rgba(26,31,46,.2)}
+  .svc .num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .svc h3{font-family:'Fraunces',serif;font-weight:400;font-size:26px;letter-spacing:-.012em;line-height:1.1;margin:0;color:var(--ink)}
+  .svc h3 em{font-style:italic;color:var(--accent);font-weight:300}
+  .svc p{font-size:14.5px;line-height:1.5;color:var(--ink-2);margin:0}
+  .svc .meta{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:auto;padding-top:14px;border-top:1px solid var(--rule)}
+  .svc .arr{color:var(--accent);font-weight:600;display:inline-flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.04em;margin-top:6px}
+
+  .svc.featured{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .svc.featured h3,.svc.featured h3 em{color:var(--paper)}
+  .svc.featured h3 em{color:var(--accent-soft)}
+  .svc.featured .num{color:var(--accent-soft)}
+  .svc.featured p{color:rgba(245,241,234,.82)}
+  .svc.featured .meta{color:rgba(245,241,234,.55);border-top-color:rgba(245,241,234,.18)}
+  .svc.featured .arr{color:var(--accent-soft)}
+
+  /* ====== FAQ Teasers ====== */
+  .faq-tease{background:var(--paper-2);padding:110px 0}
+  .faq-tease .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:14px;display:inline-flex;align-items:center;gap:14px}
+  .faq-tease .eyebrow::before{content:"";width:32px;height:1px;background:var(--accent)}
+  .faq-tease h2{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(40px,4.6vw,64px);line-height:1;letter-spacing:-.02em;margin:0 0 14px;color:var(--ink)}
+  .faq-tease h2 em{font-style:italic;color:var(--accent);font-weight:300}
+  .faq-tease .lede{font-size:17px;line-height:1.55;color:var(--ink-2);max-width:720px;margin:0 0 40px}
+  .faq-items{max-width:920px;border-top:1px solid var(--rule)}
+  .faq-item{padding:22px 4px;border-bottom:1px solid var(--rule);cursor:pointer}
+  .faq-item .q{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+  .faq-item .q h4{font-family:'Fraunces',serif;font-weight:400;font-size:22px;letter-spacing:-.012em;line-height:1.25;margin:0;color:var(--ink);flex:1}
+  .faq-item .ico{font-family:'JetBrains Mono',monospace;font-size:18px;color:var(--accent);font-weight:600;flex-shrink:0;line-height:1}
+  .faq-item .a{margin-top:14px;font-size:15.5px;line-height:1.6;color:var(--ink-2)}
+  .faq-item.open{padding-bottom:24px}
+  .faq-cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .faq-cta a.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;background:var(--ink);color:var(--paper);border-radius:999px;font-size:14px;font-weight:500;text-decoration:none;border:1px solid var(--ink)}
+  .faq-cta a.btn:hover{background:var(--accent);border-color:var(--accent)}
+  .faq-cta .note{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--muted)}
+
+  /* ====== Four Ways (reworked) ====== */
+  .four{background:var(--ink);color:var(--paper);padding:110px 0;position:relative;overflow:hidden}
+  .four::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 15% 30%, rgba(180,83,9,.16), transparent 50%);pointer-events:none}
+  .four .container{position:relative;z-index:1}
+  .four .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft);font-weight:500;margin-bottom:18px;display:inline-flex;align-items:center;gap:14px}
+  .four .eyebrow::before{content:"";width:32px;height:1px;background:var(--accent-soft)}
+  .four h2{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(56px,6vw,108px);line-height:.96;letter-spacing:-.022em;margin:0 0 22px;color:var(--paper);max-width:1300px}
+  .four h2 em{font-style:italic;font-weight:300;color:var(--accent-soft)}
+  .four .subhead{font-family:'Fraunces',serif;font-weight:380;font-size:clamp(22px,2.2vw,30px);line-height:1.3;font-style:italic;color:rgba(245,241,234,.82);margin:0 0 14px;letter-spacing:-.008em}
+  .four .subhead em{font-style:italic;color:var(--accent-soft);font-weight:380}
+  .four .lede{font-size:17px;line-height:1.55;color:rgba(245,241,234,.7);margin:0 0 56px;max-width:780px}
+  .four-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .way{background:rgba(245,241,234,.04);backdrop-filter:blur(4px);padding:32px 26px;border:1px solid rgba(245,241,234,.18);display:flex;flex-direction:column;gap:14px;min-height:380px}
+  .way .tier{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft);font-weight:500}
+  .way h3{font-family:'Fraunces',serif;font-weight:400;font-size:30px;letter-spacing:-.012em;line-height:1.05;margin:0;color:var(--paper)}
+  .way h3 em{font-style:italic;color:var(--accent-soft);font-weight:300}
+  .way .desc{font-size:14.5px;line-height:1.5;color:rgba(245,241,234,.78);margin:0}
+  .way .price{margin-top:auto;font-family:'Fraunces',serif;font-size:18px;color:var(--accent-soft);font-weight:400}
+
+  .notes{margin:48px 0 32px;padding:22px 28px;background:var(--paper);border-left:3px solid var(--accent);font-family:'Fraunces',serif;font-size:15px;line-height:1.55;color:var(--ink-2)}
+  .notes strong{display:block;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:10px;font-style:normal}
+
+  @media (max-width:900px){
+    .svc-grid,.four-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:600px){
+    .svc-grid,.four-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="row">
+      <h1>Homepage teasers + Four Ways <em>rework</em></h1>
+      <span class="lab">Mockup · 3 sections</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="intro">
+    <h2>Three new homepage sections + one rework. <em>Topical, scannable, SEO-deep.</em></h2>
+    <p>(1) <strong>Service teasers</strong> for the homepage — short cards that route deeper. (2) <strong>FAQ teasers</strong> — three of your highest-converting questions + link to full FAQ page. (3) <strong>Four Ways rework</strong> with "Four Ways to Work Together" as the headline and "Done-for-you. Done with you. Or done by you." demoted to subhead.</p>
+  </div>
+</div>
+
+<!-- SERVICE TEASERS -->
+<div class="mock"><span class="lab">01 · Service teasers (homepage)</span></div>
+<section class="services">
+  <div class="container">
+    <div class="eyebrow">— 05 / Services</div>
+    <h2>Four ways to <em>work together.</em></h2>
+    <p class="subhead">Done-for-you. Done <em>with</em> you. Or <em>done by</em> you.</p>
+    <p class="lede">Every engagement starts where you actually are. Pick the door that matches the work in front of you.</p>
+    <div class="svc-grid">
+      <a class="svc" href="#">
+        <span class="num">01 · Fractional COO</span>
+        <h3>Strategic <em>operations.</em></h3>
+        <p>Four phase-based engagements. Six to twelve weeks, two clients at a time. Audit-trained operator inside your business.</p>
+        <span class="meta">From $3,000/mo</span>
+        <span class="arr">Explore engagements →</span>
+      </a>
+      <a class="svc" href="#">
+        <span class="num">02 · Diagnostics</span>
+        <h3>Fixed-scope <em>audits.</em></h3>
+        <p>Short, scoped teardowns when you suspect something but aren't sure which package fits. Walk away with a prioritized fix list.</p>
+        <span class="meta">From $1,500 fixed</span>
+        <span class="arr">See diagnostics →</span>
+      </a>
+      <a class="svc featured" href="ai-systems.html">
+        <span class="num">03 · AI Integration</span>
+        <h3>Audit-led <em>AI buildouts.</em></h3>
+        <p>For founders and businesses that know AI can't be put off. Architect the system first. Then integrate. With a CPA + auditor lens.</p>
+        <span class="meta">From $197 · AI Assessment Call</span>
+        <span class="arr">Explore AI integration →</span>
+      </a>
+      <a class="svc" href="sop-suite.html">
+        <span class="num">04 · DIY · SOP Suite</span>
+        <h3>Self-serve <em>delegation system.</em></h3>
+        <p>Same framework I install with clients, packaged for your team to install themselves. Walkthroughs, templates, prioritization plan.</p>
+        <span class="meta">$998 v2 launch</span>
+        <span class="arr">Get the Suite →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="notes">
+    <strong>Notes on this section</strong>
+    Subhead and headline are swapped — "Four Ways to Work Together" is now the main heading (per Kathi's feedback), and the "Done-for-you / Done with you / Done by you" line is the italic subhead beneath it. The third card ("AI Integration") is featured in ink-navy to draw eye to the highest-growth offer. Each card is a clickable link that takes them to the deeper page (ai-systems, sop-suite, or the new /work-with-me page when we build it).
+  </div>
+</div>
+
+<!-- FAQ TEASERS -->
+<div class="mock"><span class="lab">02 · FAQ teasers (homepage)</span></div>
+<section class="faq-tease">
+  <div class="container">
+    <div class="eyebrow">— 11 / Real questions</div>
+    <h2>Quick answers, <em>real conversations.</em></h2>
+    <p class="lede">A few of the questions I get most often before a discovery call.</p>
+    <div class="faq-items">
+      <div class="faq-item open">
+        <div class="q"><h4>Who is this actually for?</h4><span class="ico">−</span></div>
+        <div class="a">Founders, COOs, and ops leaders at 10–500 person businesses, services, agencies, e-commerce, professional services, consulting firms. Typically $250K–$10M+ in revenue. Whether you're the bottleneck, or one of your key people is, if the work stops when those people stop, this is built for you.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><h4>What's the engagement length and pricing?</h4><span class="ico">+</span></div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><h4>How fast can you start?</h4><span class="ico">+</span></div>
+      </div>
+    </div>
+    <div class="faq-cta">
+      <a class="btn" href="faq.html">See all FAQs <span>→</span></a>
+      <span class="note">Plus refund policy, NDAs, AI safety, more.</span>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="notes">
+    <strong>Notes on this section</strong>
+    Top 3 FAQs only on homepage. The rest move to a dedicated `/faq` page (better SEO — Google ranks `/faq` URLs higher for question-shaped queries). First one is shown expanded so visitors don't have to click to see what the format looks like; the other two collapsed. CTA at the bottom routes to full FAQ page.
+  </div>
+</div>
+
+<!-- FOUR WAYS REWORK (alternate full-section version for the /work-with-me page) -->
+<div class="mock"><span class="lab">03 · Four Ways (full version for /work-with-me page)</span></div>
+<section class="four">
+  <div class="container">
+    <div class="eyebrow">— 02 / How we work</div>
+    <h2>Four ways to <em>work together.</em></h2>
+    <p class="subhead">Done-for-you. Done <em>with</em> you. Or <em>done by</em> you.</p>
+    <p class="lede">Every engagement starts where you actually are, not where the headline says you should be.</p>
+    <div class="four-grid">
+      <div class="way">
+        <span class="tier">01 · Fractional COO</span>
+        <h3>Done-for-you <em>engagements</em></h3>
+        <p class="desc">Four phase-based packages. Six to twelve weeks. Two clients at a time. Audit-trained operator inside your business.</p>
+        <div class="price">From $3,000/mo</div>
+      </div>
+      <div class="way">
+        <span class="tier">02 · Diagnostics</span>
+        <h3>Fixed-scope <em>diagnostics</em></h3>
+        <p class="desc">Short, audit-led teardowns when you suspect something but aren't sure which package fits.</p>
+        <div class="price">From $1,500 fixed</div>
+      </div>
+      <div class="way">
+        <span class="tier">03 · AI Integration</span>
+        <h3>AI &amp; automation <em>buildouts</em></h3>
+        <p class="desc">For founders and businesses that know AI can't be put off. Audit before integration so you build what pays, skip what doesn't.</p>
+        <div class="price">From $197 · AI Assessment</div>
+      </div>
+      <div class="way">
+        <span class="tier">04 · DIY · SOP Suite</span>
+        <h3>The <em>SOP Suite</em></h3>
+        <p class="desc">Self-serve digital product. v2 launch. Same delegation system, packaged for the operator on your team to install.</p>
+        <div class="price">$998 v2 launch</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="notes" style="margin-bottom:60px">
+    <strong>Notes on this section</strong>
+    "Four Ways to Work Together" promoted to the main H2 (per Kathi's email). The "Done-for-you / Done with you / Done by you" is now the italic subhead beneath. Three feedback notes from the emails I'm tracking but NOT executing until you tell me: (1) Erica's "short 3–4 question guided intake" idea — bigger architectural change, hold for now; (2) Kathi's "highlight Done-for-you/with/by mapping somewhere at the bottom" — could go below the four cards as a small footer line; (3) Savannah's copy nits on the Phases section — separate batch when you say go.
+  </div>
+</div>
+
+</body>
+</html>

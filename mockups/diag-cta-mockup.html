@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Diagnostic — calculator bridge + auburn subtext</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{--ink:#1a1f2e;--ink-2:#2a3142;--paper:#f5f1ea;--paper-2:#ede7dc;--rule:#d8cfbf;--muted:#6b7280;--accent:#b45309;--accent-2:#8b3a07;--accent-soft:#f3d9a7}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--paper-2);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+  .container{max-width:1180px;margin:0 auto;padding:0 32px}
+  .topbar{padding:24px 0;background:var(--ink);color:var(--paper)}
+  .topbar h1{font-family:'Fraunces',serif;font-weight:340;font-size:24px;margin:0;letter-spacing:-.012em}
+  .topbar h1 em{font-style:italic;color:var(--accent-soft);font-weight:300}
+  .topbar p{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:rgba(245,241,234,.7);margin:8px 0 0}
+
+  /* diagnostic replica */
+  .diag{background:var(--paper-2);padding:80px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .diag-header{margin-bottom:36px}
+  .section-num{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.15em;color:var(--muted);margin-bottom:8px;text-transform:uppercase}
+  .section-title{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(40px,5vw,68px);line-height:1.02;letter-spacing:-.02em;margin:0;color:var(--ink)}
+  .section-title em{font-style:italic;color:var(--accent);font-weight:300}
+  .diag-card{background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--accent);padding:40px 44px;max-width:760px}
+  .diag-q{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(22px,2.6vw,30px);line-height:1.25;letter-spacing:-.012em;color:var(--ink);margin:0 0 8px}
+  .diag-q em{font-style:italic;color:var(--accent);font-weight:300}
+  .diag-sub{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--muted);margin:0 0 28px;line-height:1.4}
+  .diag-progress{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+  .diag-dot{width:8px;height:8px;border-radius:50%;background:var(--rule)}
+  .diag-dot--on{background:var(--accent)}
+  .diag-progress-lab{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-left:6px}
+  .diag-options{display:flex;flex-direction:column;gap:10px}
+  .diag-opt{display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px 14px;padding:18px 20px;background:var(--paper-2);border:1px solid var(--rule);border-radius:2px;cursor:pointer;text-align:left}
+  .diag-opt-label{font-family:'Inter',sans-serif;font-size:15.5px;font-weight:500;color:var(--ink);line-height:1.4;grid-column:1;grid-row:1}
+  .diag-opt-arr{font-family:'JetBrains Mono',monospace;font-size:16px;color:var(--accent);grid-column:2;grid-row:1 / 3;align-self:center;font-weight:600}
+
+  /* OLD subtext (gray) */
+  .old .diag-opt-sub{font-family:'Fraunces',serif;font-style:italic;font-size:13.5px;color:var(--muted);line-height:1.4;grid-column:1;grid-row:2}
+  /* NEW subtext (auburn, larger) */
+  .new .diag-opt-sub{font-family:'Fraunces',serif;font-style:italic;font-size:14.5px;color:var(--accent-2);line-height:1.4;grid-column:1;grid-row:2}
+
+  .lab{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:40px 0 14px;padding:6px 12px;border:1px solid var(--accent);border-radius:3px;display:inline-block}
+
+  /* calculator bridge CTA */
+  .calc-bridge{margin-top:28px;padding:28px 32px;background:var(--ink);color:var(--paper);border-radius:2px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;position:relative;overflow:hidden}
+  .calc-bridge::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 85% 30%,rgba(180,83,9,.22),transparent 60%);pointer-events:none}
+  .calc-bridge > *{position:relative;z-index:1}
+  .calc-bridge .cb-text{font-family:'Fraunces',serif;font-style:italic;font-weight:380;font-size:20px;line-height:1.4;color:var(--paper);max-width:560px;margin:0}
+  .calc-bridge .cb-text em{color:var(--accent-soft);font-style:italic}
+  .calc-bridge .cb-cta{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;background:var(--accent);color:var(--paper);border-radius:999px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="container">
+  <h1>Diagnostic section — <em>two fixes</em></h1>
+  <p>(1) Auburn subtext for visibility. (2) Calculator bridge CTA under the quiz card.</p>
+</div></div>
+
+<section class="diag">
+  <div class="container">
+    <div class="diag-header">
+      <div class="section-num">02 / Not sure where to start?</div>
+      <h2 class="section-title">Two questions.<br/><em>One clear next step.</em></h2>
+    </div>
+
+    <span class="lab">Before — gray subtext (hard to read)</span>
+    <div class="diag-card old">
+      <div class="diag-progress"><span class="diag-dot diag-dot--on"></span><span class="diag-dot"></span><span class="diag-progress-lab">Question 1 of 2</span></div>
+      <h3 class="diag-q">Where does your business actually stand <em>right now?</em></h3>
+      <p class="diag-sub">Pick the one that stings a little.</p>
+      <div class="diag-options">
+        <button class="diag-opt"><span class="diag-opt-label">If I step away, the business suffers.</span><span class="diag-opt-sub">No SOPs. No real onboarding. If you stop, things start breaking.</span><span class="diag-opt-arr">→</span></button>
+        <button class="diag-opt"><span class="diag-opt-label">We have systems, but they need to be optimized.</span><span class="diag-opt-sub">Processes exist. They just weren't built for where you're going.</span><span class="diag-opt-arr">→</span></button>
+      </div>
+    </div>
+
+    <span class="lab">After — auburn subtext (visible) + calculator bridge CTA</span>
+    <div class="diag-card new">
+      <div class="diag-progress"><span class="diag-dot diag-dot--on"></span><span class="diag-dot"></span><span class="diag-progress-lab">Question 1 of 2</span></div>
+      <h3 class="diag-q">Where does your business actually stand <em>right now?</em></h3>
+      <p class="diag-sub">Pick the one that stings a little.</p>
+      <div class="diag-options">
+        <button class="diag-opt"><span class="diag-opt-label">If I step away, the business suffers.</span><span class="diag-opt-sub">No SOPs. No real onboarding. If you stop, things start breaking.</span><span class="diag-opt-arr">→</span></button>
+        <button class="diag-opt"><span class="diag-opt-label">We have systems, but they need to be optimized.</span><span class="diag-opt-sub">Processes exist. They just weren't built for where you're going.</span><span class="diag-opt-arr">→</span></button>
+        <button class="diag-opt"><span class="diag-opt-label">I'm ready to scale, but my business isn't.</span><span class="diag-opt-sub">Revenue is climbing faster than the systems supporting it.</span><span class="diag-opt-arr">→</span></button>
+        <button class="diag-opt"><span class="diag-opt-label">We need to implement AI but I don't know where to start.</span><span class="diag-opt-sub">Leadership knows it's coming. No one has a real plan.</span><span class="diag-opt-arr">→</span></button>
+      </div>
+    </div>
+
+    <!-- Calculator bridge CTA -->
+    <div class="calc-bridge">
+      <p class="cb-text">While you're figuring out where you are, <em>find out what it's costing you to stay there.</em></p>
+      <a href="#" class="cb-cta">Run the cost calculator <span>→</span></a>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

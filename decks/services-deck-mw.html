@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Fallon Scott · Services + Capabilities — for Megan & Femology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<script src="deck-stage.js"></script>
+<style>
+  :root{
+    --ink:#1a1f2e;--ink-2:#2a3142;--paper:#f5f1ea;--paper-2:#ede7dc;
+    --rule:#d8cfbf;--muted:#6b7280;--accent:#b45309;--accent-2:#8b3a07;--accent-soft:#f3d9a7;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  deck-stage{display:block}
+  section{width:1920px;height:1080px;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+  section.cream{background:var(--paper);color:var(--ink)}
+  section.warm{background:var(--paper-2);color:var(--ink)}
+  section.ink{background:var(--ink);color:var(--paper)}
+  section.chocolate{background:var(--accent-2);color:var(--paper)}
+
+  /* Universal */
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:36px;display:inline-flex;align-items:center;gap:18px}
+  .eyebrow::before{content:"";width:48px;height:1px;background:var(--accent)}
+  section.ink .eyebrow, section.chocolate .eyebrow{color:var(--accent-soft)}
+  section.ink .eyebrow::before, section.chocolate .eyebrow::before{background:var(--accent-soft)}
+  h1{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(80px,7vw,140px);line-height:.95;letter-spacing:-.024em;margin:0 0 36px;max-width:1500px}
+  h1 em{font-style:italic;font-weight:300;color:var(--accent)}
+  section.ink h1 em, section.chocolate h1 em{color:var(--accent-soft)}
+  h2{font-family:'Fraunces',serif;font-weight:340;font-size:96px;line-height:1;letter-spacing:-.022em;margin:0 0 36px;max-width:1500px}
+  h2 em{font-style:italic;font-weight:300;color:var(--accent)}
+  section.ink h2 em, section.chocolate h2 em{color:var(--accent-soft)}
+  h3{font-family:'Fraunces',serif;font-weight:400;font-size:44px;line-height:1.1;letter-spacing:-.015em;margin:0 0 14px}
+  h3 em{font-style:italic;font-weight:300;color:var(--accent)}
+  section.ink h3 em, section.chocolate h3 em{color:var(--accent-soft)}
+  .lede{font-size:30px;line-height:1.45;color:var(--ink-2);max-width:1300px;margin:0;font-family:'Fraunces',serif;font-weight:380}
+  section.ink .lede, section.chocolate .lede{color:rgba(245,241,234,.82)}
+  .lede em{font-style:italic;color:var(--accent);font-weight:380}
+  section.ink .lede em, section.chocolate .lede em{color:var(--accent-soft)}
+  .lede strong{color:var(--ink);font-weight:500}
+  section.ink .lede strong, section.chocolate .lede strong{color:var(--paper)}
+
+  /* Logo lockup */
+  .deck-logo{position:absolute;top:50px;right:140px;font-family:'Fraunces',serif;font-weight:600;font-size:28px;letter-spacing:-.012em;color:inherit;display:inline-flex;align-items:baseline;z-index:10}
+  .deck-logo .dot{color:var(--accent)}
+  section.ink .deck-logo .dot, section.chocolate .deck-logo .dot{color:var(--accent-soft)}
+  .deck-logo .chip{font-family:'JetBrains Mono',monospace;font-size:.42em;font-weight:500;letter-spacing:.14em;color:var(--accent);transform:translateY(-.45em);padding:4px 9px;border:1px solid currentColor;border-radius:3px;margin-left:14px;display:inline-block;vertical-align:middle;text-decoration:none}
+  section.ink .deck-logo .chip, section.chocolate .deck-logo .chip{color:var(--accent-soft)}
+  /* On cover slide, hide the corner logo (signature already covers the brand at bottom) */
+  .cover .deck-logo{display:none}
+
+  /* Footer slug — bottom-right so it never collides with full-width content */
+  .slide-meta{position:absolute;bottom:40px;right:140px;display:flex;gap:20px;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500;z-index:10;background:transparent;padding:6px 0;align-items:center}
+  .slide-meta::before{content:"";display:inline-block;width:24px;height:1px;background:currentColor;opacity:.5}
+  section.ink .slide-meta, section.chocolate .slide-meta{color:rgba(245,241,234,.5)}
+  .slide-meta .num{color:var(--accent);font-weight:600}
+  section.ink .slide-meta .num, section.chocolate .slide-meta .num{color:var(--accent-soft)}
+
+  /* ========== SLIDE 1 — COVER ========== */
+  .cover{background:var(--paper);color:var(--ink);align-items:center;justify-content:center;text-align:center;padding:140px 160px}
+  .cover h1{font-size:200px;line-height:.92;max-width:1500px;margin-bottom:48px;color:var(--ink)}
+  .cover .pre-title{font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:48px;display:inline-flex;align-items:center;gap:22px}
+  .cover .pre-title::before{content:"";width:60px;height:1px;background:var(--accent)}
+  .cover-signoff{position:absolute;bottom:80px;right:140px;font-family:'Fraunces',serif;font-weight:600;font-size:34px;letter-spacing:-.012em;color:var(--ink);display:inline-flex;align-items:baseline}
+  .cover-signoff .by{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-right:14px;font-weight:500;transform:translateY(-.18em)}
+  .cover-signoff .dot{color:var(--accent)}
+  .cover-signoff .chip{font-family:'JetBrains Mono',monospace;font-size:.42em;font-weight:500;letter-spacing:.14em;color:var(--accent);transform:translateY(-.45em);padding:5px 11px;border:1px solid currentColor;border-radius:3px;margin-left:18px;display:inline-block;vertical-align:middle}
+  .cover .lede{font-size:38px;line-height:1.4;max-width:1500px;font-family:'Fraunces',serif;font-style:italic;font-weight:340}
+  .cover .lede em.amber{color:var(--accent);font-style:italic;font-weight:380}
+  .cover .lede strong{font-style:normal;font-weight:500;color:var(--ink);font-family:'Inter',sans-serif;font-size:30px;letter-spacing:.05em;text-transform:uppercase;display:inline-block;margin:0 8px 0 4px;transform:translateY(-2px)}
+  .cover .for-tag{position:absolute;bottom:80px;left:140px;max-width:780px}
+  .cover .for-tag .for{flex:1;max-width:780px}
+  .cover .for-tag .for .top{font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);font-weight:500;margin-bottom:8px;display:block}
+  .cover .for-tag .for .mainline{font-family:'Fraunces',serif;font-style:italic;font-weight:380;font-size:32px;color:var(--ink);line-height:1.15;margin:0 0 14px;letter-spacing:-.005em}
+  .cover .for-tag .for .subline{font-family:'Fraunces',serif;font-style:italic;font-weight:340;font-size:20px;color:var(--muted);line-height:1.4;margin:0;max-width:440px;text-wrap:balance}
+  .cover .for-tag .signature{text-align:right;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+  .cover .for-tag .signature em{display:block;font-family:'Fraunces',serif;font-style:italic;font-size:26px;color:var(--ink);font-weight:340;text-transform:none;letter-spacing:-.005em;margin-top:6px}
+
+  /* ========== SLIDE 2 — THE PROMISE ========== */
+  .promise{background:linear-gradient(135deg,var(--ink) 0%,#0d111c 100%);color:var(--paper);position:relative;overflow:hidden}
+  .promise::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 75% 35%, rgba(180,83,9,.22), transparent 55%),radial-gradient(ellipse at 20% 80%, rgba(243,217,167,.08), transparent 50%);pointer-events:none}
+  .promise > *:not(.deck-logo){position:relative;z-index:1}
+  .promise h2{font-size:144px;line-height:.92;max-width:1700px;margin-bottom:60px;color:var(--paper)}
+  .promise h2 em{color:var(--accent-soft)}
+  .promise h2 .accent{color:var(--accent)}
+  .promise .stack{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:80px;max-width:1500px;margin-bottom:120px}
+  .promise .stack .out{padding:36px 0;border-top:2px solid var(--accent-soft)}
+  .promise .stack .out .num{font-family:'Fraunces',serif;font-weight:300;font-size:24px;letter-spacing:.18em;color:var(--accent-soft);text-transform:uppercase;font-family:'JetBrains Mono',monospace;font-size:14px}
+  .promise .stack .out h4{font-family:'Fraunces',serif;font-weight:400;font-size:68px;letter-spacing:-.018em;margin:18px 0 18px;line-height:1;color:var(--paper)}
+  .promise .stack .out h4 em{font-style:italic;color:var(--accent-soft);font-weight:300}
+  .promise .stack .out p{font-size:22px;line-height:1.45;color:rgba(245,241,234,.78);margin:0}
+
+  /* ========== SLIDE 3 — WHO ========== */
+  .audience{background:var(--paper)}
+  .audience .who-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);gap:28px;margin-top:36px}
+  .audience .who-card{padding:40px 38px;background:var(--paper-2);border:1px solid var(--rule);border-top:4px solid var(--accent);transition:none;display:flex;flex-direction:column;gap:18px;min-height:0}
+  .audience .who-card.fund{border-top-color:var(--accent-2)}
+  .audience .who-card.fund .num{color:var(--accent-2)}
+  .audience .who-card .num{font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:500}
+  .audience .who-card h3{font-family:'Fraunces',serif;font-weight:400;font-size:34px;letter-spacing:-.015em;line-height:1.05;margin:0;color:var(--ink)}
+  .audience .who-card h3 em{font-style:italic;color:var(--accent);font-weight:300}
+  .audience .who-card.fund h3 em{color:var(--accent-2)}
+  .audience .who-card p{font-size:18px;line-height:1.5;color:var(--ink-2);margin:0}
+  .audience .who-card .pain{margin-top:auto;padding-top:22px;border-top:1px solid var(--rule);font-family:'Fraunces',serif;font-style:italic;font-size:19px;color:var(--ink);line-height:1.35}
+
+  /* ========== SLIDE 4 — SYMPTOMS ========== */
+  .symptoms{background:var(--accent-2);color:var(--paper)}
+  .symptoms .eyebrow{color:var(--accent-soft)}
+  .symptoms .eyebrow::before{background:var(--accent-soft)}
+  .symptoms h2{color:var(--paper)}
+  .symptoms h2 em{color:var(--accent-soft) !important}
+  .symptoms .lede{color:rgba(245,241,234,.85) !important;max-width:1500px}
+  .symptoms .lede em{color:var(--accent-soft)}
+  .symptoms .sym-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:60px;background:rgba(245,241,234,.18);border:1px solid rgba(245,241,234,.18)}
+  .symptoms .sym{background:var(--accent-2);padding:34px 38px;display:flex;gap:24px;align-items:flex-start;transition:none}
+  .symptoms .sym .n{font-family:'Fraunces',serif;font-size:48px;font-weight:300;color:var(--accent-soft);line-height:1;flex-shrink:0}
+  .symptoms .sym p{font-family:'Fraunces',serif;font-weight:400;font-size:26px;line-height:1.4;margin:0;color:var(--paper)}
+  .symptoms .sym p em{font-style:italic;color:var(--accent-soft);font-weight:300}
+
+  /* ========== SLIDE 5 — MEET FALLON ========== */
+  .meet{background:var(--paper);justify-content:flex-start;padding-top:140px}
+  .meet .eyebrow{margin-bottom:24px}
+  .meet h2{margin-bottom:28px;font-size:80px}
+  .meet .meet-grid{display:grid;grid-template-columns:.65fr 1.35fr;gap:76px;align-items:center;margin-top:32px}
+  .meet .portrait{aspect-ratio:4/5;background:#222;border-radius:2px;overflow:hidden;position:relative;max-height:700px}
+  .meet .portrait img{width:100%;height:100%;object-fit:cover;object-position:center 15%}
+  .meet .portrait .tag{position:absolute;bottom:30px;left:30px;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.22em;text-transform:uppercase;mix-blend-mode:difference}
+  .meet .meet-body p{font-size:28px;line-height:1.5;color:var(--ink-2);margin:0 0 22px;font-family:'Fraunces',serif;font-weight:400}
+  .meet .meet-body p.lede{font-family:'Fraunces',serif;font-weight:380;font-size:38px;line-height:1.3;color:var(--ink);margin-bottom:36px}
+  .meet .meet-body p.lede em{font-style:italic;color:var(--accent);font-weight:340}
+  .meet .meet-body p strong{color:var(--ink);font-weight:500}
+  .meet .creds{margin-top:36px;display:grid;grid-template-columns:repeat(4,auto);gap:32px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:24px 0}
+  .meet .creds .c{padding-right:32px;border-right:1px solid var(--rule)}
+  .meet .creds .c:last-child{border-right:none}
+  .meet .creds .c .n{font-family:'Fraunces',serif;font-weight:400;font-size:34px;line-height:1;color:var(--ink);letter-spacing:-.01em}
+  .meet .creds .c .n em{font-style:italic;color:var(--accent);font-weight:300}
+  .meet .creds .c .l{font-size:14px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:8px;font-family:'JetBrains Mono',monospace}
+
+  /* ========== SLIDE 6 — APPROACH ========== */
+  .approach{background:var(--paper-2)}
+  .approach .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:80px}
+  .approach .step{position:relative;padding-top:40px;border-top:3px solid var(--ink)}
+  .approach .step .n{font-family:'Fraunces',serif;font-weight:300;font-size:120px;line-height:1;color:var(--accent);letter-spacing:-.03em;margin-bottom:24px}
+  .approach .step h3{font-family:'Fraunces',serif;font-weight:500;font-size:48px;letter-spacing:-.018em;margin:0 0 18px;color:var(--ink)}
+  .approach .step h3 em{font-style:italic;color:var(--accent);font-weight:300}
+  .approach .step p{font-size:22px;line-height:1.5;color:var(--ink-2);margin:0}
+
+  /* ========== SLIDE 7 — ENGAGEMENT ========== */
+  .engage{background:var(--ink);color:var(--paper)}
+  .engage .eyebrow{color:var(--accent-soft)}
+  .engage h2{color:var(--paper)}
+  .engage h2 em{color:var(--accent-soft)}
+  .engage > .lede{color:rgba(245,241,234,.82) !important;max-width:1500px}
+  .engage > .lede em{color:var(--accent-soft)}
+  .engage > .lede strong{color:var(--paper)}
+  .engage::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 15% 30%, rgba(180,83,9,.16), transparent 50%);pointer-events:none}
+  .engage > *:not(.deck-logo){position:relative;z-index:1}
+  .engage .ways{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:60px}
+  .engage .way{background:rgba(245,241,234,.04);backdrop-filter:blur(4px);padding:36px 30px;border:1px solid rgba(245,241,234,.18);display:flex;flex-direction:column;gap:16px;min-height:480px}
+  .engage .way .tag{font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft);font-weight:500}
+  .engage .way h3{font-family:'Fraunces',serif;font-weight:400;font-size:38px;letter-spacing:-.012em;line-height:1.05;margin:0;color:var(--paper)}
+  .engage .way h3 em{font-style:italic;color:var(--accent-soft);font-weight:300}
+  .engage .way .desc{font-size:18px;line-height:1.5;color:rgba(245,241,234,.78);margin:0}
+  .engage .way ul{list-style:none;padding:18px 0 0;margin:0;border-top:1px solid rgba(245,241,234,.18);display:flex;flex-direction:column;gap:8px;margin-top:auto}
+  .engage .way ul li{font-size:17px;line-height:1.4;color:rgba(245,241,234,.82);padding-left:18px;position:relative}
+  .engage .way ul li::before{content:"→";position:absolute;left:0;color:var(--accent-soft);font-weight:500}
+  .engage .way .price{margin-top:auto;font-family:'Fraunces',serif;font-size:24px;color:var(--accent-soft);font-weight:400;padding-top:16px}
+
+  /* ========== SLIDE 8 — RECEIPTS ========== */
+  .receipts{background:var(--paper)}
+  .receipts .grid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:60px}
+  .receipts .stat{background:var(--paper);padding:50px 36px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .receipts .stat:nth-child(4n){border-right:none}
+  .receipts .stat:nth-child(n+5){border-bottom:none}
+  .receipts .stat .num{font-family:'Fraunces',serif;font-weight:300;font-size:108px;line-height:1;letter-spacing:-.025em;color:var(--ink);margin-bottom:20px}
+  .receipts .stat .num em{color:var(--accent);font-style:normal}
+  .receipts .stat .lab{font-size:19px;line-height:1.45;color:var(--ink-2)}
+
+  /* ========== SLIDE 9 — NORTH STAR ========== */
+  .northstar{background:var(--accent-2);color:var(--paper);position:relative;overflow:hidden;justify-content:center}
+  .northstar::before{content:""}
+  .northstar::after{content:""}
+  .northstar .bg-mark{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:rgba(243,217,167,.08);font-size:1100px;line-height:.85;letter-spacing:-.05em;pointer-events:none}
+  .northstar .inner{position:relative;z-index:1;max-width:1500px}
+  .northstar .open-quote{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:200px;line-height:.5;color:var(--accent-soft);margin-bottom:30px}
+  .northstar h2{font-family:'Fraunces',serif;font-weight:340;font-size:104px;line-height:1.05;letter-spacing:-.02em;margin:0 0 48px;color:var(--paper)}
+  .northstar h2 em{font-style:italic;font-weight:300;color:var(--accent-soft)}
+  .northstar h2 strong{font-weight:380;font-style:normal;color:var(--paper)}
+  .northstar .attribution{font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:.28em;text-transform:uppercase;color:rgba(243,217,167,.75);font-weight:500}
+  .northstar .attribution em{font-family:'Fraunces',serif;font-style:italic;text-transform:none;font-size:24px;color:var(--accent-soft);letter-spacing:-.005em;margin-left:14px;font-weight:340}
+
+  /* ========== SLIDE 10 — CONNECT ========== */
+  .connect{background:var(--paper)}
+  .connect .doors{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
+  .connect .door{padding:48px 42px;background:var(--ink);color:var(--paper);display:flex;flex-direction:column;gap:18px;min-height:380px;text-decoration:none}
+  .connect .door.amber{background:var(--accent);color:var(--paper)}
+  .connect .door.cream{background:var(--paper-2);color:var(--ink);border:1px solid var(--rule)}
+  .connect .door .lab{font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--accent-soft)}
+  .connect .door.cream .lab{color:var(--accent)}
+  .connect .door .lab.dark{color:var(--accent-soft)}
+  .connect .door h3{font-family:'Fraunces',serif;font-weight:400;font-size:46px;letter-spacing:-.018em;line-height:1.05;margin:0;color:inherit}
+  .connect .door h3 em{font-style:italic;color:var(--accent-soft);font-weight:300}
+  .connect .door.cream h3 em{color:var(--accent)}
+  .connect .door p{font-size:20px;line-height:1.45;color:rgba(245,241,234,.82);margin:0}
+  .connect .door.cream p{color:var(--ink-2)}
+  .connect .door .price{margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,241,234,.65);padding-top:16px;border-top:1px solid rgba(245,241,234,.22)}
+  .connect .door.cream .price{color:var(--muted);border-top-color:var(--rule)}
+  .connect .contact-strip{margin-top:60px;padding:36px 0;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:32px}
+  .connect .contact-strip .url{font-family:'Fraunces',serif;font-weight:380;font-size:36px;color:var(--ink);letter-spacing:-.012em}
+  .connect .contact-strip .url em{font-style:italic;color:var(--accent)}
+  .connect .contact-strip .email{font-family:'JetBrains Mono',monospace;font-size:22px;letter-spacing:.06em;color:var(--ink-2)}
+
+  /* Learn more buttons (deck → site links) */
+  .learn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-family:'Inter',sans-serif;font-size:18px;font-weight:500;letter-spacing:.01em;text-decoration:none;transition:none;margin-top:24px;width:fit-content}
+  .learn.dark{background:var(--ink);color:var(--paper);border:1px solid var(--ink)}
+  .learn.amber{background:var(--accent);color:var(--paper);border:1px solid var(--accent)}
+  .learn.ghost{background:transparent;color:var(--paper);border:1px solid rgba(245,241,234,.4)}
+  .learn .arr{display:inline-block;font-size:.92em;transform:translateY(-1px)}
+  .meet-body .learn{margin-top:36px}
+  .engage .way .learn{margin-top:18px;font-size:16px;padding:10px 18px}
+  .northstar .learn{margin-top:48px}
+
+  /* Generous bottom safe zone on every slide — prevents .slide-meta from sitting under content */
+  section.cream, section.warm, section.ink, section.chocolate{padding-bottom:110px}
+  section.cover{padding-bottom:140px}
+
+  /* Speaker notes container — invisible */
+  #speaker-notes{display:none}
+</style>
+<script type="application/json" id="speaker-notes">
+[
+  "Cover. The deck is built for Megan to forward to people in her Femology community or her broader network. Read the title slowly. The promise: helping founders get free and funded through systems and scalability. Lean into 'Free and Funded' as the headline outcome.",
+  "The promise. This is the slide that resets how most founders think about ops. Process optimization isn't an admin thing. It's a productivity and profitability lever. Use this language when you talk about my work: every package, every diagnostic, every AI build is in service of these two outcomes. Both are universal, no matter the audience.",
+  "Who this is for. Four audience signals — the bottlenecked founder, the hiring-ready leader, the AI-aware operator, and the funded-or-exit-ready owner. Whether they built the business or they run it inside one. The point: my work isn't gated by title or company size. It applies to founders, COOs, and ops leaders at 10–500 person companies.",
+  "AI magnifies what's broken. New slide that frames the whole AI integration story. AI doesn't fix operations — it multiplies whatever you point it at. Whatever's chaotic, manual, undocumented, inefficient gets 10×'d. This is the key wedge slide. Read the headline slow. Let the room sit with the 10× math.",
+  "Symptoms. Don't say 'you need SOPs' — most founders don't think they have a system problem. They think they have a hiring problem, a vacation problem, a 'why won't this person get it right' problem. This slide names the actual symptoms. By the end, the listener says 'oh that's me.'",
+  "Meet me. CPA. Lean Six Sigma. Auditing since 2010. Co-founded a company in 2022 and 11×'d revenue using the same system I install for clients. Two clients at a time. Founder of F28.",
+  "The approach. Three steps: audit the gaps, build the systems, optimize for profit and productivity. This is the through-line for every engagement.",
+  "Engagement options. Three ways to work with me. The Ops Partner, a done-for-you engagement with four operational models inside it. Two short-form diagnostics. One DIY product. There's a doorway for every reader.",
+  "Receipts. Numbers that have actually moved. 11× revenue. 60+ process maps. 6,000-person team scaled. 16 years finding root cause.",
+  "The North Star. Read this slowly. The systems that make a business fundable, scalable, and sellable are the systems that set a founder free. This is the brand promise.",
+  "Connect. Three doors. Free discovery call. AI assessment for the AI-curious. SOP Suite for the DIY builder. Website fallonscott.com. Tell them to mention Megan when they reach out."
+]
+</script>
+</head>
+<body>
+<deck-stage>
+
+  <!-- 01 — Cover -->
+  <section class="cover" data-screen-label="01 Cover">
+    <a class="deck-logo">Fallon Scott<span class="dot">.</span><span class="chip">F28</span></a>
+    <div class="pre-title">Operator-turned-Architect</div>
+    <h1 style="text-align:center;margin-left:auto;margin-right:auto">Free and <em>funded.</em></h1>
+    <p class="subhead" style="font-family:'Fraunces',serif;font-style:italic;font-weight:380;font-size:clamp(24px,2.4vw,32px);line-height:1.35;color:var(--accent);margin:0 auto 28px;max-width:1300px;text-align:center">Helping founders and business leaders achieve both, through systems.</p>
+    <p class="lede" style="font-size:24px;text-align:center;margin:0 auto;max-width:1080px;text-wrap:balance;line-height:1.55">The kind of business <em class="amber">investors fund, acquirers buy,</em> and teams can run without you in the room.</p>
+    <p class="lede" style="font-size:22px;text-align:center;margin:18px auto 0;max-width:900px;color:var(--ink-2);font-style:italic;font-family:'Fraunces',serif;font-weight:380">How? Through <em class="amber" style="font-weight:500">systems and scalability.</em></p>
+    <div class="for-tag">
+      <div class="for"><strong>Prepared for</strong> Megan Ward · Femology<br/><span class="sharing">For sharing with your network and community of women founders building the next wave.</span></div>
+      </div>
+    <div class="cover-signoff"><span class="by">By</span> Fallon Scott<span class="dot">.</span><span class="chip">F28</span></div>
+  </section>
+
+  <!-- 02 — The Promise -->
+  <section class="promise" data-screen-label="02 The Promise">
+    <a class="deck-logo">Fallon Scott<span class="dot">.</span><span class="chip">F28</span></a>
+    <div class="eyebrow">— 02 / The promise underneath every engagement</div>
+    <h2>Optimized processes mean <em>enhanced productivity</em><br/>and <em>enhanced profitability.</em></h2>
+    <div class="stack">
+      <div class="out">
+        <div class="num">— Outcome 01</div>
+        <h4><em>Productivity.</em></h4>
+        <p>Hours back. Bottlenecks gone. The founder out of the work, the team into it. Capacity created without adding headcount.</p>
+      </div>
+      <div class="out">
+        <div class="num">— Outcome 02</div>
+        <h4><em>Profitability.</em></h4>
+        <p>Margins that hold. Operations that don't bleed. The financial discipline of an auditor applied to every workflow we touch.</p>
+      </div>
+    </div>
+    <div class="slide-meta"><span class="num">02 / 10</span><span>The promise</span></div>
+  </section>
+
+  <!-- 03 — Who -->
+  <section class="audience cream" data-screen-label="03 Who this is for">
+    <a class="deck-logo">Fallon Scott<span class="dot">.</span><span class="chip">F28</span></a>
+    <div class="eyebrow">— 03 / Who I work with</div>
+    <h2>Whether you built it or you run it. <em>Same operator. Same lens.</em></h2>
+    <p class="lede">My work isn't gated by title or stage. Founders, COOs, and ops leaders at 10–500 person companies want the same outcome: <em>enhanced productivity and enhanced profitability.</em> Built on systems, not heroics.</p>
+    <div class="who-grid">
+      <div class="who-card">
+        <span class="num">— Profile 01</span>
+        <h3>The <em>bottlenecked</em> founder.</h3>
+        <p>The business lives in your head. Vacations are work. You can't step back without something breaking. You're doing everything you can and still can't hire fast enough.</p>
+        <p class="pain">"I can't hire anymore. I can't duplicate myself."</p>
+      </div>
+      <div class="who-card">
+        <span class="num">— Profile 02</span>
+        <h3>The <em>hiring-ready</em> builder.</h3>
+        <p>You've got a team — three, five, fifteen — and turnover is high, training is endless, and every "bad hire" feels like a personal failure. The hire isn't the problem.</p>
+        <p class="pain">"I'm tired of training people three times and watching them quit."</p>
+      </div>
+      <div class="who-card">
+        <span class="num">— Profile 03</span>
+        <h3>The <em>AI-aware</em> leader.</h3>
+        <p>You know AI isn't optional anymore. You don't need convincing. You need someone to install it safely and strategically — with a CPA, auditor, and Lean Six Sigma lens deciding what to build first.</p>
+        <p class="pain">"Everyone's promising it or teaching it. Nobody's installing it safely or strategically."</p>
+      </div>
+      <div class="who-card fund">
+        <span class="num">— Profile 04</span>
+        <h3>The <em>funded-or-exit-ready</em> founder.</h3>
+        <p>You have a team. You're not the bottleneck. But your ops aren't investor-grade, your numbers don't tell a clean story, and a buyer or VC would see daylight between what you have and what you're worth.</p>
+        <p class="pain">"I'm not chaotic. I just need to be investable, scalable, or sellable."</p>
+      </div>
+    </div>
+    <div class="slide-meta"><span class="num">03 / 10</span><span>The audience</span></div>
+  </section>
+
+  <!-- 04 — Symptoms -->
+  <section class="symptoms" data-screen-label="04 Symptoms">
+    <a class="deck-logo">Fallon Scott<span class="dot">.</span><span class="chip">F28</span></a>
+    <div class="eyebrow">— 04 / Read the lines that sound like you</div>
+    <h2>The symptoms of <em>a system problem</em><br/>dressed up as something else.</h2>
+    <p class="lede">If even one of these feels like yours — the bottleneck isn't your effort. It's the lack of a system underneath it.</p>
+    <div class="sym-grid">
+      <div class="sym"><span class="n">01</span><p>Your turnover is high, and every new hire feels like starting <em>from scratch.</em></p></div>
+      <div class="sym"><span class="n">02</span><p>You've trained this person three times and they <em>still</em> can't get it right.</p></div>
+      <div class="sym"><span class="n">03</span><p>Slack and Teams pings interrupt every vacation, every dinner, every <em>weekend.</em></p></div>
+      <div class="sym"><span class="n">04</span><p>The business lives in your head, and you can feel the <em>weight of it.</em></p></div>
+      <div class="sym"><span class="n">05</span><p>Hiring is vibes-based: a JD ChatGPT or your VA spun up, an interview, a <em>prayer.</em></p></div>
+      <div class="sym"><span class="n">06</span><p>You're the bottleneck for every decision. You wanted leverage, not a <em>second job.</em></p></div>
+    </div>
+    <div class="slide-meta"><span class="num">04 / 10</span><span>The symptoms</span></div>
+  </section>
+
+
+
+  <!-- 04 — AI MAGNIFIES (new slide) -->
+  <section class="ai-magnify chocolate" data-screen-label="04 AI Magnifies" style="background:var(--accent-2);color:var(--paper)">
+    <a class="deck-logo">Fallon Scott<span class="dot">.</span><span class="chip">F28</span></a>
+    <div class="eyebrow">— 04 / The truth about AI &amp; ops</div>
+    <h2 style="font-size:clamp(80px,7.5vw,144px);max-width:1700px;color:var(--paper)">AI doesn't fix your operations.<br/><em style="color:var(--accent-soft)">It magnifies them.</em></h2>
+    <p class="lede" style="font-size:30px;max-width:1400px;color:rgba(245,241,234,.88);font-style:italic;line-height:1.3;margin-top:48px">Whatever is chaotic, manual, undocumented, or inefficient in your business doesn't get fixed when AI gets bolted on top. It gets <em style="color:var(--accent-soft);font-style:italic">10×'d.</em></p>
+    <p class="lede" style="font-size:24px;max-width:1300px;color:rgba(245,241,234,.78);margin-top:36px">Faster handoffs through a broken process aren't a win. They're 10× the failures, 10× the rework, 10× the customer complaints. <strong style="color:var(--paper);font-weight:500">Architect the system first. Then integrate.</strong></p>
+    <div class="slide-meta"><span class="num">04 / 11</span><span>The truth</span></div>
+  </section>
+
+  <!-- 05 — Meet Fallon -->
+  <section class="meet cream" data-screen-label="05 Meet Fallon">
+    <a class="deck-logo">Fallon Scott<span class="dot">.</span><span class="chip">F28</span></a>
+    <div class="eyebrow">— 05 / Your guide</div>
+    <h2>Meet <em>Fallon.</em></h2>
+    <div class="meet-grid">
+      <div class="portrait">
+        <img src="../assets/photos/about-hero.jpg" alt="Fallon Scott" />
+        <span class="tag">— Atlanta · Worldwide</span>
+      </div>
+      <div class="meet-body">
+        <p class="lede">CPA. Lean Six Sigma. Ex-KPMG and Delta auditor. <em>Operator-turned-architect</em> for founders, COOs, and ops leaders.</p>
+        <p>I started auditing in 2010. Ten years on the inside of Fortune 100 ops, including Delta, Home Depot, the Atlanta Braves, and Synovus. I crossed over into operations in 2015, scaled a 6,000-person sales and marketing team, and learned that <strong>automation belongs to the admin layer</strong> so humans can do what only humans can.</p>
+        <p>In 2022 I co-founded a company and <strong>11×'d revenue</strong> in twelve months, without working more hours, because the systems were doing the work the human used to do.</p>
+        <p>Now I bring that same audit and operator lens to <strong>the architecture of every system I build</strong> and <strong>every process I optimize</strong>, for <strong>two clients at a time</strong>, through F28.</p>
+        <a class="learn dark" href="../about.html" target="_blank">Learn more about Fallon <span class="arr">→</span></a>
+        <div class="creds">
+          <div class="c"><div class="n"><em>16+</em></div><div class="l">years auditing</div></div>
+          <div class="c"><div class="n">60<em>+</em></div><div class="l">process maps</div></div>
+          <div class="c"><div class="n">11<em>×</em></div><div class="l">revenue (Makenzie House)</div></div>
+          <div class="c"><div class="n"><em>2</em></div><div class="l">clients at a time</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-meta"><span class="num">05 / 11</span><span>The guide</span></div>
+  </section>
+
+  <!-- 06 — Approach -->
+  <section class="approach warm" data-screen-label="06 The Approach">
+    <a class="deck-logo">Fallon Scott<span class="dot">.</span><span class="chip">F28</span></a>
+    <div class="eyebrow">— 06 / How the work happens</div>
+    <h2>Audit. Build. <em>Optimize.</em></h2>
+    <p class="lede">A three-step operating system applied to every engagement, every product, every conversation. The order matters. Most founders <em>and most freelance operators</em> skip the first one.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="n">01</div>
+        <h3>Audit <em>the gaps.</em></h3>
+        <p>An auditor's eye finds the root cause. Where time, cash, and attention are actually leaking, not where you assume they are.</p>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <h3>Build <em>the systems.</em></h3>
+        <p>Process maps. SOPs. Automations. AI agents. Hiring infrastructure. The right tool for the right gap. Auditor-trained, operator-built.</p>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <h3>Optimize <em>for both.</em></h3>
+        <p>Refine for productivity and profitability. The two outcomes every founder wants. Systems that get cheaper and faster the longer they run.</p>
+      </div>
+    </div>
+    <div class="slide-meta"><span class="num">06 / 11</span><span>The approach</span></div>
+  </section>
+
+  <!-- 07 — Engagement options -->
+  <section class="engage" data-screen-label="07 Engagement Options">
+    <a class="deck-logo">Fallon Scott<span class="dot">.</span><span class="chip">F28</span></a>
+    <div class="eyebrow">— 07 / Three ways to work together</div>
+    <h2>Done-for-you. Done <em>with</em> you. Or <em>done by</em> you.</h2>
+    <p class="lede" style="color:rgba(245,241,234,.82)">Every engagement starts where you actually are, not where the headline says you should be.</p>
+    <div class="ways">
+      <div class="way">
+        <span class="tag">01 · The Ops Partner</span>
+        <h3>Done-for-you <em>engagements</em></h3>
+        <p class="desc">Four operational models, one partnership. Two clients at a time. Scoped to what the business actually needs.</p>
+        <ul>
+          <li>Assessment · diagnose</li>
+          <li>Acceleration · solve the bottleneck</li>
+          <li>Transformation · rebuild the system</li>
+          <li>Operational Leadership · run it</li>
+        </ul>
+        <div class="price">Scoped on a discovery call</div>
+        <a class="learn ghost" href="../index.html#work" target="_blank">See the doors <span class="arr">→</span></a>
+      </div>
+      <div class="way">
+        <span class="tag">02 · Diagnostics</span>
+        <h3>Fixed-scope <em>diagnostics</em></h3>
+        <p class="desc">Short, audit-led teardowns when you suspect something but aren't sure which package fits.</p>
+        <ul>
+          <li>Right People, Right Seats</li>
+          <li>Automate the Admin</li>
+        </ul>
+        <div class="price">From $1,500 fixed</div>
+        <a class="learn ghost" href="../index.html#work" target="_blank">Book a diagnostic <span class="arr">→</span></a>
+      </div>
+      <div class="way">
+        <span class="tag">03 · AI Systems</span>
+        <h3>AI &amp; automation <em>buildouts</em></h3>
+        <p class="desc">For founders and businesses that know AI can't be put off. Audit before integration so you build what pays, skip what doesn't, and don't <em>magnify the chaos.</em></p>
+        <ul>
+          <li>AI Assessment Call · $197 · 30 min</li>
+          <li>Build Sprint · scoped on the call</li>
+          <li>Continuous Architect retainer</li>
+        </ul>
+        <div class="price">Build sprints scoped on the call</div>
+        <a class="learn ghost" href="../ai-systems.html" target="_blank">See AI engagements <span class="arr">→</span></a>
+      </div>
+      <div class="way">
+        <span class="tag">04 · DIY · SOP Suite</span>
+        <h3>The <em>SOP Suite</em></h3>
+        <p class="desc">Self-serve digital product. v2 launch. Same delegation system, packaged for the operator on your team to install.</p>
+        <ul>
+          <li>Process Optimization Bundle</li>
+          <li>Full SOP Bundle</li>
+          <li>New Hire Onboarding (bonus)</li>
+        </ul>
+        <div class="price">$998 v2 launch</div>
+        <a class="learn ghost" href="../sop-suite.html" target="_blank">Get the SOP Suite <span class="arr">→</span></a>
+      </div>
+    </div>
+    <div class="slide-meta"><span class="num">07 / 11</span><span>The options</span></div>
+  </section>
+
+  <!-- 08 — Receipts -->
+  <section class="receipts cream" data-screen-label="08 Receipts">
+    <a class="deck-logo">Fallon Scott<span class="dot">.</span><span class="chip">F28</span></a>
+    <div class="eyebrow">— 08 / Numbers that moved because the system did</div>
+    <h2>The <em>receipts.</em></h2>
+    <p class="lede">Across Fortune 100 audit work, F28 client engagements, and the company I co-founded, the same systems produce the same kind of result. <em>The audit lens is repeatable.</em></p>
+    <div class="grid">
+      <div class="stat"><div class="num"><em>11×</em></div><div class="lab">Revenue growth in twelve months at the company I co-founded.</div></div>
+      <div class="stat"><div class="num">60<em>+</em></div><div class="lab">Process maps delivered across founder-led businesses.</div></div>
+      <div class="stat"><div class="num"><em>17%</em></div><div class="lab">Reduction in fines across 25 international airports at Delta.</div></div>
+      <div class="stat"><div class="num">6,000</div><div class="lab">Person sales &amp; marketing team I scaled and trained.</div></div>
+      <div class="stat"><div class="num">13<em>+</em></div><div class="lab">Industries served. Banking, retail, sports, aviation, e-commerce, more.</div></div>
+      <div class="stat"><div class="num">16</div><div class="lab">Years finding root cause for a living (auditing since 2010).</div></div>
+      <div class="stat"><div class="num"><em>2</em></div><div class="lab">Outside clients at a time. The depth is the deliverable.</div></div>
+      <div class="stat"><div class="num"><em>0</em></div><div class="lab">Engagements where the goal was "more meetings."</div></div>
+    </div>
+    <div class="slide-meta"><span class="num">08 / 11</span><span>The receipts</span></div>
+  </section>
+
+  <!-- 09 — North Star -->
+  <section class="northstar" data-screen-label="09 North Star">
+    <a class="deck-logo">Fallon Scott<span class="dot">.</span><span class="chip">F28</span></a>
+    <div class="bg-mark">"</div>
+    <div class="inner">
+      <div class="open-quote">"</div>
+      <h2>The systems that make a business <em>fundable, scalable,</em> and <em>sellable</em> are the systems that set a founder <strong><em>free.</em></strong></h2>
+      <div class="attribution">— The North Star <em>Fallon Scott · F28</em></div>
+    </div>
+    <div class="slide-meta"><span class="num">09 / 11</span><span>The promise</span></div>
+  </section>
+
+  <!-- 10 — Connect -->
+  <section class="connect cream" data-screen-label="10 Connect">
+    <a class="deck-logo">Fallon Scott<span class="dot">.</span><span class="chip">F28</span></a>
+    <div class="eyebrow">— 10 / Three doors</div>
+    <h2>Pick the door that fits <em>where you are.</em></h2>
+    <p class="lede">No pitch, no pressure. Whether you're hiring, scaling, raising, or just need someone to listen to the chaos and tell you which fire to put out first, there's a way in. <em>The way out is choosing how you walk in.</em></p>
+    <div class="doors">
+      <div class="door">
+        <span class="lab">— Door 01</span>
+        <h3>Book a <em>discovery call.</em></h3>
+        <p>Quick call. We diagnose where you are, where you want to be, and whether we're a fit.</p>
+        <div class="price">Free · 15 min</div>
+      </div>
+      <div class="door amber">
+        <span class="lab dark">— Door 02</span>
+        <h3>Take the <em>AI assessment.</em></h3>
+        <p>The paid 30-minute intake call for founders going all-in on AI. Honest level read, recommendations, credited toward any engagement booked.</p>
+        <div class="price">$197 · 30 min · credited toward build</div>
+      </div>
+      <div class="door cream">
+        <span class="lab">— Door 03</span>
+        <h3>Install <em>the SOP Suite.</em></h3>
+        <p>The DIY door. Same delegation system, packaged for the operator on your team. v2 launch pricing through the founder-friend window.</p>
+        <div class="price">$998 v2 launch · lifetime access</div>
+      </div>
+    </div>
+    <div class="contact-strip">
+      <div class="url">fallonscott<em>.com</em></div>
+      <div class="email">info@f28co.com</div>
+    </div>
+    <div class="slide-meta"><span class="num">10 / 11</span><span>Three doors</span></div>
+  </section>
+
+</deck-stage>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Engagement cards redesign mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{--ink:#1a1f2e;--ink-2:#2a3142;--paper:#f5f1ea;--paper-2:#ede7dc;--rule:#d8cfbf;--muted:#6b7280;--accent:#b45309;--accent-2:#8b3a07;--accent-soft:#f3d9a7}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--paper-2);font-family:'Inter',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+  .container{max-width:1280px;margin:0 auto;padding:48px 32px}
+  h1{font-family:'Fraunces',serif;font-weight:340;font-size:42px;margin:0 0 14px;letter-spacing:-.018em}
+  h1 em{font-style:italic;color:var(--accent);font-weight:300}
+  .intro p{font-family:'Fraunces',serif;font-style:italic;color:var(--ink-2);margin:0 0 36px;font-size:17px;max-width:880px;line-height:1.55}
+  .row-lab{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:18px;padding-top:32px;border-top:1px solid var(--rule)}
+  .row-lab strong{color:var(--ink);margin-right:10px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:24px}
+
+  /* Card base */
+  .eng{background:var(--paper);padding:38px 32px 28px;border:1px solid var(--rule);position:relative;display:flex;flex-direction:column}
+  .popular-badge{position:absolute;top:-12px;left:32px;background:var(--accent);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;padding:7px 14px;border-radius:2px;z-index:2}
+  .eng .tier{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .eng h3{font-family:'Fraunces',serif;font-weight:340;font-size:34px;line-height:1.05;letter-spacing:-.018em;color:var(--ink);margin:10px 0 4px}
+  .eng h3 em{font-style:italic;color:var(--accent);font-weight:300}
+  .eng .duration{display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+  .eng .price{font-family:'Fraunces',serif;font-weight:340;font-size:42px;line-height:1;color:var(--ink);letter-spacing:-.022em;margin:8px 0 4px}
+  .eng .pricesub{font-family:'Fraunces',serif;font-style:italic;font-size:13px;color:var(--muted);margin-bottom:18px;border-bottom:1px solid var(--rule);padding-bottom:14px}
+  .eng ul{list-style:none;padding:0;margin:0 0 18px;display:flex;flex-direction:column;gap:8px}
+  .eng ul li{font-size:14px;line-height:1.5;color:var(--ink-2);padding-left:18px;position:relative}
+  .eng ul li::before{content:"→";position:absolute;left:0;color:var(--accent);font-weight:600}
+  .eng .tiers{margin:8px 0 18px;padding:14px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .eng .row{display:flex;justify-content:space-between;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--rule);gap:14px}
+  .eng .row:last-child{border-bottom:none}
+  .eng .row .nm{font-family:'Fraunces',serif;font-weight:400;font-size:15px;color:var(--ink);line-height:1.25}
+  .eng .row .nm em{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:2px}
+  .eng .row .pp{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);font-weight:600;white-space:nowrap}
+
+  /* CTA */
+  .pickcta{margin-top:18px}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;border-radius:999px;text-decoration:none;cursor:pointer}
+  .btn.amber{background:var(--accent);color:var(--paper);border:1px solid var(--accent)}
+  .btn.cream{background:var(--ink);color:var(--paper);border:1px solid var(--ink)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+
+  /* === The new "describe at the bottom" boxes — 3 variants === */
+
+  /* Variant A: amber filled box (high visibility) */
+  .desc-a{background:var(--accent);color:var(--paper);padding:18px 20px;margin:8px 0 14px;border-radius:2px;font-family:'Fraunces',serif;font-style:italic;font-size:14px;line-height:1.55}
+  .desc-a strong{font-family:'Inter',sans-serif;font-style:normal;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;display:block;margin-bottom:6px;color:rgba(245,241,234,.85)}
+
+  /* Variant B: cream box with chocolate left rule */
+  .desc-b{background:var(--paper-2);border-left:3px solid var(--accent-2);padding:16px 20px;margin:8px 0 14px;font-family:'Fraunces',serif;font-style:italic;font-size:14px;line-height:1.55;color:var(--ink-2)}
+  .desc-b strong{font-family:'Inter',sans-serif;font-style:normal;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;display:block;margin-bottom:6px;color:var(--accent-2)}
+
+  /* Variant C: ink/navy box */
+  .desc-c{background:var(--ink);color:var(--paper);padding:18px 20px;margin:8px 0 14px;border-radius:2px;font-family:'Fraunces',serif;font-style:italic;font-size:14px;line-height:1.55}
+  .desc-c strong{font-family:'Inter',sans-serif;font-style:normal;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;display:block;margin-bottom:6px;color:var(--accent-soft)}
+
+  .note{margin-top:14px;padding:14px 18px;background:var(--paper);border-left:3px solid var(--accent);font-family:'Fraunces',serif;font-style:italic;font-size:13.5px;color:var(--ink-2);line-height:1.5}
+  .note strong{font-family:'Inter',sans-serif;font-style:normal;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);font-weight:600;display:block;margin-bottom:6px}
+
+  @media(max-width:1000px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>Engagement cards — <em>description box at the bottom</em></h1>
+  <div class="intro"><p>Current copy paragraph moved from above the price to below the bullets, in a distinct colored box. Three variants for the box treatment so you can pick.</p></div>
+
+  <!-- =============== VARIANT A: amber filled box =============== -->
+  <div class="row-lab"><strong>A</strong> · Description in amber (burnt orange) filled box</div>
+  <div class="grid">
+
+    <div class="eng">
+      <span class="popular-badge">Start here</span>
+      <span class="tier">Option 01 · Diagnose</span>
+      <h3>AI Assessment <em>Call</em></h3>
+      <span class="duration">30 min · 1:1 · paid intake form</span>
+      <div class="price">$197</div>
+      <div class="pricesub">Credited toward any engagement booked within 30 days</div>
+      <ul>
+        <li>Pre-call intake form (tools, team, processes, pain points)</li>
+        <li>30-minute working session, diagnostic, not pitch</li>
+        <li>Tier 1 / 2 / 3 assessment + recommended build sequence</li>
+        <li>Honest "you don't need me yet" if that's the answer</li>
+        <li>Recording + written summary delivered within 24 hours</li>
+      </ul>
+      <div class="desc-a"><strong>What this actually is</strong>Fill out a short intake before we talk. In 30 minutes I tell you which tier you're on, what to build first, and whether AI is the right answer at all. Honest, financially-aware, root-cause diagnosis. Not a pitch.</div>
+      <div class="pickcta"><a href="#" class="btn cream">Book the call <span>→</span></a></div>
+    </div>
+
+    <div class="eng">
+      <span class="tier">Option 02 · Build</span>
+      <h3>The Build <em>Sprint</em></h3>
+      <span class="duration">4–16 weeks · scoped on the call</span>
+      <div class="tiers">
+        <div class="row"><div class="nm">Tier 01 · AI Efficiency Sprint<em>Level 1/2 · Humans smarter with AI</em></div><div class="pp">from $3,500</div></div>
+        <div class="row"><div class="nm">Tier 02 · AI Integration Build<em>Level 2/3 · AI working, humans QA</em></div><div class="pp">from $7,750</div></div>
+        <div class="row"><div class="nm">Tier 03 · Decision Intelligence<em>Level 3 · Data-driven decisions</em></div><div class="pp">from $9,995</div></div>
+      </div>
+      <ul>
+        <li>Tier-specific scope: Claude Projects + skills (T1), agent deployment (T2), AI advisor board (T3)</li>
+        <li>Process workflows, root-cause analysis, build plan</li>
+        <li>Wired, tested, documented, handed off</li>
+        <li>Team training + SOPs for every workflow built</li>
+        <li>30-day post-launch debugging window</li>
+      </ul>
+      <div class="desc-a"><strong>What this actually is</strong>Three tiers based on where you actually are. Scope and final quote come out of the assessment call. A solopreneur and a 200-person team don't get the same build.</div>
+      <div class="pickcta"><a href="#" class="btn cream">Get a custom quote <span>→</span></a></div>
+    </div>
+
+    <div class="eng">
+      <span class="tier">Option 03 · Continuous</span>
+      <h3>Continuous <em>Architect</em></h3>
+      <span class="duration">Monthly or quarterly · no commitment</span>
+      <div class="tiers">
+        <div class="row"><div class="nm">Monthly Retainer<em>Ongoing access · cancel anytime</em></div><div class="pp">$1,500/mo</div></div>
+        <div class="row"><div class="nm">Quarterly Deep-Dive<em>One intensive · saves vs. monthly</em></div><div class="pp">$3,500/qtr</div></div>
+      </div>
+      <ul>
+        <li>New-tool review and implementation as platforms ship</li>
+        <li>Quarterly deep-dive on your full stack</li>
+        <li>Slack and email access between sessions</li>
+        <li>First call on every new release relevant to your business</li>
+        <li>No minimums. No fine print.</li>
+      </ul>
+      <div class="desc-a"><strong>What this actually is</strong>The tools don't stop shipping. Claude updates drop weekly. MCP connectors multiply. Agents get smarter. Stay on retainer so new capabilities show up in your business as they ship, not three years later when a competitor already has them.</div>
+      <div class="pickcta"><a href="#" class="btn ghost">Talk through the fit <span>→</span></a></div>
+    </div>
+
+  </div>
+
+  <!-- =============== VARIANT B: cream box with chocolate left rule =============== -->
+  <div class="row-lab"><strong>B</strong> · Description in warm-cream box with chocolate left rule (quieter)</div>
+  <div class="grid">
+
+    <div class="eng">
+      <span class="popular-badge">Start here</span>
+      <span class="tier">Option 01 · Diagnose</span>
+      <h3>AI Assessment <em>Call</em></h3>
+      <span class="duration">30 min · 1:1 · paid intake form</span>
+      <div class="price">$197</div>
+      <div class="pricesub">Credited toward any engagement booked within 30 days</div>
+      <ul>
+        <li>Pre-call intake form (tools, team, processes, pain points)</li>
+        <li>30-minute working session, diagnostic, not pitch</li>
+        <li>Tier 1 / 2 / 3 assessment + recommended build sequence</li>
+        <li>Honest "you don't need me yet" if that's the answer</li>
+        <li>Recording + written summary delivered within 24 hours</li>
+      </ul>
+      <div class="desc-b"><strong>What this actually is</strong>Fill out a short intake before we talk. In 30 minutes I tell you which tier you're on, what to build first, and whether AI is the right answer at all. Honest, financially-aware, root-cause diagnosis. Not a pitch.</div>
+      <div class="pickcta"><a href="#" class="btn cream">Book the call <span>→</span></a></div>
+    </div>
+
+    <div class="eng">
+      <span class="tier">Option 02 · Build</span>
+      <h3>The Build <em>Sprint</em></h3>
+      <span class="duration">4–16 weeks · scoped on the call</span>
+      <div class="tiers">
+        <div class="row"><div class="nm">Tier 01 · AI Efficiency Sprint<em>Level 1/2 · Humans smarter with AI</em></div><div class="pp">from $3,500</div></div>
+        <div class="row"><div class="nm">Tier 02 · AI Integration Build<em>Level 2/3 · AI working, humans QA</em></div><div class="pp">from $7,750</div></div>
+        <div class="row"><div class="nm">Tier 03 · Decision Intelligence<em>Level 3 · Data-driven decisions</em></div><div class="pp">from $9,995</div></div>
+      </div>
+      <ul>
+        <li>Tier-specific scope: Claude Projects + skills (T1), agent deployment (T2), AI advisor board (T3)</li>
+        <li>Process workflows, root-cause analysis, build plan</li>
+        <li>Wired, tested, documented, handed off</li>
+        <li>Team training + SOPs for every workflow built</li>
+        <li>30-day post-launch debugging window</li>
+      </ul>
+      <div class="desc-b"><strong>What this actually is</strong>Three tiers based on where you actually are. Scope and final quote come out of the assessment call. A solopreneur and a 200-person team don't get the same build.</div>
+      <div class="pickcta"><a href="#" class="btn cream">Get a custom quote <span>→</span></a></div>
+    </div>
+
+    <div class="eng">
+      <span class="tier">Option 03 · Continuous</span>
+      <h3>Continuous <em>Architect</em></h3>
+      <span class="duration">Monthly or quarterly · no commitment</span>
+      <div class="tiers">
+        <div class="row"><div class="nm">Monthly Retainer<em>Ongoing access · cancel anytime</em></div><div class="pp">$1,500/mo</div></div>
+        <div class="row"><div class="nm">Quarterly Deep-Dive<em>One intensive · saves vs. monthly</em></div><div class="pp">$3,500/qtr</div></div>
+      </div>
+      <ul>
+        <li>New-tool review and implementation as platforms ship</li>
+        <li>Quarterly deep-dive on your full stack</li>
+        <li>Slack and email access between sessions</li>
+        <li>First call on every new release relevant to your business</li>
+        <li>No minimums. No fine print.</li>
+      </ul>
+      <div class="desc-b"><strong>What this actually is</strong>The tools don't stop shipping. Claude updates drop weekly. MCP connectors multiply. Agents get smarter. Stay on retainer so new capabilities show up in your business as they ship, not three years later when a competitor already has them.</div>
+      <div class="pickcta"><a href="#" class="btn ghost">Talk through the fit <span>→</span></a></div>
+    </div>
+
+  </div>
+
+  <!-- =============== VARIANT C: ink/navy box =============== -->
+  <div class="row-lab"><strong>C</strong> · Description in ink/navy box (premium)</div>
+  <div class="grid">
+
+    <div class="eng">
+      <span class="popular-badge">Start here</span>
+      <span class="tier">Option 01 · Diagnose</span>
+      <h3>AI Assessment <em>Call</em></h3>
+      <span class="duration">30 min · 1:1 · paid intake form</span>
+      <div class="price">$197</div>
+      <div class="pricesub">Credited toward any engagement booked within 30 days</div>
+      <ul>
+        <li>Pre-call intake form (tools, team, processes, pain points)</li>
+        <li>30-minute working session, diagnostic, not pitch</li>
+        <li>Tier 1 / 2 / 3 assessment + recommended build sequence</li>
+        <li>Honest "you don't need me yet" if that's the answer</li>
+        <li>Recording + written summary delivered within 24 hours</li>
+      </ul>
+      <div class="desc-c"><strong>What this actually is</strong>Fill out a short intake before we talk. In 30 minutes I tell you which tier you're on, what to build first, and whether AI is the right answer at all. Honest, financially-aware, root-cause diagnosis. Not a pitch.</div>
+      <div class="pickcta"><a href="#" class="btn amber">Book the call <span>→</span></a></div>
+    </div>
+
+    <div class="eng">
+      <span class="tier">Option 02 · Build</span>
+      <h3>The Build <em>Sprint</em></h3>
+      <span class="duration">4–16 weeks · scoped on the call</span>
+      <div class="tiers">
+        <div class="row"><div class="nm">Tier 01 · AI Efficiency Sprint<em>Level 1/2 · Humans smarter with AI</em></div><div class="pp">from $3,500</div></div>
+        <div class="row"><div class="nm">Tier 02 · AI Integration Build<em>Level 2/3 · AI working, humans QA</em></div><div class="pp">from $7,750</div></div>
+        <div class="row"><div class="nm">Tier 03 · Decision Intelligence<em>Level 3 · Data-driven decisions</em></div><div class="pp">from $9,995</div></div>
+      </div>
+      <ul>
+        <li>Tier-specific scope: Claude Projects + skills (T1), agent deployment (T2), AI advisor board (T3)</li>
+        <li>Process workflows, root-cause analysis, build plan</li>
+        <li>Wired, tested, documented, handed off</li>
+        <li>Team training + SOPs for every workflow built</li>
+        <li>30-day post-launch debugging window</li>
+      </ul>
+      <div class="desc-c"><strong>What this actually is</strong>Three tiers based on where you actually are. Scope and final quote come out of the assessment call. A solopreneur and a 200-person team don't get the same build.</div>
+      <div class="pickcta"><a href="#" class="btn amber">Get a custom quote <span>→</span></a></div>
+    </div>
+
+    <div class="eng">
+      <span class="tier">Option 03 · Continuous</span>
+      <h3>Continuous <em>Architect</em></h3>
+      <span class="duration">Monthly or quarterly · no commitment</span>
+      <div class="tiers">
+        <div class="row"><div class="nm">Monthly Retainer<em>Ongoing access · cancel anytime</em></div><div class="pp">$1,500/mo</div></div>
+        <div class="row"><div class="nm">Quarterly Deep-Dive<em>One intensive · saves vs. monthly</em></div><div class="pp">$3,500/qtr</div></div>
+      </div>
+      <ul>
+        <li>New-tool review and implementation as platforms ship</li>
+        <li>Quarterly deep-dive on your full stack</li>
+        <li>Slack and email access between sessions</li>
+        <li>First call on every new release relevant to your business</li>
+        <li>No minimums. No fine print.</li>
+      </ul>
+      <div class="desc-c"><strong>What this actually is</strong>The tools don't stop shipping. Claude updates drop weekly. MCP connectors multiply. Agents get smarter. Stay on retainer so new capabilities show up in your business as they ship, not three years later when a competitor already has them.</div>
+      <div class="pickcta"><a href="#" class="btn ghost">Talk through the fit <span>→</span></a></div>
+    </div>
+
+  </div>
+
+  <div class="note">
+    <strong>Notes</strong>
+    Same scan order in all 3: badge → tier label → headline → duration → price/tiers → bullets → <em>description box</em> → CTA. The description ("What this actually is") is now optional reading. Buyers who already know what they want skip straight from price to CTA. Buyers who want context drop into the box. Heading on the box is "What this actually is" — happy to change to "Read more", "The story", or whatever lands better.
+  </div>
+
+</div>
+</body>
+</html>

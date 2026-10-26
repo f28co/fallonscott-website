@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Services Restructure — Mockups Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ink:#1a1f2e;--ink-2:#2a3142;--paper:#f5f1ea;--paper-2:#ede7dc;
+    --rule:#d8cfbf;--muted:#6b7280;--accent:#b45309;--accent-2:#8b3a07;--accent-soft:#f3d9a7;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#e8e3d8;color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+  .container{max-width:1280px;margin:0 auto;padding:0 32px}
+  em{font-style:italic}
+
+  /* Page chrome */
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(232,227,216,.92);backdrop-filter:blur(10px);padding:18px 0;border-bottom:1px solid var(--rule)}
+  .topbar .row{display:flex;justify-content:space-between;align-items:center;gap:24px}
+  .topbar .lab{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:500}
+  .topbar h1{font-family:'Fraunces',serif;font-weight:340;font-size:24px;letter-spacing:-.012em;margin:0;line-height:1.2}
+  .topbar h1 em{color:var(--accent);font-weight:300}
+
+  .toc{padding:48px 0 24px}
+  .toc h2{font-family:'Fraunces',serif;font-weight:340;font-size:46px;letter-spacing:-.018em;margin:0 0 14px;line-height:1.02}
+  .toc h2 em{color:var(--accent);font-weight:300}
+  .toc p{font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:var(--ink-2);margin:0 0 26px;max-width:820px;line-height:1.5}
+  .toc-list{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
+  .toc-list a{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);text-decoration:none;padding:8px 14px;border:1px solid var(--rule);border-radius:999px;background:rgba(245,241,234,.5);font-weight:500;transition:all .2s}
+  .toc-list a:hover{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+
+  .change{margin-bottom:60px;background:var(--paper-2);border:1px solid var(--rule)}
+  .change-head{padding:24px 28px;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:flex-start;gap:32px;background:var(--paper)}
+  .change-head .num{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:8px}
+  .change-head h3{font-family:'Fraunces',serif;font-weight:380;font-size:30px;line-height:1.15;letter-spacing:-.014em;margin:0;color:var(--ink)}
+  .change-head h3 em{color:var(--accent);font-weight:300}
+  .change-head .badge{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:6px 12px;border-radius:3px;white-space:nowrap}
+  .change-head .badge.copy{background:var(--accent-soft);color:var(--accent-2)}
+  .change-head .badge.move{background:var(--accent);color:var(--paper)}
+  .change-meta{padding:18px 28px;background:var(--paper-2);font-family:'Fraunces',serif;font-style:italic;font-size:15.5px;line-height:1.55;color:var(--ink-2);border-bottom:1px solid var(--rule)}
+  .change-meta strong{color:var(--ink);font-weight:500;font-style:normal;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:6px}
+  .change-meta .ask{font-style:normal;font-family:'Inter',sans-serif;font-size:14px;color:var(--ink);background:var(--paper);border-left:3px solid var(--accent);padding:14px 16px;margin-top:14px}
+  .change-meta .ask b{color:var(--accent-2)}
+
+  .mock{background:var(--paper);position:relative}
+  .mock-label{position:absolute;top:14px;right:14px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);background:rgba(245,241,234,.85);padding:5px 10px;border-radius:2px;font-weight:600;z-index:3}
+  .mock-inner{padding:72px 56px;max-width:1180px;margin:0 auto}
+
+  .section-num{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.15em;color:var(--muted);margin-bottom:8px;text-transform:uppercase}
+  .section-title{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(36px,4.4vw,60px);line-height:1;letter-spacing:-.02em;margin:0 0 16px;max-width:980px;color:var(--ink)}
+  .section-title em{color:var(--accent);font-weight:300}
+  .section-lede{font-size:17px;line-height:1.6;color:var(--ink-2);max-width:780px;margin:0 0 8px}
+
+  /* ===== 4 A's ===== */
+  .plan-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:30px}
+  .step{padding-top:22px;border-top:2px solid var(--ink)}
+  .step .n{font-family:'Fraunces',serif;font-weight:300;font-size:62px;line-height:1;color:var(--accent);letter-spacing:-.03em;margin-bottom:8px}
+  .step h4{font-family:'Fraunces',serif;font-weight:500;font-size:28px;letter-spacing:-.015em;margin:0 0 10px;color:var(--ink)}
+  .step h4 em{color:var(--accent);font-weight:300}
+  .step p{font-size:14.5px;line-height:1.55;color:var(--ink-2);margin:0}
+
+  .plan-adopt{margin-top:46px;max-width:980px;border-top:2px solid var(--ink);padding-top:30px}
+  .adopt-eq{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(28px,3.6vw,50px);line-height:1.05;letter-spacing:-.02em;color:var(--ink);margin:0 0 18px;text-wrap:balance}
+  .adopt-eq .arrow-eq{color:var(--muted);font-weight:300;margin:0 .12em}
+  .adopt-eq .res{color:var(--accent);font-style:italic;font-weight:400}
+  .plan-closer{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(19px,2.1vw,25px);line-height:1.35;color:var(--ink);margin:0;max-width:880px;text-wrap:balance}
+  .plan-closer em{color:var(--accent);font-weight:400}
+  .adopt-cta{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:12px 22px;font-size:14px;font-weight:500;border-radius:999px;border:1px solid var(--ink);background:transparent;color:var(--ink);text-decoration:none;transition:all .2s}
+  .adopt-cta:hover{background:var(--ink);color:var(--paper)}
+
+  /* ===== Doors ===== */
+  .door-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+  .door{position:relative;background:var(--paper-2);border:1px solid var(--rule);padding:34px 30px;display:flex;flex-direction:column;gap:15px}
+  .door .dn{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .door h3{font-family:'Fraunces',serif;font-weight:400;font-size:28px;line-height:1.05;letter-spacing:-.015em;margin:0;color:var(--ink)}
+  .door h3 em{color:var(--accent);font-weight:300}
+  .door .sub{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .door p{font-size:14.5px;line-height:1.6;color:var(--ink-2);margin:0}
+  .door .price{font-family:'Fraunces',serif;font-size:28px;color:var(--ink);margin-top:auto;padding-top:15px;border-top:1px solid var(--rule);letter-spacing:-.03em}
+  .door .price small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .door .scoped{font-family:'Fraunces',serif;font-size:21px;font-style:italic;color:var(--accent-2)}
+  .door .da{color:var(--accent);font-weight:600;display:inline-flex;align-items:center;gap:7px;font-size:14px;margin-top:4px}
+  .door.featured{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .door.featured h3,.door.featured .price{color:#fff}
+  .door.featured h3 em,.door.featured .dn,.door.featured .da{color:var(--accent-soft)}
+  .door.featured p{color:rgba(245,241,234,.82)}
+  .door.featured .price{border-top-color:rgba(245,241,234,.18)}
+  .door.featured .price small,.door.featured .sub{color:rgba(245,241,234,.55)}
+  .door .flag{position:absolute;top:-11px;left:30px;background:var(--accent);color:#fff;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;padding:5px 12px;border-radius:2px;font-weight:600}
+  .door .levels{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);display:flex;flex-wrap:wrap;gap:7px}
+  .door .levels span{padding:5px 9px;border:1px solid var(--rule);border-radius:999px;color:var(--ink-2)}
+
+  /* before / after */
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+  .ba .box{padding:22px 24px;background:var(--paper);border:1px solid var(--rule);font-size:14.5px;line-height:1.6;color:var(--ink-2)}
+  .ba .box.after{background:var(--paper-2);border-left:3px solid var(--accent)}
+  .ba .box .tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;display:block;margin-bottom:10px}
+  .ba .box.before .tag{color:var(--muted)}
+  .ba .box.after .tag{color:var(--accent)}
+  .ba .box strong{color:var(--ink);font-weight:600}
+
+  /* ===== Operations levels (4 across) ===== */
+  .lvl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:32px}
+  .lvl{background:var(--paper-2);border:1px solid var(--rule);border-top:3px solid var(--accent);padding:26px 22px;display:flex;flex-direction:column;gap:10px}
+  .lvl .ln{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .lvl h4{font-family:'Fraunces',serif;font-weight:400;font-size:23px;line-height:1.08;letter-spacing:-.012em;margin:0;color:var(--ink)}
+  .lvl h4 em{color:var(--accent);font-weight:300}
+  .lvl p{font-size:13.5px;line-height:1.55;color:var(--ink-2);margin:0}
+  .lvl .start{margin-top:auto;padding-top:12px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .lvl .outcome{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-2)}
+  .lvl .outcome b{color:var(--accent);font-weight:600}
+  .lvl-intro{font-family:'Fraunces',serif;font-style:italic;font-size:18px;line-height:1.5;color:var(--ink-2);max-width:820px;margin:0 0 18px;text-wrap:pretty}
+  .lvl-intro b{color:var(--accent-2);font-style:normal;font-weight:500}
+  .lvl-note{font-family:'Fraunces',serif;font-style:italic;font-size:17px;line-height:1.45;color:var(--ink-2);max-width:760px;margin:26px 0 0;text-wrap:pretty}
+  .lvl-note b{color:var(--accent-2);font-style:normal;font-weight:600}
+  @media(max-width:900px){.lvl-grid{grid-template-columns:repeat(2,1fr)}}
+
+  /* ===== Phases ===== */
+  .phases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}
+  .phase{position:relative;overflow:hidden;background:var(--paper-2);border:1px solid var(--rule);border-top:3px solid var(--accent);padding:28px 26px 26px;display:flex;flex-direction:column;gap:6px}
+  .phase .ph-num{position:absolute;top:14px;right:16px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;color:var(--paper);background:var(--accent);padding:5px 10px;border-radius:2px;font-weight:600}
+  .phase .ph-tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .phase h3{font-family:'Fraunces',serif;font-weight:400;font-size:26px;line-height:1.08;letter-spacing:-.015em;margin:4px 0 0;color:var(--ink)}
+  .phase h3 em{color:var(--accent);font-weight:300}
+  .phase .readiness-q{font-family:'Fraunces',serif;font-style:italic;font-weight:340;font-size:18px;line-height:1.3;color:var(--ink);margin:8px 0 0;border-bottom:1px solid var(--rule);padding-bottom:14px}
+  .phase .readiness-q .ph-sub-line{display:block;font-family:'JetBrains Mono',monospace;font-style:normal;font-weight:500;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .phase ul{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-direction:column;gap:9px}
+  .phase ul li{position:relative;padding-left:20px;font-size:13.5px;line-height:1.45;color:var(--ink-2)}
+  .phase ul li::before{content:"\2192";position:absolute;left:0;color:var(--accent);font-weight:600}
+  .phase ul li em{color:var(--accent)}
+  .phase .ph-rec{margin-top:16px;padding-top:14px;border-top:1px solid var(--rule);font-size:13.5px;color:var(--ink-2)}
+  .phase .ph-rec a{color:var(--accent);font-weight:600;text-decoration:none}
+  .phase.apex{background:var(--ink);color:var(--paper);border:1px solid var(--ink);border-top:3px solid var(--accent-soft)}
+  .phase.apex h3,.phase.apex h3 em{color:var(--paper)}
+  .phase.apex h3 em{color:var(--accent-soft)}
+  .phase.apex .ph-tag{color:var(--accent-soft)}
+  .phase.apex .readiness-q{color:var(--paper);border-bottom-color:rgba(245,241,234,.18)}
+  .phase.apex .readiness-q .ph-sub-line{color:rgba(245,241,234,.55)}
+  .phase.apex .readiness-q em{color:var(--accent-soft)}
+  .phase.apex ul li{color:rgba(245,241,234,.85)}
+  .phase.apex ul li::before{color:var(--accent-soft)}
+  .phase.apex ul li em{color:var(--accent-soft)}
+  .phase.apex .ph-rec{color:rgba(245,241,234,.78);border-top-color:rgba(245,241,234,.18)}
+  .phase.apex .ph-rec a{color:var(--accent-soft)}
+
+  .relo{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .relo .opt{padding:24px 26px;background:var(--paper);border:1px solid var(--rule)}
+  .relo .opt.rec{background:var(--paper-2);border-left:3px solid var(--accent)}
+  .relo .opt .t{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--accent);margin-bottom:8px}
+  .relo .opt h4{font-family:'Fraunces',serif;font-weight:400;font-size:22px;letter-spacing:-.012em;margin:0 0 8px;color:var(--ink)}
+  .relo .opt h4 em{color:var(--accent);font-weight:300}
+  .relo .opt p{font-size:14px;line-height:1.55;color:var(--ink-2);margin:0}
+  .relo .opt .pill{display:inline-block;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--accent);color:var(--paper)}
+
+  .stay{margin-top:30px;padding:26px 28px;background:var(--ink);color:var(--paper);border-left:4px solid var(--accent-soft);display:flex;gap:22px;align-items:center}
+  .stay .stamp{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:54px;line-height:.9;color:var(--accent-soft);flex-shrink:0}
+  .stay h4{font-family:'Fraunces',serif;font-weight:380;font-size:24px;letter-spacing:-.012em;margin:0 0 6px;line-height:1.2}
+  .stay h4 em{color:var(--accent-soft);font-weight:300}
+  .stay p{font-size:14px;line-height:1.55;color:rgba(245,241,234,.78);margin:0;max-width:680px}
+
+  .closer{padding:50px 0 80px;text-align:center}
+  .closer p{font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:var(--ink-2);margin:0 auto;max-width:720px;line-height:1.5}
+  .closer p b{font-style:normal;color:var(--accent-2)}
+
+  @media(max-width:900px){
+    .plan-grid,.door-grid,.phases-grid{grid-template-columns:1fr}
+    .ba,.relo{grid-template-columns:1fr}
+    .mock-inner{padding:48px 28px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="row">
+      <h1>Services Restructure — <em>Mockups</em></h1>
+      <span class="lab">Preview only · nothing ships until you say go</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="toc">
+    <h2>Three changes, <em>previewed.</em></h2>
+    <p>Each block shows the new copy/layout as it would render on the live site. The "2 questions, one clear next step" router <strong>stays on the homepage</strong> as you asked. Approve any/all and I'll wire them in.</p>
+    <div class="toc-list">
+      <a href="#c1">01 · The 4 A's → Adoption</a>
+      <a href="#c2">02 · Door 03 → Ops Partner</a>
+      <a href="#c3">03 · "Where are you actually?" relocated</a>
+      <a href="#c4">04 · New homepage section → four ops levels</a>
+    </div>
+  </div>
+
+  <!-- CHANGE 01 -->
+  <div class="change" id="c1">
+    <div class="change-head">
+      <div>
+        <div class="num">Change 01 · Services page · "How the work happens"</div>
+        <h3>The four steps, then the <em>formula</em> underneath.</h3>
+      </div>
+      <span class="badge copy">Copy + layout</span>
+    </div>
+    <div class="change-meta">
+      <strong>What changed</strong>
+      Removed the plus signs. The formula now echoes the section title exactly (Audit. Architect. Approve. Automate.), then resolves to <b>Adoption</b> in amber, the same way it reads in the Substack piece. Added one line making the promise explicit: do all four, in order, and the system gets <em>used</em>. The "Why the order matters" link to your article stays.
+      <div class="ask">Open question: do you want the formula to read <b>Audit. Architect. Approve. Automate. = Adoption.</b> (shown below), or with arrows between (<b>Audit → Architect → Approve → Automate → Adoption</b>)? I went with the period-style to match your title.</div>
+    </div>
+    <div class="mock">
+      <span class="mock-label">Services · #how</span>
+      <div class="mock-inner">
+        <div class="section-num">01 / How the work happens</div>
+        <h2 class="section-title">Audit. Architect. <em>Approve.</em> Automate.</h2>
+        <p class="section-lede">A four-step operating system, applied to every engagement. The order matters, and most founders, along with most freelance operators, skip straight to the last step.</p>
+        <div class="plan-grid">
+          <div class="step"><div class="n">01</div><h4>Audit <em>the gaps.</em></h4><p>An auditor's eye finds the root cause. Where time, cash, and attention are actually leaking, not where you assume they are.</p></div>
+          <div class="step"><div class="n">02</div><h4>Architect <em>the fix.</em></h4><p>We simplify the steps that shouldn't exist, streamline the path, and connect the systems that should be talking. Designed against your P&amp;L and your risk, before a single tool is touched.</p></div>
+          <div class="step"><div class="n">03</div><h4>Approve <em>the plan.</em></h4><p>You see the design before anything gets built. We confirm it solves the problem you actually have, so what we build is what you wanted.</p></div>
+          <div class="step"><div class="n">04</div><h4>Automate <em>the build.</em></h4><p>Now we build. AI where it earns its place, non-AI automation where it doesn't, humans where they belong. Documented and handed off so it runs without you.</p></div>
+        </div>
+        <div class="plan-adopt">
+          <div class="adopt-eq">Audit. Architect. Approve. Automate. <span class="arrow-eq">=</span> <span class="res">Adoption.</span></div>
+          <p class="plan-closer">Do all four, in this order, and you don't just ship a system. Your team actually <em>adopts</em> it. Skip a step, or skip straight to automation, and you pay to bolt AI onto something nobody uses.</p>
+          <a href="https://fallonscottco.substack.com/p/you-hired-a-contractor-to-do-an-architects" target="_blank" rel="noopener" class="adopt-cta">Why the order matters &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHANGE 02 -->
+  <div class="change" id="c2">
+    <div class="change-head">
+      <div>
+        <div class="num">Change 02 · Services page · "Where to start"</div>
+        <h3>Door 03 becomes <em>Ops Partner.</em></h3>
+      </div>
+      <span class="badge copy">Copy</span>
+    </div>
+    <div class="change-meta">
+      <strong>What changed</strong>
+      Door 03's title moves from "Fractional COO" to <b>Ops Partner</b>, with the sub-label "Fix it with me" kept. The copy now says we diagnose together first, <em>then</em> decide the level of partnership, assessment, acceleration, transformation, or leadership, instead of defaulting everyone straight to a COO retainer. Those four levels show as small tags so the vocabulary is visible without overwhelming the card.
+    </div>
+    <div class="mock">
+      <span class="mock-label">Services · #doors</span>
+      <div class="mock-inner">
+        <div class="section-num">02 / Where to start</div>
+        <h2 class="section-title"><em>Do it</em> yourself. <em>Diagnose it.</em> Or <em>fix it</em> with me.</h2>
+        <p class="section-lede">Three ways in, ordered by how much you want on your plate. Not sure which? The diagnostic tells you. Already know? Start where you are.</p>
+        <div class="door-grid">
+          <div class="door">
+            <span class="dn">Door 01</span><span class="sub">Do it yourself</span>
+            <h3>The <em>SOP Suite.</em></h3>
+            <p>You haven't documented the basics yet. You've got the time and the will, so I hand you the exact system and templates I install with private clients.</p>
+            <div class="price">$998<small>v2 launch · lifetime access</small></div>
+            <span class="da">Explore the SOP Suite &rarr;</span>
+          </div>
+          <div class="door featured">
+            <span class="flag">Most start here</span>
+            <span class="dn">Door 02</span><span class="sub">Diagnose it</span>
+            <h3>The <em>Diagnostic.</em></h3>
+            <p>Audit before we architect. We look at your people and your processes before we fix anything. You walk away with a prioritized fix list and the real cost of staying where you are.</p>
+            <div class="price">$1,500<small>fixed · credited toward an engagement</small></div>
+            <span class="da">See the diagnostics &darr;</span>
+          </div>
+          <div class="door">
+            <span class="dn">Door 03</span><span class="sub">Fix it with me</span>
+            <h3>Ops <em>Partner.</em></h3>
+            <p>You know it's broken and don't have time to figure it out alone. We diagnose together first, then decide the level of partnership you actually need:</p>
+            <div class="levels"><span>Assessment</span><span>Acceleration</span><span>Transformation</span><span>Leadership</span></div>
+            <div class="price"><span class="scoped">Scoped to your business</span></div>
+            <span class="da">What this can include &darr;</span>
+          </div>
+        </div>
+        <div class="ba">
+          <div class="box before"><span class="tag">Before · Door 03</span><strong>Fractional COO.</strong> You know it's broken and don't have time to figure it out alone. I come inside the business and we build it together. Systems, dashboards, right people in right seats, AI where it earns its place.</div>
+          <div class="box after"><span class="tag">After · Door 03</span><strong>Ops Partner.</strong> You know it's broken and don't have time to figure it out alone. We diagnose together first, then decide the level of partnership you actually need, assessment, acceleration, transformation, or leadership.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHANGE 03 -->
+  <div class="change" id="c3">
+    <div class="change-head">
+      <div>
+        <div class="num">Change 03 · Homepage → relocated</div>
+        <h3>"Where are you actually?" <em>moves off the homepage.</em></h3>
+      </div>
+      <span class="badge move">Move</span>
+    </div>
+    <div class="change-meta">
+      <strong>What changed</strong>
+      The three-phase "Find your phase" section (Build / Optimize / Scale) leaves the homepage so it stops competing with the other diagnostic systems, but it isn't deleted. It's preserved in full on a page of its own. Below is the section exactly as it renders today, so you can see what's being relocated.
+      <div class="ask">Two ways to land it, <b>your call</b>: a hidden page no one can reach yet (my pick, keeps it safe and lets us repurpose it later), or drop it onto the Services page. Both shown under the preview.</div>
+    </div>
+    <div class="mock">
+      <span class="mock-label">Currently: Homepage · 01b</span>
+      <div class="mock-inner">
+        <div class="section-num">01b / Find your phase</div>
+        <h2 class="section-title">Where are you <em>actually?</em></h2>
+        <p class="section-lede">You likely fall in <em>one of three buckets.</em> Pick the question that lands hardest and start there.</p>
+        <div class="phases-grid">
+          <article class="phase">
+            <span class="ph-num">PHASE 01</span>
+            <span class="ph-tag">Build</span>
+            <h3>Are you <em>Hire-Ready?</em></h3>
+            <p class="readiness-q"><span class="ph-sub-line">You're building v1.</span></p>
+            <ul>
+              <li>The business lives in your head.</li>
+              <li>You're hiring on vibes because your onboarding is broken.</li>
+              <li>No SOPs. No org chart. No documented customer journey.</li>
+            </ul>
+            <div class="ph-rec">&rarr; <a href="#">Do it yourself</a> with the SOP Suite, or <a href="#">fix it with me</a></div>
+          </article>
+          <article class="phase">
+            <span class="ph-num">PHASE 02</span>
+            <span class="ph-tag">Optimize</span>
+            <h3>Are you <em>Growth-Ready?</em></h3>
+            <p class="readiness-q"><span class="ph-sub-line">You're refining the version that grows.</span></p>
+            <ul>
+              <li>Processes are slow, leaky, or shaped around the wrong people.</li>
+              <li>You're about to scale workflows that haven't been optimized.</li>
+              <li>Tools and platforms don't talk to each other.</li>
+            </ul>
+            <div class="ph-rec">&rarr; <a href="#">Diagnose it</a>, then fix it with me</div>
+          </article>
+          <article class="phase apex">
+            <span class="ph-num">PHASE 03</span>
+            <span class="ph-tag">Scale or Sale</span>
+            <h3>Are you <em>Investor-Ready?</em></h3>
+            <p class="readiness-q"><span class="ph-sub-line">You're securing capital.</span></p>
+            <ul>
+              <li>You're running the business on <em>heroics</em> instead of systems.</li>
+              <li>Foundation is solid, but you don't have full visibility.</li>
+              <li>No KPI dashboards. No clean numbers to show a buyer or investor.</li>
+            </ul>
+            <div class="ph-rec">&rarr; <a href="#">Fix it with me</a> (the Fractional COO engagement)</div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <div class="mock" style="background:var(--paper-2);border-top:1px solid var(--rule)">
+      <div class="mock-inner" style="padding-top:48px;padding-bottom:48px">
+        <div class="relo">
+          <div class="opt rec">
+            <div class="t">Option A · my pick</div>
+            <h4>A <em>hidden</em> page</h4>
+            <p>Lives at its own URL, not linked in the nav. Nothing is lost, and we can repurpose it later as the diagnostic / "Operational Snapshot" experience.</p>
+            <span class="pill">Recommended</span>
+          </div>
+          <div class="opt">
+            <div class="t">Option B</div>
+            <h4>Onto the <em>Services</em> page</h4>
+            <p>Drops in above or below the existing diagnostics, so the maturity framework still has a home that visitors can reach today.</p>
+          </div>
+        </div>
+        <div class="stay">
+          <div class="stamp">&ldquo;</div>
+          <div>
+            <h4>Staying put: <em>"Two questions. One clear next step."</em></h4>
+            <p>The branching router stays exactly where it is on the homepage, as you asked. Only the three-phase maturity section moves.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHANGE 04 -->
+  <div class="change" id="c4">
+    <div class="change-head">
+      <div>
+        <div class="num">Change 04 · Homepage · the replacement</div>
+        <h3>What <em>takes its place:</em> four ways into Ops Partner.</h3>
+      </div>
+      <span class="badge copy">New</span>
+    </div>
+    <div class="change-meta">
+      <strong>What this answers</strong>
+      You asked to see how we tell people the maturity section is gone and what replaces it. This is the new homepage block: the four levels of the Operations Partner engagement, shown <b>straight across as equals</b>. They are not a ladder. No one has to start with an assessment, and no one has to climb in order, so they read as four doors into the same room, and you come in wherever you actually are.
+      <div class="ask">Below is the proposed section as it would render on the homepage. Copy is a first pass, refine any level and I'll lock it.</div>
+    </div>
+    <div class="mock">
+      <span class="mock-label">Proposed: Homepage · replaces 01b</span>
+      <div class="mock-inner">
+        <div class="section-num">01b / Operations Partner</div>
+        <p class="lvl-intro">Just like a home, every business needs something different. Sometimes you need an inspection. Sometimes a renovation. Sometimes a full rebuild. And sometimes you simply need someone to run what you've already built.</p>
+        <h2 class="section-title">Come in <em>where you are.</em></h2>
+        <p class="section-lede">The Operations Partner engagement comes in four options. These aren't steps or a ladder. Start with the one that matches the problem in front of you today.</p>
+        <div class="lvl-grid">
+          <article class="lvl">
+            <span class="ln">Engagement · Assessment</span>
+            <h4>Operational <em>Assessment.</em></h4>
+            <p>Something feels off, but you can't quite name it. We diagnose how your business actually runs, uncover what's creating friction, and hand you a prioritized roadmap forward.</p>
+            <span class="outcome">Outcome · <b>Clarity</b></span>
+            <span class="start">Explore Assessment &rarr;</span>
+          </article>
+          <article class="lvl">
+            <span class="ln">Engagement · Acceleration</span>
+            <h4>Operational <em>Acceleration.</em></h4>
+            <p>You already know the bottleneck. We solve the specific operational problem that's slowing your business down, without redesigning everything else.</p>
+            <span class="outcome">Outcome · <b>Momentum</b></span>
+            <span class="start">Explore Acceleration &rarr;</span>
+          </article>
+          <article class="lvl">
+            <span class="ln">Engagement · Transformation</span>
+            <h4>Operational <em>Transformation.</em></h4>
+            <p>Your business has outgrown the way it operates. We redesign the operating system, then build the processes, systems, and infrastructure to support what's next.</p>
+            <span class="outcome">Outcome · <b>Scale</b></span>
+            <span class="start">Explore Transformation &rarr;</span>
+          </article>
+          <article class="lvl">
+            <span class="ln">Engagement · Leadership</span>
+            <h4>Operational <em>Leadership.</em></h4>
+            <p>Your systems are in place. Now you need executive operational leadership to drive execution, accountability, and continuous improvement.</p>
+            <span class="outcome">Outcome · <b>Execution</b></span>
+            <span class="start">Explore Leadership &rarr;</span>
+          </article>
+        </div>
+        <p class="lvl-note"><b>No wrong door.</b> Not sure which one fits? That's exactly what discovery is for. We diagnose together before recommending the right engagement, so you never invest in more than your business actually needs.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="closer">
+    <p>Reply with the numbers you want shipped (e.g. <b>"ship 1 and 2"</b>) and your calls on the two open questions, the formula style and where "Where are you actually?" should land. <b>Nothing goes live until you say go.</b></p>
+  </div>
+
+</div>
+
+</body>
+</html>

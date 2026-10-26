@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Resources v2 — Articles + Tools + Quick Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{--ink:#1a1f2e;--ink-2:#2a3142;--paper:#f5f1ea;--paper-2:#ede7dc;--rule:#d8cfbf;--muted:#6b7280;--accent:#b45309;--accent-2:#8b3a07;--accent-soft:#f3d9a7}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1240px;margin:0 auto;padding:0 32px}
+
+  /* Hero */
+  header.hero{padding:96px 0 56px;border-bottom:1px solid var(--rule)}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:18px;display:inline-flex;align-items:center;gap:14px}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--accent)}
+  h1{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(56px,6.5vw,104px);line-height:.95;letter-spacing:-.024em;margin:0 0 22px;color:var(--ink)}
+  h1 em{font-style:italic;color:var(--accent);font-weight:300}
+  .lede{font-family:'Fraunces',serif;font-weight:380;font-size:22px;color:var(--ink-2);max-width:780px;line-height:1.5;margin:0}
+  .lede em{font-style:italic;color:var(--accent)}
+
+  /* Content type tabs (replaces topic filter) */
+  .types{padding:32px 0;border-bottom:1px solid var(--rule);background:var(--paper-2)}
+  .types-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .types-row .label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-right:10px}
+  .type-tab{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;padding:9px 16px;border:1px solid var(--rule);background:var(--paper);color:var(--ink-2);cursor:pointer;font-weight:500;display:inline-flex;align-items:center;gap:8px}
+  .type-tab .ct{color:var(--muted);font-size:10px}
+  .type-tab.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .type-tab.active .ct{color:var(--accent-soft)}
+
+  /* Section header */
+  .section-head{padding:80px 0 32px}
+  .section-head h2{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(40px,4.6vw,64px);line-height:1;letter-spacing:-.02em;margin:0 0 10px;color:var(--ink)}
+  .section-head h2 em{font-style:italic;color:var(--accent);font-weight:300}
+  .section-head p{font-family:'Fraunces',serif;font-style:italic;font-size:17px;line-height:1.5;color:var(--ink-2);max-width:680px;margin:0}
+  .section-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase;font-weight:600;margin-bottom:12px;display:inline-flex;align-items:center;gap:12px}
+  .section-num::before{content:"";width:28px;height:1px;background:var(--accent)}
+
+  /* ARTICLES grid */
+  .articles{padding:0 0 80px}
+  .art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .art{display:flex;flex-direction:column;gap:14px;background:var(--paper-2);border:1px solid var(--rule);padding:28px 26px 26px;text-decoration:none;color:inherit;transition:transform .25s, border-color .25s, box-shadow .25s}
+  .art:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 22px 40px -28px rgba(26,31,46,.2)}
+  .art .topic{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .art h4{font-family:'Fraunces',serif;font-weight:400;font-size:24px;line-height:1.15;letter-spacing:-.012em;margin:0;color:var(--ink)}
+  .art h4 em{font-style:italic;color:var(--accent);font-weight:300}
+  .art .excerpt{font-size:14.5px;line-height:1.55;color:var(--ink-2);margin:0}
+  .art .meta{margin-top:auto;padding-top:14px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+
+  /* QUICK NOTES — short-form essays/Substack-style */
+  .notes{padding:80px 0;background:var(--paper-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .note-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .note{display:flex;flex-direction:column;gap:14px;background:var(--paper);border:1px solid var(--rule);border-left:3px solid var(--accent);padding:32px 30px;text-decoration:none;color:inherit;transition:transform .25s, border-color .25s}
+  .note:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .note .tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .note h4{font-family:'Fraunces',serif;font-weight:400;font-size:26px;line-height:1.15;letter-spacing:-.014em;margin:0;color:var(--ink)}
+  .note h4 em{font-style:italic;color:var(--accent);font-weight:300}
+  .note .excerpt{font-size:15px;line-height:1.55;color:var(--ink-2);margin:0}
+  .note .meta{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+  /* TOOLS — favorite apps */
+  .tools{padding:80px 0}
+  .tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .tool{background:var(--ink);color:var(--paper);padding:28px 26px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden;text-decoration:none}
+  .tool::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%, rgba(180,83,9,.18), transparent 55%);pointer-events:none;opacity:0;transition:opacity .25s}
+  .tool:hover::before{opacity:1}
+  .tool > *{position:relative;z-index:1}
+  .tool .video{aspect-ratio:16/10;background:linear-gradient(135deg,#2a3142,#1a1f2e);border:1px solid rgba(245,241,234,.18);display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;transition:border-color .2s}
+  .tool .video:hover{border-color:var(--accent-soft)}
+  .tool .video .play{width:56px;height:56px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;color:var(--paper);font-size:18px;padding-left:4px}
+  .tool .video .duration{position:absolute;bottom:10px;right:10px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:rgba(245,241,234,.75);background:rgba(26,31,46,.7);padding:3px 7px;border-radius:2px}
+  .tool .tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft);font-weight:600}
+  .tool h4{font-family:'Fraunces',serif;font-weight:400;font-size:24px;line-height:1.15;letter-spacing:-.012em;margin:0;color:var(--paper)}
+  .tool h4 em{font-style:italic;color:var(--accent-soft);font-weight:300}
+  .tool .why{font-size:14.5px;line-height:1.55;color:rgba(245,241,234,.78);margin:0}
+  .tool .why em{font-style:italic;color:var(--accent-soft)}
+  .tool-cta{margin-top:auto;padding-top:16px;border-top:1px solid rgba(245,241,234,.18);display:flex;justify-content:space-between;align-items:center;gap:14px}
+  .tool-cta .price{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:rgba(245,241,234,.55)}
+  .tool-cta .try{font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--accent-soft);display:inline-flex;align-items:center;gap:6px}
+  .tool .aff-note{font-family:'Fraunces',serif;font-style:italic;font-size:11px;color:rgba(245,241,234,.4);margin:8px 0 0}
+
+  /* Featured Substack callout */
+  .feat-sub{padding:80px 0;background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+  .feat-sub::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 25% 30%, rgba(180,83,9,.18), transparent 55%);pointer-events:none}
+  .feat-sub .container{position:relative;z-index:1}
+  .feat-sub .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center}
+  .feat-sub h3{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(36px,4.4vw,60px);line-height:1.05;letter-spacing:-.02em;margin:14px 0 18px;color:var(--paper);max-width:680px}
+  .feat-sub h3 em{font-style:italic;color:var(--accent-soft);font-weight:300}
+  .feat-sub p{font-size:16.5px;line-height:1.6;color:rgba(245,241,234,.78);margin:0 0 22px}
+  .feat-sub .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;background:var(--accent);color:var(--paper);border-radius:999px;font-size:14px;font-weight:500;text-decoration:none}
+  .feat-sub .preview{aspect-ratio:4/3;background:linear-gradient(135deg,#a04a17,#5a2a08);padding:32px;display:flex;flex-direction:column;justify-content:space-between;font-family:'Fraunces',serif;color:rgba(245,241,234,.7);font-style:italic;border:1px solid rgba(245,241,234,.18)}
+  .feat-sub .preview .top{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-style:normal;color:var(--accent-soft);font-weight:600}
+  .feat-sub .preview .title{font-size:28px;font-weight:340;line-height:1.1;color:var(--paper);font-style:italic;letter-spacing:-.012em;margin:0}
+  .feat-sub .preview .title em{font-style:italic;color:var(--accent-soft);font-weight:300}
+
+  .lab-bar{position:fixed;top:14px;right:18px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);background:rgba(245,241,234,.95);padding:6px 12px;border-radius:2px;font-weight:600;z-index:99;border:1px solid var(--rule)}
+
+  @media(max-width:1000px){
+    .art-grid,.tool-grid{grid-template-columns:1fr 1fr}
+    .note-grid{grid-template-columns:1fr}
+    .feat-sub .grid{grid-template-columns:1fr;gap:32px}
+    .feat-sub .preview{order:-1}
+  }
+  @media(max-width:640px){.art-grid,.tool-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<span class="lab-bar">MOCKUP · /resources v2</span>
+
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">Resources · Field Notes · Tools</div>
+    <h1>The <em>operator's</em><br/>field notes.</h1>
+    <p class="lede">Articles, frameworks, quick notes, and the tools I actually use, the systems that make founders <em>free.</em></p>
+  </div>
+</header>
+
+<!-- TYPE TABS (replaces topic filter) -->
+<section class="types">
+  <div class="container">
+    <div class="types-row">
+      <span class="label">— Browse</span>
+      <span class="type-tab active">All <span class="ct">· 18</span></span>
+      <span class="type-tab">Articles <span class="ct">· 9</span></span>
+      <span class="type-tab">Quick notes <span class="ct">· 4</span></span>
+      <span class="type-tab">Tools I use <span class="ct">· 5</span></span>
+      <span class="type-tab">Frameworks <span class="ct">· 3</span></span>
+      <span class="type-tab">Playbooks <span class="ct">· 2</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED SUBSTACK / QUICK NOTE -->
+<section class="feat-sub">
+  <div class="container">
+    <div class="grid">
+      <div>
+        <div class="eyebrow" style="color:var(--accent-soft)">— Featured · Quick note</div>
+        <h3>The 3 AI apps I can't <em>live without.</em></h3>
+        <p>A short read on the only three AI tools that earned a permanent spot in my daily operating rhythm. Why they made the cut, how I use them, and what I tried first that didn't.</p>
+        <a href="#" class="btn">Read on Substack <span>→</span></a>
+      </div>
+      <div class="preview">
+        <span class="top">Substack · 4 min read</span>
+        <p class="title">The 3 AI apps I can't <em>live without.</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS — favorite apps -->
+<section class="tools">
+  <div class="container">
+    <div class="section-head" style="padding-top:0">
+      <div class="section-num">Tools I actually use</div>
+      <h2>The <em>operator's</em> stack.</h2>
+      <p>Short videos on each. Why it earned its place. How I use it day-to-day. Affiliate links where I have them, clearly marked.</p>
+    </div>
+
+    <div class="tool-grid">
+
+      <a class="tool" href="#">
+        <div class="video">
+          <div class="play">▶</div>
+          <span class="duration">2:14</span>
+        </div>
+        <span class="tag">Voice → Text</span>
+        <h4>Wispr <em>Flow</em></h4>
+        <p class="why">Dictation that actually keeps up with how I think. <em>I run my whole day in voice now.</em> Email drafts, Slack replies, SOPs, written first-passes.</p>
+        <div class="tool-cta">
+          <span class="price">$15/mo · free trial</span>
+          <span class="try">Try Wispr Flow →</span>
+        </div>
+        <p class="aff-note">* Affiliate link</p>
+      </a>
+
+      <a class="tool" href="#">
+        <div class="video">
+          <div class="play">▶</div>
+          <span class="duration">3:42</span>
+        </div>
+        <span class="tag">Screen Recording</span>
+        <h4><em>Loom</em></h4>
+        <p class="why">Asynchronous video for delegation. <em>I haven't typed "here's how to do this" in two years.</em> Record once. Send forever.</p>
+        <div class="tool-cta">
+          <span class="price">Free / $15/mo Pro</span>
+          <span class="try">Try Loom →</span>
+        </div>
+        <p class="aff-note">* Affiliate link</p>
+      </a>
+
+      <a class="tool" href="#">
+        <div class="video">
+          <div class="play">▶</div>
+          <span class="duration">4:18</span>
+        </div>
+        <span class="tag">AI Workspace</span>
+        <h4>Claude <em>Projects</em></h4>
+        <p class="why">My second brain for every client engagement. <em>One project per company.</em> Every doc, every call transcript, every SOP, all queryable.</p>
+        <div class="tool-cta">
+          <span class="price">$20/mo · Pro</span>
+          <span class="try">Try Claude →</span>
+        </div>
+        <p class="aff-note">* Affiliate link</p>
+      </a>
+
+      <a class="tool" href="#">
+        <div class="video">
+          <div class="play">▶</div>
+          <span class="duration">2:56</span>
+        </div>
+        <span class="tag">Database / Ops</span>
+        <h4><em>Airtable</em></h4>
+        <p class="why">The operating system I build dashboards on for every client. <em>Spreadsheet that thinks like a database.</em> Where KPIs, hiring pipelines, and ops trackers actually live.</p>
+        <div class="tool-cta">
+          <span class="price">Free / $20+/mo</span>
+          <span class="try">Try Airtable →</span>
+        </div>
+        <p class="aff-note">* Affiliate link</p>
+      </a>
+
+      <a class="tool" href="#">
+        <div class="video">
+          <div class="play">▶</div>
+          <span class="duration">2:08</span>
+        </div>
+        <span class="tag">Automation</span>
+        <h4><em>Zapier</em></h4>
+        <p class="why">When you don't need an agent. Just need two tools to talk. <em>The first automation layer I install for almost every client.</em></p>
+        <div class="tool-cta">
+          <span class="price">Free / $20+/mo</span>
+          <span class="try">Try Zapier →</span>
+        </div>
+        <p class="aff-note">* Affiliate link</p>
+      </a>
+
+      <a class="tool" href="#">
+        <div class="video">
+          <div class="play">▶</div>
+          <span class="duration">2:42</span>
+        </div>
+        <span class="tag">Scheduling</span>
+        <h4>F28 <em>Agency Portal</em></h4>
+        <p class="why">My own bookings + intake live here. <em>You've probably already used it.</em> If you've booked a call with me, that's the form.</p>
+        <div class="tool-cta">
+          <span class="price">Multiple plans</span>
+          <span class="try">See F28 Portal →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- QUICK NOTES (Substack-style short essays) -->
+<section class="notes">
+  <div class="container">
+    <div class="section-head" style="padding-top:0">
+      <div class="section-num">Quick notes</div>
+      <h2>Short reads from the <em>operator's seat.</em></h2>
+      <p>Half-essay, half-field-note. Cross-posted from Substack. 3-5 minute reads.</p>
+    </div>
+
+    <div class="note-grid">
+      <a class="note" href="#">
+        <span class="tag">Quick note · 4 min</span>
+        <h4>Why I stopped writing "<em>how-to</em>" docs.</h4>
+        <p class="excerpt">SOPs were faster to write before AI. Now they're faster to record. Loom + transcription has changed how documentation lives in my engagements.</p>
+        <span class="meta">May 2026</span>
+      </a>
+      <a class="note" href="#">
+        <span class="tag">Quick note · 5 min</span>
+        <h4>The cost of <em>over-automation.</em></h4>
+        <p class="excerpt">Three clients in twelve months who automated themselves into a trust deficit with their teams. What I learned, and the audit question I now ask before any build.</p>
+        <span class="meta">Apr 2026</span>
+      </a>
+      <a class="note" href="#">
+        <span class="tag">Quick note · 3 min</span>
+        <h4>One question I ask <em>every founder</em> on every kick-off call.</h4>
+        <p class="excerpt">It's not "what's your goal." It's the question I use to figure out if the goal is even theirs.</p>
+        <span class="meta">Apr 2026</span>
+      </a>
+      <a class="note" href="#">
+        <span class="tag">Quick note · 4 min</span>
+        <h4>Hiring is a <em>systems problem.</em></h4>
+        <p class="excerpt">The 6 hires I helped a client make in 9 months, and the 3 they didn't need to make at all once the systems were in place.</p>
+        <span class="meta">Mar 2026</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section class="articles">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">Long-form articles</div>
+      <h2>Field <em>notes.</em></h2>
+      <p>Deeper reads on frameworks, operations, AI integration, delegation, and the systems that make founders free.</p>
+    </div>
+    <div class="art-grid">
+      <a class="art" href="#"><span class="topic">AI Integration</span><h4>Why most AI integrations <em>fail.</em></h4><p class="excerpt">Six reasons it goes sideways and what changes with an auditor's eye in the room.</p><div class="meta"><span>8 min</span><span>MAY 2026</span></div></a>
+      <a class="art" href="#"><span class="topic">Founder Psychology</span><h4>Signs your business depends <em>too much</em> on you.</h4><p class="excerpt">Eight diagnostic signs and what to do about each.</p><div class="meta"><span>6 min</span><span>MAY 2026</span></div></a>
+      <a class="art" href="#"><span class="topic">AI Integration</span><h4>AI doesn't fix your operations. <em>It magnifies them.</em></h4><p class="excerpt">Architect the system first. Then integrate.</p><div class="meta"><span>5 min</span><span>MAY 2026</span></div></a>
+      <a class="art" href="#"><span class="topic">Frameworks</span><h4>The 6-step optimization framework <em>(F28 method).</em></h4><p class="excerpt">Evaluate. Eliminate. Consolidate. Delegate. Automate. Mitigate.</p><div class="meta"><span>9 min</span><span>APR 2026</span></div></a>
+      <a class="art" href="#"><span class="topic">Delegation</span><h4>Why most founders can't <em>delegate.</em></h4><p class="excerpt">It isn't a control issue. It's a documentation issue.</p><div class="meta"><span>7 min</span><span>APR 2026</span></div></a>
+      <a class="art" href="#"><span class="topic">Operations</span><h4>The hidden cost of <em>operational chaos.</em></h4><p class="excerpt">What chaos actually costs, beyond the time you lose.</p><div class="meta"><span>5 min</span><span>APR 2026</span></div></a>
+    </div>
+  </div>
+</section>
+
+<div style="padding:48px 0 80px;background:var(--paper-2);border-top:1px solid var(--rule)">
+  <div class="container" style="max-width:920px">
+    <h3 style="font-family:'Fraunces',serif;font-weight:340;font-size:24px;margin:0 0 14px;letter-spacing:-.012em">My take</h3>
+    <p style="font-family:'Fraunces',serif;font-style:italic;font-size:16px;line-height:1.65;color:var(--ink-2);margin:0 0 14px">
+      <strong style="font-family:'Inter',sans-serif;font-style:normal;font-weight:600;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);display:block;margin-bottom:8px">Structure</strong>
+      Tabs at top let buyers filter by <strong style="font-style:normal">type</strong> (articles, notes, tools, frameworks, playbooks) instead of by topic. Featured Substack callout up top for your "3 AI apps I can't live without" piece. Tools section sits visually distinct in ink-navy so it feels like a different category — not just another grid of articles. Quick Notes block (warm cream) bridges the two. Long-form articles at the bottom in their original cream grid.
+    </p>
+    <p style="font-family:'Fraunces',serif;font-style:italic;font-size:16px;line-height:1.65;color:var(--ink-2);margin:0 0 14px">
+      <strong style="font-family:'Inter',sans-serif;font-style:normal;font-weight:600;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);display:block;margin-bottom:8px">Tool cards</strong>
+      Video placeholder (16:10), tag, name, why-I-use-it, price, "Try X →" CTA, and a small italic "* Affiliate link" disclosure where applicable. F28 Portal example has no affiliate note since it's yours. Click anywhere on the card opens the video; the "Try X →" is the affiliate CTA.
+    </p>
+    <p style="font-family:'Fraunces',serif;font-style:italic;font-size:16px;line-height:1.65;color:var(--ink-2);margin:0">
+      <strong style="font-family:'Inter',sans-serif;font-style:normal;font-weight:600;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);display:block;margin-bottom:8px">Quick notes vs articles</strong>
+      Quick notes are 3-5 minute reads, more personal/observational, cross-posted from Substack. Articles are longer, more structured (frameworks, playbooks, deep dives). The "3 AI apps I can't live without" is the right kind of piece to lead with as featured — short, sharable, links to your tools, perfect Substack subscribe-driver.
+    </p>
+  </div>
+</div>
+
+</body>
+</html>

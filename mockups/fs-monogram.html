@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>FS Monogram — refined for regal / luxury</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{--ink:#1a1f2e;--paper:#f5f1ea;--paper-2:#ede7dc;--rule:#d8cfbf;--muted:#6b7280;--accent:#b45309;--accent-2:#8b3a07;--accent-soft:#f3d9a7}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#e8e3d8;color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+  .container{max-width:1280px;margin:0 auto;padding:64px 48px}
+  .head{margin-bottom:48px}
+  .head .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:14px}
+  .head h1{font-family:'Fraunces',serif;font-weight:340;font-size:46px;letter-spacing:-.018em;margin:0 0 14px;line-height:1}
+  .head h1 em{font-style:italic;color:var(--accent);font-weight:300}
+  .head p{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:#2a3142;max-width:880px;margin:0;line-height:1.55}
+
+  .row{margin-bottom:48px}
+  .row-meta{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:14px;border-bottom:1px solid var(--rule);margin-bottom:0}
+  .row-meta .lab{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+  .row-meta .lab strong{color:var(--accent);font-weight:600}
+  .row-meta .name{font-family:'Fraunces',serif;font-weight:400;font-size:19px;letter-spacing:-.012em}
+  .row-meta .name em{font-style:italic;color:var(--accent);font-weight:380}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);border-top:none}
+  .cell{padding:80px 24px;display:flex;align-items:center;justify-content:center;min-height:280px;background:var(--paper);position:relative}
+  .cell.warm{background:var(--paper-2)}
+  .cell.dark{background:var(--ink)}
+  .cell.amber{background:var(--accent-2)}
+  .cell.fav{padding:48px;min-height:auto;justify-content:center}
+  .cell .ctx{position:absolute;top:14px;left:18px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .cell.dark .ctx, .cell.amber .ctx{color:rgba(245,241,234,.5)}
+
+  /* shared luxury settings — high contrast strokes, hairline ornaments */
+  .mono{color:var(--ink);position:relative;display:inline-block}
+  .dark .mono{color:var(--paper)}
+  .amber .mono{color:var(--paper)}
+
+  /* === A: refined stacked offset — Cormorant, ultra-thin hairline rule between === */
+  .vA .mono{font-family:'Cormorant Garamond',serif;line-height:.86;text-align:center}
+  .vA .mono .f{display:block;font-weight:300;font-size:128px;letter-spacing:.005em}
+  .vA .mono .rule{display:block;width:54px;height:1px;background:currentColor;margin:14px auto;opacity:.5}
+  .dark .vA .mono .rule, .amber .vA .mono .rule{background:var(--accent-soft);opacity:.7}
+  .vA .mono .s{display:block;font-weight:300;font-style:italic;font-size:96px;color:var(--accent)}
+  .dark .vA .mono .s, .amber .vA .mono .s{color:var(--accent-soft)}
+  .vA.cell.fav .mono .f{font-size:46px}
+  .vA.cell.fav .mono .rule{width:22px;margin:5px auto}
+  .vA.cell.fav .mono .s{font-size:36px}
+
+  /* === C: interlocked — F roman, S nested italic, shared baseline === */
+  .vC .mono{font-family:'Playfair Display',serif;line-height:.85;position:relative;width:200px;height:200px;display:flex;align-items:center;justify-content:center}
+  .vC .mono .f{position:absolute;left:30px;top:-6px;font-size:200px;font-weight:400;letter-spacing:-.04em;line-height:1}
+  .vC .mono .s{position:absolute;right:18px;bottom:-6px;font-size:128px;font-weight:400;font-style:italic;color:var(--accent);letter-spacing:-.04em;line-height:1}
+  .dark .vC .mono .s, .amber .vC .mono .s{color:var(--accent-soft)}
+  .vC.cell.fav .mono{width:72px;height:72px}
+  .vC.cell.fav .mono .f{font-size:80px;left:10px;top:-4px}
+  .vC.cell.fav .mono .s{font-size:52px;right:6px;bottom:-4px}
+
+  /* === D: refined seal — circle with sub-mark, hairline border === */
+  .vD .mono{font-family:'Cormorant Garamond',serif;width:184px;height:184px;border:1px solid currentColor;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;position:relative}
+  .vD .mono::before,.vD .mono::after{content:"";position:absolute;left:50%;width:1px;height:18px;background:currentColor;opacity:.5}
+  .vD .mono::before{top:-9px;transform:translateX(-50%)}
+  .vD .mono::after{bottom:-9px;transform:translateX(-50%)}
+  .vD .mono .fs{font-weight:400;font-size:74px;letter-spacing:.04em;line-height:.9;display:inline-flex;align-items:baseline;gap:6px}
+  .vD .mono .fs .s{font-style:italic;color:var(--accent);font-weight:300}
+  .dark .vD .mono .fs .s, .amber .vD .mono .fs .s{color:var(--accent-soft)}
+  .vD .mono .tag{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.32em;text-transform:uppercase;margin-top:6px;opacity:.55;font-weight:500}
+  .vD.cell.fav .mono{width:80px;height:80px}
+  .vD.cell.fav .mono .fs{font-size:40px}
+  .vD.cell.fav .mono .tag{display:none}
+  .vD.cell.fav .mono::before,.vD.cell.fav .mono::after{display:none}
+
+  /* === E: ligature — F and S share stroke (custom-styled with SVG-like layout) === */
+  .vE .mono{font-family:'Playfair Display',serif;font-weight:300;position:relative;width:200px;height:170px}
+  .vE .mono .f{position:absolute;left:36px;top:-10px;font-size:200px;line-height:1;letter-spacing:-.04em}
+  .vE .mono .s{position:absolute;left:78px;top:34px;font-size:138px;line-height:1;font-style:italic;color:var(--accent);letter-spacing:-.04em;font-weight:400}
+  .dark .vE .mono .s, .amber .vE .mono .s{color:var(--accent-soft)}
+  .vE.cell.fav .mono{width:72px;height:62px}
+  .vE.cell.fav .mono .f{font-size:80px;left:14px;top:-4px}
+  .vE.cell.fav .mono .s{font-size:54px;left:32px;top:14px}
+
+  .notes{margin-top:18px;padding:18px 22px;background:var(--paper);border-left:3px solid var(--accent);font-family:'Fraunces',serif;font-size:14.5px;line-height:1.55;color:#2a3142}
+  .notes strong{color:var(--ink);font-weight:600;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;display:inline-block;margin-right:10px;vertical-align:middle}
+
+  @media (max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="head">
+    <div class="eyebrow">FS Monogram · luxury refinement</div>
+    <h1>The <em>FS</em> sub-mark. Refined.</h1>
+    <p>Dropped the "F-on-a-foundation" literal version. These four lean into <strong>display serifs</strong> (Cormorant Garamond + Playfair Display) for the regal/heritage feel you flagged. F always top/dominant, S italic in burnt amber beneath — Freedom/Funding/Fruition above, Systems holding the foundation.</p>
+  </div>
+
+  <!-- A -->
+  <div class="row vA">
+    <div class="row-meta">
+      <div class="lab"><strong>A</strong> · Stacked · Cormorant hairline rule</div>
+      <div class="name">F roman <em>·</em> S italic, separated by a hairline</div>
+    </div>
+    <div class="grid">
+      <div class="cell"><span class="ctx">Cream</span><span class="mono"><span class="f">F</span><span class="rule"></span><span class="s">S</span></span></div>
+      <div class="cell warm"><span class="ctx">Warm</span><span class="mono"><span class="f">F</span><span class="rule"></span><span class="s">S</span></span></div>
+      <div class="cell dark"><span class="ctx">Ink</span><span class="mono"><span class="f">F</span><span class="rule"></span><span class="s">S</span></span></div>
+      <div class="cell amber fav"><span class="ctx">Favicon 48px</span><span class="mono"><span class="f">F</span><span class="rule"></span><span class="s">S</span></span></div>
+    </div>
+    <div class="notes"><strong>Read</strong> Most editorial. The hairline rule does the work of saying "F sits on top, S underneath" without literal scaffolding. Cormorant Garamond reads classical/regal. Works small.</div>
+  </div>
+
+  <!-- C -->
+  <div class="row vC">
+    <div class="row-meta">
+      <div class="lab"><strong>C</strong> · Interlocked · Playfair display</div>
+      <div class="name">F dominant, S italic <em>tucked underneath</em></div>
+    </div>
+    <div class="grid">
+      <div class="cell"><span class="ctx">Cream</span><span class="mono"><span class="f">F</span><span class="s">S</span></span></div>
+      <div class="cell warm"><span class="ctx">Warm</span><span class="mono"><span class="f">F</span><span class="s">S</span></span></div>
+      <div class="cell dark"><span class="ctx">Ink</span><span class="mono"><span class="f">F</span><span class="s">S</span></span></div>
+      <div class="cell amber fav"><span class="ctx">Favicon 48px</span><span class="mono"><span class="f">F</span><span class="s">S</span></span></div>
+    </div>
+    <div class="notes"><strong>Read</strong> My pick. F is the eye-catcher, S nests italic burnt amber underneath. Playfair has carved-stone weight to it. Brand architecture is visible: aspirational F on top, systems S grounding it. Scales clean as favicon.</div>
+  </div>
+
+  <!-- D -->
+  <div class="row vD">
+    <div class="row-meta">
+      <div class="lab"><strong>D</strong> · Seal · hairline circle, inline F·S</div>
+      <div class="name">FS together inside a thin circle with vertical tickers</div>
+    </div>
+    <div class="grid">
+      <div class="cell"><span class="ctx">Cream</span><span class="mono"><span class="fs">F<span class="s">S</span></span><span class="tag">FALLON SCOTT</span></span></div>
+      <div class="cell warm"><span class="ctx">Warm</span><span class="mono"><span class="fs">F<span class="s">S</span></span><span class="tag">FALLON SCOTT</span></span></div>
+      <div class="cell dark"><span class="ctx">Ink</span><span class="mono"><span class="fs">F<span class="s">S</span></span><span class="tag">FALLON SCOTT</span></span></div>
+      <div class="cell amber fav"><span class="ctx">Favicon 48px</span><span class="mono"><span class="fs">F<span class="s">S</span></span></span></div>
+    </div>
+    <div class="notes"><strong>Read</strong> Institutional / heritage seal. The vertical tickers (top + bottom) hint at compass / authority. Pairs CPA lineage with modern. Risk: at small sizes the circle border can feel like a button.</div>
+  </div>
+
+  <!-- E -->
+  <div class="row vE">
+    <div class="row-meta">
+      <div class="lab"><strong>E</strong> · Ligature · F &amp; S share negative space</div>
+      <div class="name">F top-left, S italic <em>tucked under the bar</em></div>
+    </div>
+    <div class="grid">
+      <div class="cell"><span class="ctx">Cream</span><span class="mono"><span class="f">F</span><span class="s">S</span></span></div>
+      <div class="cell warm"><span class="ctx">Warm</span><span class="mono"><span class="f">F</span><span class="s">S</span></span></div>
+      <div class="cell dark"><span class="ctx">Ink</span><span class="mono"><span class="f">F</span><span class="s">S</span></span></div>
+      <div class="cell amber fav"><span class="ctx">Favicon 48px</span><span class="mono"><span class="f">F</span><span class="s">S</span></span></div>
+    </div>
+    <div class="notes"><strong>Read</strong> Tightest interlock. The S sits under the F's horizontal bar — visually says "Systems support the F." Most monogram-feeling of the four. Works embossed on physical objects (notebook covers, business cards).</div>
+  </div>
+
+</div>
+</body>
+</html>

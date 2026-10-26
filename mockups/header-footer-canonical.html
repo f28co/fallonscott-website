@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Canonical Header + Footer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400..500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+ :root{
+ --ink:#1a1f2e;--ink-2:#2a3142;--paper:#f5f1ea;--paper-2:#ede7dc;
+ --rule:#d8cfbf;--muted:#6b7280;--accent:#b45309;--accent-2:#8b3a07;--accent-soft:#f3d9a7;
+ }
+ *{box-sizing:border-box}
+ body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+ .container{max-width:1200px;margin:0 auto;padding:0 32px}
+
+ /* ===== NAV (canonical) ===== */
+ nav.top{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px 32px;background:rgba(245,241,234,.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(26,31,46,.06)}
+ .logo{font-family:'Fraunces', serif;font-weight:600;font-size:22px;letter-spacing:-.01em;text-decoration:none;color:var(--ink)}
+ .logo .dot{color:var(--accent)}
+ .logo .chip{font-family:'JetBrains Mono', monospace;font-size:.42em;font-weight:500;letter-spacing:.14em;color:var(--accent);transform:translateY(-.45em);padding:5px 9px;border:1px solid currentColor;border-radius:4px;display:inline-block;margin-left:6px}
+ .nav-links{display:flex;gap:30px;align-items:center;font-size:14px;font-weight:500}
+ .nav-links a{position:relative;padding:6px 0;text-decoration:none;color:var(--ink)}
+ .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--accent);transition:width .25s}
+ .nav-links a:hover::after{width:100%}
+ .nav-links a.is-active{color:var(--accent)}
+ .nav-links a.is-active::after{width:100%}
+ .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;font-size:14px;font-weight:500;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;text-decoration:none;transition:.2s}
+ .btn:hover{transform:translateY(-1px);background:var(--accent);border-color:var(--accent)}
+ .btn .arrow{display:inline-block}
+
+ /* ===== annotation ===== */
+ .note{background:var(--ink);color:var(--accent-soft);font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em;text-align:center;padding:10px 20px}
+ .stage-label{max-width:1200px;margin:48px auto 14px;padding:0 32px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+ .filler{padding:70px 0;text-align:center}
+ .filler h1{font-family:'Fraunces',serif;font-weight:340;font-size:44px;margin:0 0 12px}
+ .filler p{color:var(--muted);font-size:15px;margin:0}
+ .callout{max-width:1200px;margin:0 auto;padding:0 32px}
+ .callout ul{font-size:13.5px;line-height:1.7;color:var(--ink-2);background:var(--paper-2);border:1px solid var(--rule);border-radius:10px;padding:18px 22px 18px 40px;margin:0}
+
+ /* ===== FOOTER (canonical) ===== */
+ footer{background:var(--ink);color:var(--paper);padding:60px 0 40px;border-top:1px solid rgba(245,241,234,.12)}
+ .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+ .foot-grid h5{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,241,234,.5);margin:0 0 14px;font-weight:500}
+ .foot-grid a{display:block;font-size:14px;color:rgba(245,241,234,.85);margin-bottom:8px;transition:color .2s;text-decoration:none}
+ .foot-grid a:hover{color:var(--accent-soft)}
+ .foot-grid .logo{color:var(--paper)}
+ .foot-grid .logo .chip{color:var(--accent-soft)}
+ .foot-bio{font-family:'Fraunces', serif;font-size:22px;font-weight:400;line-height:1.3;color:var(--paper);max-width:380px;margin-top:16px}
+ .foot-bottom{display:flex;justify-content:space-between;font-size:12px;color:rgba(245,241,234,.45);padding-top:24px;border-top:1px solid rgba(245,241,234,.12);gap:18px;flex-wrap:wrap}
+ .foot-bottom a{color:rgba(245,241,234,.7);text-decoration:none}
+
+ @media(max-width:900px){.nav-links{display:none}.foot-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<div class="note">CANONICAL HEADER + FOOTER — applied identically to all 8 pages (active link &amp; page-specific CTA are the only per-page differences)</div>
+
+<!-- ===== CANONICAL NAV ===== -->
+<nav class="top">
+ <a href="#" class="logo">Fallon Scott<span class="dot">.</span><span class="chip">F28</span></a>
+ <div class="nav-links">
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#" class="is-active">Services</a>
+  <a href="#">AI Integration</a>
+  <a href="#">SOP Suite</a>
+  <a href="#">Speaking</a>
+  <a href="#">FAQ</a>
+  <a href="#">Contact</a>
+ </div>
+ <a href="#" class="btn">Book a Discovery Call <span class="arrow">→</span></a>
+</nav>
+
+<div class="stage-label">Header — what's now standardized</div>
+<div class="callout">
+ <ul>
+  <li><strong>Same 8 links, same order, every page:</strong> Home · About · Services · AI Integration · SOP Suite · Speaking · FAQ · Contact</li>
+  <li><strong>Active page</strong> highlighted in amber with a single shared class (fixes the <code>is-current</code> vs <code>current</code> split). Shown here on "Services."</li>
+  <li><strong>Contact</strong> now appears everywhere and points to the same scheduler link (was missing on 5 pages; about.html had a dead <code>#contact</code> anchor + a duplicate FAQ link — both removed).</li>
+  <li><strong>Speaking</strong> &amp; <strong>SOP Suite</strong> nav items restored on their own pages; Speaking's nav rebuilt with <code>.nav-links</code> so spacing/hover matches.</li>
+  <li><strong>CTA</strong> stays page-specific: "Book a Discovery Call" default · "Book Assessment, $197" on AI · "Buy The Suite, $998" on SOP — same pill style across all.</li>
+ </ul>
+</div>
+
+<div class="filler">
+ <h1>Page content sits here</h1>
+ <p>(unchanged — this mockup only previews the shared header &amp; footer)</p>
+</div>
+
+<div class="stage-label">Footer — what's now standardized</div>
+<div class="callout" style="margin-bottom:28px">
+ <ul>
+  <li><strong>Full 4-column footer on every page</strong> — replaces the bare one-line bottom-bars on Services/Speaking/FAQ and the <em>missing</em> footer on Resources.</li>
+  <li><strong>Dead links fixed:</strong> no more <code>index.html#work</code> or old package names (Foundations/Optimization/Visibility/Scale). Services column now matches the three-doors structure.</li>
+  <li><strong>One shared bio, one bottom-bar string</strong> ("Atlanta, GA · Worldwide") across all pages.</li>
+ </ul>
+</div>
+
+<!-- ===== CANONICAL FOOTER ===== -->
+<footer>
+ <div class="container">
+  <div class="foot-grid">
+   <div>
+    <div class="logo" style="font-family:'Fraunces',serif;font-weight:600;font-size:22px">Fallon Scott<span class="dot" style="color:var(--accent-soft)">.</span><span class="chip" style="font-family:'JetBrains Mono',monospace;font-size:.42em;letter-spacing:.14em;color:var(--accent-soft);border:1px solid currentColor;border-radius:4px;padding:5px 9px;margin-left:6px;display:inline-block;transform:translateY(-.45em)">F28</span></div>
+    <p class="foot-bio">Don't end up trapped in the thing you built.</p>
+   </div>
+   <div>
+    <h5>Services</h5>
+    <a href="#">Fractional COO</a>
+    <a href="#">Diagnostics</a>
+    <a href="#">AI Integration</a>
+    <a href="#">SOP Suite</a>
+   </div>
+   <div>
+    <h5>Connect</h5>
+    <a href="#">About</a>
+    <a href="#">Speaking</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">F28 &amp; Co.</a>
+   </div>
+   <div>
+    <h5>Contact</h5>
+    <a href="#">Book Discovery Call</a>
+    <a href="#">info@f28co.com</a>
+    <a href="#">Press / Media</a>
+   </div>
+  </div>
+  <div class="foot-bottom">
+   <span>© 2026 Fallon Scott. All rights reserved. · <a href="#">Terms</a> · <a href="#">Privacy</a></span>
+   <span>Atlanta, GA · Worldwide · Website by <a href="#">F28 Agency</a> ©</span>
+  </div>
+ </div>
+</footer>
+
+</body>
+</html>

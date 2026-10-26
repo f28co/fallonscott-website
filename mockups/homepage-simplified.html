@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Homepage Simplified — Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ink:#1a1f2e;--ink-2:#2a3142;--paper:#f5f1ea;--paper-2:#ede7dc;
+    --rule:#d8cfbf;--muted:#6b7280;--accent:#b45309;--accent-2:#8b3a07;--accent-soft:#f3d9a7;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#e8e3d8;color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+  .container{max-width:1240px;margin:0 auto;padding:0 32px}
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(232,227,216,.92);backdrop-filter:blur(10px);padding:18px 0;border-bottom:1px solid var(--rule)}
+  .topbar .row{display:flex;justify-content:space-between;align-items:center;gap:24px}
+  .topbar h1{font-family:'Fraunces',serif;font-weight:340;font-size:22px;margin:0;letter-spacing:-.012em}
+  .topbar h1 em{font-style:italic;color:var(--accent);font-weight:300}
+  .topbar .lab{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:500}
+
+  .intro{padding:40px 0 28px}
+  .intro h2{font-family:'Fraunces',serif;font-weight:340;font-size:38px;margin:0 0 14px;letter-spacing:-.018em;line-height:1}
+  .intro h2 em{font-style:italic;color:var(--accent);font-weight:300}
+  .intro p{font-family:'Fraunces',serif;font-style:italic;font-size:16.5px;color:var(--ink-2);margin:0;max-width:880px;line-height:1.55}
+
+  /* Reorder strip */
+  .order{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+  .order .pill{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;padding:6px 10px;border-radius:999px;background:var(--paper);border:1px solid var(--rule);color:var(--ink-2)}
+  .order .pill.amber{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+  .order .pill.muted{opacity:.5}
+  .order .arrow{color:var(--accent);font-weight:600;align-self:center}
+
+  /* === HERO MOCK === */
+  .canvas{position:relative;overflow:hidden}
+  .canvas .label{position:absolute;top:14px;right:18px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);background:rgba(245,241,234,.9);padding:5px 10px;border-radius:2px;font-weight:600;z-index:5}
+
+  .hero{background:var(--ink);color:var(--paper);padding:130px 0 100px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(110deg, rgba(13,17,28,.96) 0%, rgba(13,17,28,.86) 38%, rgba(13,17,28,.4) 65%, rgba(13,17,28,.05) 95%);z-index:1}
+  .hero::after{content:"";position:absolute;top:-180px;right:-160px;width:520px;height:520px;background:radial-gradient(circle, rgba(180,83,9,.32), transparent 65%);z-index:0}
+  .hero .container{position:relative;z-index:2}
+  .hero .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:24px;display:inline-flex;align-items:center;gap:14px;font-weight:500}
+  .hero .eyebrow::before{content:"";width:32px;height:1px;background:var(--accent-soft)}
+  .hero h1{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(58px,7.8vw,130px);line-height:.94;letter-spacing:-.026em;margin:0 0 28px;max-width:1400px;color:var(--paper)}
+  .hero h1 em{font-style:italic;font-weight:300;color:var(--accent-soft)}
+  .hero h1 .amber{color:var(--accent);font-style:italic;font-weight:300}
+  .hero .sub{font-family:'Fraunces',serif;font-style:italic;font-weight:380;font-size:clamp(20px,2.2vw,28px);line-height:1.4;color:rgba(245,241,234,.8);max-width:880px;margin:0 0 40px}
+  .hero .sub strong{color:var(--paper);font-weight:500;font-style:normal}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;font-size:15px;font-weight:500;border-radius:999px;border:1px solid var(--accent);background:var(--accent);color:var(--paper);text-decoration:none}
+  .btn.ghost{background:transparent;color:var(--paper);border-color:rgba(245,241,234,.4)}
+
+  /* === PHASES MOCK === */
+  .phases{background:var(--paper);padding:110px 0}
+  .phases .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:14px;display:inline-flex;align-items:center;gap:14px}
+  .phases .eyebrow::before{content:"";width:32px;height:1px;background:var(--accent)}
+  .phases h2{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(48px,5.4vw,76px);line-height:1;letter-spacing:-.022em;margin:0 0 18px;color:var(--ink)}
+  .phases h2 em{font-style:italic;color:var(--accent);font-weight:300}
+  .phases .lede{font-size:18px;line-height:1.55;color:var(--ink-2);max-width:780px;margin:0 0 48px}
+  .phases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .phase{background:var(--paper-2);padding:40px 32px 36px;border:1px solid var(--rule);border-top:3px solid var(--accent);position:relative;display:flex;flex-direction:column;gap:18px}
+  .phase .ph-num{position:absolute;top:14px;right:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;color:var(--paper);background:var(--accent);padding:6px 11px;border-radius:2px;font-weight:600}
+  .phase .ph-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-top:18px}
+  .phase .ph-q{font-family:'Fraunces',serif;font-weight:340;font-size:42px;line-height:1;letter-spacing:-.018em;margin:6px 0 0;color:var(--ink)}
+  .phase .ph-q em{font-style:italic;color:var(--accent);font-weight:300}
+  .phase .ph-sub{font-family:'Fraunces',serif;font-style:italic;font-weight:380;font-size:16px;line-height:1.4;color:var(--ink-2);margin:8px 0 0;padding-bottom:18px;border-bottom:1px solid var(--rule)}
+  .phase ul{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:9px}
+  .phase ul li{font-size:14.5px;line-height:1.5;color:var(--ink-2);padding-left:18px;position:relative}
+  .phase ul li::before{content:"·";position:absolute;left:6px;top:-3px;color:var(--accent);font-weight:700;font-size:18px}
+  .phase .ph-rec{margin-top:auto;padding-top:16px;border-top:1px solid var(--rule);font-family:'Fraunces',serif;font-style:italic;font-size:14.5px;color:var(--ink-2)}
+  .phase .ph-rec a{color:var(--accent);font-weight:500;text-decoration:underline}
+
+  .phase.apex{background:var(--ink);color:var(--paper);border-color:var(--ink);border-top-color:var(--accent-soft)}
+  .phase.apex .ph-tag{color:var(--accent-soft)}
+  .phase.apex .ph-q{color:var(--paper)}
+  .phase.apex .ph-q em{color:var(--accent-soft)}
+  .phase.apex .ph-sub{color:rgba(245,241,234,.85);border-bottom-color:rgba(245,241,234,.18)}
+  .phase.apex ul li{color:rgba(245,241,234,.85)}
+  .phase.apex ul li::before{color:var(--accent-soft)}
+  .phase.apex .ph-rec{color:rgba(245,241,234,.78);border-top-color:rgba(245,241,234,.18)}
+  .phase.apex .ph-rec a{color:var(--accent-soft)}
+
+  /* === GUIDE MOCK === */
+  .guide{background:var(--ink);color:var(--paper);padding:110px 0;position:relative;overflow:hidden}
+  .guide::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 15%, rgba(180,83,9,.2), transparent 55%);pointer-events:none}
+  .guide .container{position:relative;z-index:1}
+  .guide .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center}
+  .guide .portrait{aspect-ratio:4/5;background:linear-gradient(135deg,#a04a17,#5a2a08);display:flex;align-items:flex-end;padding:24px;color:rgba(245,241,234,.55);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+  .guide .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft);font-weight:500;margin-bottom:14px;display:inline-flex;align-items:center;gap:14px}
+  .guide .eyebrow::before{content:"";width:32px;height:1px;background:var(--accent-soft)}
+  .guide h2{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(40px,4.6vw,64px);line-height:1;letter-spacing:-.02em;margin:0 0 22px;color:var(--paper)}
+  .guide h2 em{font-style:italic;color:var(--accent-soft);font-weight:300}
+  .guide p.lede{font-family:'Fraunces',serif;font-weight:380;font-size:24px;line-height:1.35;color:var(--paper);margin:0 0 18px}
+  .guide p.lede em{font-style:italic;color:var(--accent-soft);font-weight:340}
+  .guide p{font-size:16px;line-height:1.55;color:rgba(245,241,234,.82);margin:0 0 16px}
+  .guide p em{font-style:italic;color:var(--accent-soft)}
+  .guide .creds{margin-top:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(245,241,234,.2);border-bottom:1px solid rgba(245,241,234,.2);padding:18px 0}
+  .guide .creds .c{padding-right:20px;border-right:1px solid rgba(245,241,234,.2)}
+  .guide .creds .c:last-child{border-right:none}
+  .guide .creds .n{font-family:'Fraunces',serif;font-weight:400;font-size:26px;color:var(--paper);line-height:1;letter-spacing:-.01em}
+  .guide .creds .n em{font-style:italic;color:var(--accent-soft);font-weight:300}
+  .guide .creds .l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,241,234,.6);margin-top:6px}
+
+  /* === PLAN MOCK === */
+  .plan{background:var(--paper-2);padding:110px 0;border-top:1px solid var(--rule)}
+  .plan .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:inline-flex;align-items:center;gap:14px;font-weight:500}
+  .plan .eyebrow::before{content:"";width:32px;height:1px;background:var(--accent)}
+  .plan h2{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(48px,5.4vw,76px);line-height:1;letter-spacing:-.022em;margin:0 0 18px;color:var(--ink)}
+  .plan h2 em{font-style:italic;color:var(--accent);font-weight:300}
+  .plan .lede{font-size:18px;line-height:1.55;color:var(--ink-2);max-width:780px;margin:0 0 48px}
+  .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+  .step{padding-top:22px;border-top:2px solid var(--ink)}
+  .step .n{font-family:'Fraunces',serif;font-weight:300;font-size:84px;line-height:1;color:var(--accent);letter-spacing:-.03em;margin-bottom:8px}
+  .step h4{font-family:'Fraunces',serif;font-weight:500;font-size:30px;letter-spacing:-.015em;margin:0 0 10px;color:var(--ink)}
+  .step h4 em{font-style:italic;color:var(--accent);font-weight:300}
+  .step p{font-size:15px;line-height:1.55;color:var(--ink-2);margin:0}
+
+  /* Notes */
+  .notes{margin-top:32px;padding:20px 24px;background:var(--paper);border-left:3px solid var(--accent);font-family:'Fraunces',serif;font-size:15px;line-height:1.55;color:var(--ink-2)}
+  .notes strong{display:block;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:10px;font-style:normal}
+
+  @media (max-width:900px){
+    .phases-grid,.plan-grid{grid-template-columns:1fr}
+    .guide .grid{grid-template-columns:1fr;gap:32px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="row">
+      <h1>Homepage <em>simplified</em></h1>
+      <span class="lab">Mockup · before ship</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="intro">
+    <h2>Punchier hero. Tighter top. <em>Get to the point.</em></h2>
+    <p>New top of homepage: <strong>Hero → Phases → Meet Fallon → Audit. Build. Optimize.</strong> Self-identification and credibility move up. Audience section ("who I work with"), Free + Funded manifesto, receipts, IG bridge, and all other sections move below this top stack.</p>
+    <div class="order">
+      <span class="pill amber">01 Hero</span><span class="arrow">→</span>
+      <span class="pill amber">02 Where are you actually?</span><span class="arrow">→</span>
+      <span class="pill amber">03 Meet Fallon</span><span class="arrow">→</span>
+      <span class="pill amber">04 Audit. Build. Optimize.</span><span class="arrow">→</span>
+      <span class="pill muted">05 Work with me (existing)</span><span class="arrow">→</span>
+      <span class="pill muted">06 Receipts</span><span class="arrow">→</span>
+      <span class="pill muted">07 Framework</span><span class="arrow">→</span>
+      <span class="pill muted">08 Who I work with</span><span class="arrow">→</span>
+      <span class="pill muted">09 Manifesto/Doors/FAQ</span>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="canvas hero">
+  <span class="label">01 · Hero · punchier</span>
+  <div class="container">
+    <div class="eyebrow">Operator-turned-Architect · CPA · Lean Six Sigma</div>
+    <h1>You can't <em>scale</em> chaos.<br/>You can't <em>sell</em> dependency.<br/><span class="amber">Systems fix both.</span></h1>
+    <p class="sub">Operations and AI Integration for founders, COOs, and ops leaders who want their business <strong>fundable, scalable, and sellable</strong> without them in the room.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#">Let's get your systems together <span>→</span></a>
+      <a class="btn ghost" href="#">Meet Your Guide <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- PHASES -->
+<section class="canvas phases">
+  <span class="label">02 · Where are you actually?</span>
+  <div class="container">
+    <div class="eyebrow">— 02 / Find your phase</div>
+    <h2>Where are you <em>actually?</em></h2>
+    <p class="lede">You likely fall in <em>one of three buckets.</em> Pick the question that lands hardest and start there.</p>
+    <div class="phases-grid">
+
+      <article class="phase">
+        <span class="ph-num">PHASE 01</span>
+        <span class="ph-tag">— Build</span>
+        <h3 class="ph-q">Are you <em>Hire-Ready?</em></h3>
+        <p class="ph-sub">Or hiring on vibes because your onboarding is broken?</p>
+        <ul>
+          <li>Business lives in your head, or 2–3 key people's heads</li>
+          <li>No SOPs, no org chart, no documented customer journey</li>
+          <li>Turnover is high. You keep blaming "bad hires"</li>
+          <li>Everything routes through you</li>
+        </ul>
+        <div class="ph-rec">→ Start with <a href="#">The SOP Suite</a> or <a href="#">Foundations</a></div>
+      </article>
+
+      <article class="phase">
+        <span class="ph-num">PHASE 02</span>
+        <span class="ph-tag">— Optimize</span>
+        <h3 class="ph-q">Are you <em>Growth-Ready?</em></h3>
+        <p class="ph-sub">Or about to scale a broken system?</p>
+        <ul>
+          <li>Processes are slow, leaky, or shaped around the wrong people</li>
+          <li>Tools don't talk. Tech stacked from a dozen gurus</li>
+          <li>You're refining, but not against a destination</li>
+          <li>You need an architect, not a workflow tweaker</li>
+        </ul>
+        <div class="ph-rec">→ Start with the <a href="#">Optimization Engagement</a></div>
+      </article>
+
+      <article class="phase apex">
+        <span class="ph-num">PHASE 03</span>
+        <span class="ph-tag">— Scale or Sale</span>
+        <h3 class="ph-q">Are you <em>Investor-Ready?</em></h3>
+        <p class="ph-sub">Or running your business on heroics?</p>
+        <ul>
+          <li>Foundation solid, ops tight, but no full visibility</li>
+          <li>No KPI dashboards or data-driven decision layers</li>
+          <li>Ready to deploy capital, pitch investors, or prep for exit</li>
+          <li>You need diligence-ready ops</li>
+        </ul>
+        <div class="ph-rec">→ Start with the <a href="#">Fractional COO Engagement</a></div>
+      </article>
+
+    </div>
+
+    <div style="margin-top:48px;padding:32px 36px;background:var(--paper-2);border:1px solid var(--rule);border-left:4px solid var(--accent);display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:8px">— Not sure where you are?</div>
+        <h4 style="font-family:'Fraunces',serif;font-weight:380;font-size:24px;line-height:1.2;letter-spacing:-.012em;margin:0;color:var(--ink)">Multiple areas on fire? <em style="font-style:italic;color:var(--accent);font-weight:300">Let's diagnose before we architect.</em></h4>
+      </div>
+      <a href="#" style="display:inline-flex;align-items:center;gap:10px;padding:16px 26px;background:var(--ink);color:var(--paper);border-radius:999px;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap">Book a Discovery Call <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- GUIDE -->
+<section class="canvas guide">
+  <span class="label">03 · Meet Fallon · moved up</span>
+  <div class="container">
+    <div class="grid">
+      <div class="portrait">— Your Guide</div>
+      <div>
+        <div class="eyebrow">— 03 / Meet your guide</div>
+        <h2>Meet <em>Fallon.</em></h2>
+        <p class="lede">I've been the bottleneck. I've watched <em>Fortune 500</em> clients become the bottleneck. I've watched my own co-founded company become the bottleneck. Then I built the system out from under it.</p>
+        <p>I'm Fallon Scott. Operations and AI systems architect for founders, COOs, and ops leaders ready to stop being the limiting factor. Past life: external auditor at KPMG. Internal audit and risk management at Delta. Then I crossed over from diagnosing to <em>implementing the solution.</em></p>
+        <p>60+ process optimization engagements through F28. Co-founded Makenzie House and 11×'d its revenue in twelve months.</p>
+        <div class="creds">
+          <div class="c"><div class="n">CPA</div><div class="l">ex-KPMG / ex-Delta</div></div>
+          <div class="c"><div class="n">11<em>×</em></div><div class="l">co-founded co. revenue</div></div>
+          <div class="c"><div class="n">60<em>+</em></div><div class="l">process maps</div></div>
+          <div class="c"><div class="n">20<em>k</em></div><div class="l">largest stage</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN -->
+<section class="canvas plan">
+  <span class="label">04 · Audit. Build. Optimize.</span>
+  <div class="container">
+    <div class="eyebrow">— 04 / How the work happens</div>
+    <h2>Audit. Build. <em>Optimize.</em></h2>
+    <p class="lede">Three steps. The order matters. Most founders <em>and most freelance operators</em> skip the first one.</p>
+    <div class="plan-grid">
+      <div class="step">
+        <div class="n">01</div>
+        <h4>Audit <em>the gaps.</em></h4>
+        <p>An auditor's eye finds the root cause. Where time, cash, and attention are actually leaking.</p>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <h4>Build <em>the systems.</em></h4>
+        <p>Process maps. SOPs. Automations. AI agents. The right tool for the right gap.</p>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <h4>Optimize <em>for both.</em></h4>
+        <p>Refine for productivity and profitability. Systems that get cheaper and faster the longer they run.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="notes">
+    <strong>What changes vs. live site</strong>
+    <strong style="margin-top:14px">Hero:</strong> "You can't scale chaos. You can't sell a business that depends on you. <em>Systems fix both.</em>" replaces the longer "fundable/scalable/sellable" headline (which becomes the sub). Primary CTA copy: <em>"Let's get your systems together"</em>. <br/><br/>
+    <strong>Order:</strong> Audience section ("who I work with") moves DOWN to the bottom. Promise beat ("productive + profitable") moves DOWN. Framework (Foundations/Funding/Freedom) stays where it is, low on the page. Phases now sits at 02 — straight after the hero. Meet Fallon moves up to 03. Audit/Build/Optimize stays at 04.<br/><br/>
+    <strong>Phase cards:</strong> The question is the headline ("Are you Hire-Ready?"). The "you're building v1" description becomes a smaller italic sub-line under the question. Bullets stay.<br/><br/>
+    Reply <strong>"ship it"</strong> or send tweaks.
+  </div>
+  <div style="padding:32px 0 60px"></div>
+</div>
+
+</body>
+</html>

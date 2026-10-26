@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LinkedIn Banner — Final · Fallon Scott</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ink:#1a1f2e;
+    --ink-2:#2a3142;
+    --paper:#f5f1ea;
+    --paper-2:#ede7dc;
+    --rule:#d8cfbf;
+    --muted:#6b7280;
+    --accent:#b45309;
+    --accent-2:#8b3a07;
+    --accent-soft:#f3d9a7;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#e8e3d8;color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+  .page{padding:48px;max-width:1720px;margin:0 auto}
+  .page-head{margin-bottom:36px}
+  .page-head .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .page-head h1{font-family:'Fraunces',serif;font-weight:340;font-size:42px;letter-spacing:-.018em;margin:0 0 8px}
+  .page-head h1 em{font-style:italic;color:var(--accent);font-weight:300}
+  .page-head p{font-family:'Fraunces',serif;font-style:italic;font-weight:380;font-size:17px;color:var(--ink-2);max-width:880px;margin:0;line-height:1.5}
+  .page-head p strong{font-style:normal;font-weight:500;color:var(--ink)}
+
+  .banner-block{margin-bottom:36px}
+  .banner-meta{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:14px;border-bottom:1px solid var(--rule);padding-bottom:10px}
+  .banner-meta .lab{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+  .banner-meta .lab strong{color:var(--accent);font-weight:500}
+  .banner-meta .name{font-family:'Fraunces',serif;font-weight:400;font-size:22px;letter-spacing:-.012em;color:var(--ink)}
+  .banner-meta .name em{font-style:italic;color:var(--accent);font-weight:380}
+
+  /* LinkedIn banner spec: 1584 x 396 */
+  .banner{
+    width:1584px;height:396px;
+    position:relative;overflow:hidden;
+    box-shadow:0 14px 40px -18px rgba(26,31,46,.28);
+  }
+
+  /* Photo "safe zone" overlay */
+  .show-safe .banner::after{
+    content:"";position:absolute;left:0;bottom:0;
+    width:340px;height:340px;
+    background:radial-gradient(circle at 110px 230px, rgba(180,83,9,.22) 0 110px, transparent 112px);
+    pointer-events:none;z-index:50;
+  }
+  .show-safe .banner::before{
+    content:"PHOTO + NAME ZONE";
+    position:absolute;left:24px;bottom:24px;
+    font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;
+    color:var(--accent);z-index:51;
+    background:rgba(245,241,234,.85);padding:6px 10px;border-radius:2px;
+  }
+
+  /* ============= 4D — INK NAVY · DIAGNOSE THE CHAOS ============= */
+  .b4d{
+    background:var(--ink);color:var(--paper);
+    position:relative;overflow:hidden;
+  }
+  .b4d .ghost-grid{
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(245,241,234,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,241,234,.035) 1px, transparent 1px);
+    background-size:48px 48px;
+    pointer-events:none;
+  }
+  .b4d .stripe-top{position:absolute;left:0;right:0;top:0;height:8px;background:var(--accent)}
+  .b4d .stripe-bot{position:absolute;left:0;right:0;bottom:0;height:8px;background:var(--accent-soft)}
+
+  .b4d .creds{
+    position:absolute;left:0;right:0;top:30px;
+    text-align:center;
+    font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--accent-soft);
+    padding:0 80px;
+    display:flex;justify-content:center;align-items:center;gap:13px;flex-wrap:nowrap;
+  }
+  .b4d .creds .sep{color:rgba(245,241,234,.4)}
+
+  .b4d .body{
+    position:absolute;inset:0;display:grid;place-items:center;padding:80px 80px 70px;
+  }
+  .b4d .inner{text-align:center;max-width:1360px}
+
+  .b4d .head{
+    font-family:'Fraunces',serif;font-weight:340;font-size:60px;
+    line-height:1.02;letter-spacing:-.024em;margin:0 0 18px;color:var(--paper);
+  }
+  .b4d .head .l1{display:block}
+  .b4d .head .l2{
+    display:block;color:var(--accent-soft);
+    margin-top:6px;
+  }
+  .b4d .head .chaos{
+    font-style:italic;font-weight:300;color:var(--accent);
+    font-size:1.18em;letter-spacing:-.028em;
+    display:inline-block;
+    transform:translateY(0.04em);
+    padding:0 .04em;
+  }
+
+  .b4d .sub{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:380;font-size:18.5px;
+    margin:0 auto;max-width:1080px;line-height:1.5;color:rgba(245,241,234,.78);
+  }
+  .b4d .sub b{font-weight:500;font-style:italic;color:var(--accent-soft)}
+
+  .b4d .corner{
+    position:absolute;left:0;right:0;bottom:28px;
+    text-align:center;
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.24em;
+    text-transform:uppercase;color:rgba(245,241,234,.5);
+  }
+  .b4d .corner .dot{margin:0 10px;color:var(--accent)}
+
+  /* Toggle bar */
+  .controls{
+    position:fixed;top:20px;right:20px;z-index:100;
+    background:var(--ink);color:var(--paper);padding:14px 18px;
+    border-radius:8px;display:flex;gap:12px;align-items:center;
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    box-shadow:0 8px 28px -10px rgba(0,0,0,.4);
+  }
+  .controls label{display:flex;align-items:center;gap:8px;cursor:pointer}
+  .controls input{accent-color:var(--accent)}
+  .controls button{
+    background:var(--accent);color:var(--paper);border:none;padding:8px 12px;
+    font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+    cursor:pointer;border-radius:4px;
+  }
+
+  /* Print/download instructions card */
+  .howto{
+    background:var(--paper);border:1px solid var(--rule);padding:24px 28px;margin-top:24px;
+    max-width:900px;
+  }
+  .howto h3{font-family:'Fraunces',serif;font-weight:400;font-size:22px;margin:0 0 10px;letter-spacing:-.012em}
+  .howto h3 em{font-style:italic;color:var(--accent);font-weight:380}
+  .howto ol{margin:0;padding-left:22px;font-family:'Inter',sans-serif;font-size:14.5px;line-height:1.7;color:var(--ink-2)}
+  .howto code{font-family:'JetBrains Mono',monospace;font-size:13px;background:var(--paper-2);padding:2px 6px;border-radius:3px}
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <label><input type="checkbox" id="safeToggle" /> Safe-zone</label>
+</div>
+
+<div class="page">
+  <div class="page-head">
+    <div class="eyebrow">Linkedin · 1584 × 396 · v4 final</div>
+    <h1>4D — <em>final.</em></h1>
+    <p><strong>Updated:</strong> "Diagnose the chaos first" with <em>chaos</em> stepping out in burnt amber. Sub now leads with the <strong>auditor's eye</strong>, adds the <strong>CPA finance lens</strong>, then the operator's hand.</p>
+  </div>
+
+  <div class="banner-block">
+    <div class="banner-meta">
+      <div class="lab"><strong>4D</strong> · INK NAVY · FINAL</div>
+      <div class="name">Diagnose the <em>chaos</em> first.</div>
+    </div>
+    <div class="banner b4d">
+      <div class="ghost-grid"></div>
+      <div class="stripe-top"></div>
+      <div class="creds">
+        <span class="item">F28 &amp; Co.</span>
+        <span class="sep">·</span>
+        <span class="item">Fractional COO</span>
+        <span class="sep">·</span>
+        <span class="item">AI Systems Architect</span>
+        <span class="sep">·</span>
+        <span class="item">Operations Consultant</span>
+        <span class="sep">·</span>
+        <span class="item">CPA</span>
+        <span class="sep">·</span>
+        <span class="item">Lean Six Sigma</span>
+      </div>
+      <div class="body">
+        <div class="inner">
+          <h2 class="head">
+            <span class="l1">AI won't save your operations.</span>
+            <span class="l2">Diagnose the <span class="chaos">chaos</span> first. Architect second.</span>
+          </h2>
+          <p class="sub">An <b>auditor's eye</b> finds the root cause. A <b>CPA's finance lens</b> keeps the architecture profitable. An <b>operator's hand</b> builds the fix. AI when it earns its keep. Humans when it doesn't. <span style="color:var(--accent);font-weight:500;font-style:italic">SOPs either way.</span></p>
+        </div>
+      </div>
+      <div class="corner">Fallon Scott <span class="dot">·</span> F28 &amp; Co. <span class="dot">·</span> Operator-turned-Architect</div>
+    </div>
+  </div>
+
+  <div class="howto">
+    <h3>To export as <em>PNG</em> for LinkedIn upload:</h3>
+    <ol>
+      <li><strong>macOS:</strong> Press <code>⌘ + Shift + 4</code>, then drag a tight rectangle around the banner. The PNG saves to your desktop. Zoom your browser to 100% first for crisp text.</li>
+      <li><strong>Or:</strong> Right-click anywhere on the banner → <em>"Inspect"</em> → in DevTools, right-click the <code>&lt;div class="banner b4d"&gt;</code> node → <em>"Capture node screenshot"</em>. This gives you an exact 1584×396 PNG.</li>
+      <li><strong>Or:</strong> Open this HTML file in a fresh browser window at 100% zoom and use any screenshot tool.</li>
+    </ol>
+  </div>
+
+</div>
+
+<script>
+  const t = document.getElementById('safeToggle');
+  t.addEventListener('change', () => {
+    document.body.classList.toggle('show-safe', t.checked);
+  });
+</script>
+
+</body>
+</html>

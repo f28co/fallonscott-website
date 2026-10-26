@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Phases Redesign Mockup — "Where are you actually?"</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ink:#1a1f2e;--ink-2:#2a3142;--paper:#f5f1ea;--paper-2:#ede7dc;
+    --rule:#d8cfbf;--muted:#6b7280;--accent:#b45309;--accent-2:#8b3a07;--accent-soft:#f3d9a7;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#e8e3d8;color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+  .container{max-width:1240px;margin:0 auto;padding:0 32px}
+
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(232,227,216,.92);backdrop-filter:blur(10px);padding:18px 0;border-bottom:1px solid var(--rule)}
+  .topbar .row{display:flex;justify-content:space-between;align-items:center;gap:24px}
+  .topbar .lab{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:500}
+  .topbar h1{font-family:'Fraunces',serif;font-weight:340;font-size:22px;letter-spacing:-.012em;margin:0;line-height:1.2}
+  .topbar h1 em{font-style:italic;color:var(--accent);font-weight:300}
+
+  .intro{padding:48px 0 32px}
+  .intro h2{font-family:'Fraunces',serif;font-weight:340;font-size:42px;letter-spacing:-.018em;margin:0 0 14px;line-height:1}
+  .intro h2 em{font-style:italic;color:var(--accent);font-weight:300}
+  .intro p{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--ink-2);margin:0;max-width:780px;line-height:1.55}
+
+  .mock-canvas{background:var(--paper);padding:120px 0;position:relative}
+  .mock-label{position:absolute;top:14px;right:24px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);background:rgba(245,241,234,.85);padding:5px 10px;border-radius:2px;font-weight:600;z-index:2}
+
+  /* --- Match site fidelity for phases section --- */
+  .m-section-num{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.15em;color:var(--muted);margin-bottom:8px}
+  .m-section-title{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(36px,5vw,64px);line-height:1;letter-spacing:-.02em;margin:0 0 24px;max-width:900px;color:var(--ink)}
+  .m-section-title em{font-style:italic;color:var(--accent);font-weight:300}
+  .m-section-lede{font-size:18px;line-height:1.6;color:var(--ink-2);max-width:780px;margin:0 0 48px}
+  .m-section-lede em{font-style:italic;color:var(--accent)}
+
+  .phases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+  .phase{background:var(--paper-2);padding:38px 32px;border:1px solid var(--rule);border-top:3px solid var(--accent);display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden}
+
+  /* Phase numbering badge */
+  .phase .ph-num{position:absolute;top:14px;right:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;color:var(--paper);background:var(--accent);padding:6px 12px;border-radius:2px;font-weight:600}
+
+  .phase .ph-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-top:8px}
+  .phase h3{font-family:'Fraunces',serif;font-weight:400;font-size:32px;letter-spacing:-.014em;line-height:1.05;margin:4px 0 0;color:var(--ink)}
+  .phase h3 em{font-style:italic;color:var(--accent);font-weight:300}
+  .phase .ph-here{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:14px 0 -6px;font-weight:500}
+  .phase ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+  .phase ul li{font-size:14.5px;line-height:1.5;color:var(--ink-2);padding-left:20px;position:relative}
+  .phase ul li::before{content:"·";position:absolute;left:8px;color:var(--accent);font-weight:700;font-size:18px;top:-2px}
+
+  .phase .ph-build{margin-top:14px;padding:18px 20px;background:var(--paper);border-left:2px solid var(--accent)}
+  .phase .ph-build strong{display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:8px}
+  .phase .ph-build-body{font-size:14.5px;line-height:1.5;color:var(--ink);margin:0;font-style:italic;font-family:'Fraunces',serif}
+  .phase .ph-rec{margin-top:auto;padding-top:14px;border-top:1px solid var(--rule);font-size:14px;color:var(--ink-2);font-family:'Fraunces',serif;font-style:italic;font-weight:380}
+  .phase .ph-rec a{color:var(--accent);font-weight:500;text-decoration:underline}
+
+  /* Final phase tinted darker (the apex) */
+  .phase.apex{background:var(--ink);color:var(--paper);border:1px solid var(--ink);border-top:3px solid var(--accent-soft)}
+  .phase.apex h3{color:var(--paper)}
+  .phase.apex h3 em{color:var(--accent-soft)}
+  .phase.apex .ph-tag{color:var(--accent-soft)}
+  .phase.apex .ph-here{color:rgba(245,241,234,.55)}
+  .phase.apex ul li{color:rgba(245,241,234,.85)}
+  .phase.apex ul li::before{color:var(--accent-soft)}
+  .phase.apex .ph-build{background:rgba(245,241,234,.06);border-left-color:var(--accent-soft)}
+  .phase.apex .ph-build strong{color:var(--accent-soft)}
+  .phase.apex .ph-build-body{color:var(--paper)}
+  .phase.apex .ph-rec{color:rgba(245,241,234,.78);border-top-color:rgba(245,241,234,.18)}
+  .phase.apex .ph-rec a{color:var(--accent-soft);text-decoration-color:var(--accent-soft)}
+
+  .iphone-meta{margin-top:40px;padding:28px 32px;background:var(--paper-2);border:1px dashed var(--rule);font-family:'Fraunces',serif;font-style:italic;font-size:17px;line-height:1.5;color:var(--ink-2);max-width:1000px}
+  .iphone-meta strong{display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;font-style:normal;margin-bottom:8px}
+  .iphone-meta em{color:var(--accent);font-style:italic}
+
+  /* The "READINESS" interrogative — big, italic, accent */
+  .phase .readiness-q{font-family:'Fraunces',serif;font-style:italic;font-weight:340;font-size:24px;line-height:1.2;color:var(--ink);margin:6px 0 -4px;border-bottom:1px solid var(--rule);padding-bottom:14px}
+  .phase .readiness-q strong{font-style:normal;font-weight:500;color:var(--accent)}
+  .phase.apex .readiness-q{color:var(--paper);border-bottom-color:rgba(245,241,234,.18)}
+  .phase.apex .readiness-q strong{color:var(--accent-soft)}
+
+  /* Notes */
+  .notes{margin-top:40px;padding:20px 24px;background:var(--paper);border-left:3px solid var(--accent);font-family:'Fraunces',serif;font-size:15px;line-height:1.55;color:var(--ink-2)}
+  .notes strong{display:block;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:10px}
+
+  .closer{padding:48px 0 64px}
+  .closer p{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--ink-2);margin:0 0 20px}
+  .closer .btn{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;padding:13px 22px;border-radius:999px;border:1px solid var(--ink);text-decoration:none;color:var(--ink);background:transparent;display:inline-block;margin-right:10px}
+  .closer .btn.primary{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+
+  @media (max-width:1000px){
+    .phases-grid{grid-template-columns:1fr;gap:18px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="row">
+      <h1>Phases redesign — <em>"Where are you actually?"</em></h1>
+      <span class="lab">Mockup · before ship</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="intro">
+    <h2>The <em>Readiness</em> interrogative, mapped onto the 3 phases.</h2>
+    <p>Each card now leads with a question that forces the founder to stop and self-diagnose. The phase number, the "you're here if" bullets, and the build box all stay — just the interrogative hook is new. <strong>Phase 3 (the apex) goes dark</strong> as the "earned" destination. The Foundations · Funding · Freedom section stays unchanged, lower on the page, as the philosophy/order-of-operations.</p>
+  </div>
+</div>
+
+<div class="mock-canvas">
+  <div class="mock-label">Homepage · "Find your phase" section</div>
+  <div class="container">
+
+    <div>
+      <div class="m-section-num">— 01c / Find your phase</div>
+      <h2 class="m-section-title">Where are you <em>actually?</em></h2>
+      <p class="m-section-lede">Three phases. Self-identify into the one that sounds like your week. The work I do follows your readiness, because you can't optimize what isn't documented, and you can't fund what hasn't been optimized.</p>
+    </div>
+
+    <div class="phases-grid">
+
+      <!-- PHASE 01 — BUILD / Hire-Ready -->
+      <article class="phase">
+        <span class="ph-num">PHASE 01</span>
+        <span class="ph-tag">— Build</span>
+        <h3>You're <em>building</em> v1.</h3>
+        <p class="readiness-q">Are you <strong>Hire-Ready</strong>… or hiring on vibes because your onboarding is broken?</p>
+        <p class="ph-here">You're here if</p>
+        <ul>
+          <li>The business lives in your head, or in 2–3 key people's heads.</li>
+          <li>No SOPs. No org chart. No documented customer journey or process maps.</li>
+          <li>Hiring is reactive. Onboarding is whatever you remember to say that week.</li>
+          <li>Turnover is high. You keep blaming "bad hires" or saying no one can do it like you, when the real problem is upstream.</li>
+          <li>Everything routes through you. The day you stop, the business stops.</li>
+        </ul>
+        <div class="ph-build">
+          <strong>What we build together</strong>
+          <p class="ph-build-body">The v1 written down. Process maps, role clarity, and the documents that make you replaceable.</p>
+        </div>
+        <div class="ph-rec">→ Start with <a href="sop-suite.html">The SOP Suite</a> (DIY) or <a href="#work">Foundations</a> (with me)</div>
+      </article>
+
+      <!-- PHASE 02 — OPTIMIZE / Growth-Ready -->
+      <article class="phase">
+        <span class="ph-num">PHASE 02</span>
+        <span class="ph-tag">— Optimize</span>
+        <h3>You're <em>refining</em> the version that grows.</h3>
+        <p class="readiness-q">Are you <strong>Growth-Ready</strong>… or about to scale a broken system?</p>
+        <p class="ph-here">You're here if</p>
+        <ul>
+          <li>You have processes, but they're slow, leaky, or shaped around the wrong people.</li>
+          <li>Tools and platforms don't talk to each other. Tech stacked from a dozen gurus.</li>
+          <li>You're refining, but not sure if it aligns with where the business should actually go.</li>
+          <li>You need a strategic operator who starts with the end in mind, not just a workflow tweaker.</li>
+        </ul>
+        <div class="ph-build">
+          <strong>What we build together</strong>
+          <p class="ph-build-body">Right people, right tools, right sequence, all architected against the destination you're driving toward.</p>
+        </div>
+        <div class="ph-rec">→ Start with the <a href="#work">Optimization Engagement</a></div>
+      </article>
+
+      <!-- PHASE 03 — SCALE OR SALE / Investor & Exit Ready -->
+      <article class="phase apex">
+        <span class="ph-num">PHASE 03</span>
+        <span class="ph-tag">— Scale or Sale</span>
+        <h3>You're <em>ready</em> for capital.</h3>
+        <p class="readiness-q">Are you <strong>Investor-Ready</strong> and <strong>Exit-Ready</strong>… or just running on instinct?</p>
+        <p class="ph-here">You're here if</p>
+        <ul>
+          <li>Foundation is solid, operations are tight, but you don't have full visibility.</li>
+          <li>No KPI dashboards. No monthly rhythm. No clean numbers to show a buyer or investor.</li>
+          <li>You're ready to deploy capital, pitch investors, or prepare for a clean exit.</li>
+          <li>You need diligence-ready ops. Defensible margins. A business that doesn't depend on you.</li>
+        </ul>
+        <div class="ph-build">
+          <strong>What we build together</strong>
+          <p class="ph-build-body">Fundable, scalable, sellable operations. The version a buyer or investor can actually read under the hood.</p>
+        </div>
+        <div class="ph-rec">→ Start with the <a href="#work">Fractional COO Engagement</a></div>
+      </article>
+
+    </div>
+
+    <div class="iphone-meta">
+      <strong>The loop</strong>
+      You can't <em>scale</em> chaos. You can't <em>sell</em> a business that depends on you. Capital won't deploy into either. So we go in order: build, optimize, fund, free.
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="notes">
+    <strong>What's new vs. the live site</strong>
+    <p style="margin:0">Phase tags: <em>Foundation / Optimize / Scale or Sale</em> become <strong>Build / Optimize / Scale or Sale</strong>. Each card adds a "Are you ___?" interrogative line under the headline. Phase 03 goes ink-navy as the visual apex/destination. Everything else (bullets, build box, links, the loop footer) stays close to the existing copy. The Foundations · Funding · Freedom section <em>does not change</em> — it stays lower on the page as the philosophy layer.</p>
+  </div>
+
+  <div class="closer">
+    <p>Approve this layout → I ship to live site. Or send tweaks.</p>
+    <a class="btn primary" href="../index.html#phases" target="_blank">Open current homepage phases ↗</a>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Fallon Scott · Brand Guidelines</title>
+<meta name="description" content="The complete brand guidelines for Fallon Scott Consulting. Color, type, logo, voice, tone, pillars, and messaging framework." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1f2e;
+    --ink-2:#2a3142;
+    --paper:#f5f1ea;
+    --paper-2:#ede7dc;
+    --rule:#d8cfbf;
+    --muted:#6b7280;
+    --accent:#b45309;
+    --accent-2:#8b3a07;
+    --accent-soft:#f3d9a7;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  .container{max-width:1200px;margin:0 auto;padding:0 40px}
+  .serif{font-family:'Fraunces',serif;font-optical-sizing:auto;font-variation-settings:"SOFT" 30}
+  .mono{font-family:'JetBrains Mono',monospace;letter-spacing:.02em}
+  hr.rule{border:none;border-top:1px solid var(--rule);margin:0}
+
+  /* COVER */
+  .cover{padding:120px 0 90px;border-bottom:1px solid var(--rule)}
+  .cover .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:32px}
+  .cover h1{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(56px,8vw,128px);line-height:.9;letter-spacing:-.025em;margin:0 0 28px;color:var(--ink)}
+  .cover h1 em{font-style:italic;font-weight:300;color:var(--accent)}
+  .cover .lede{font-family:'Fraunces',serif;font-style:italic;font-weight:380;font-size:clamp(20px,2.4vw,28px);line-height:1.45;color:var(--ink-2);max-width:780px;margin:0 0 48px}
+  .cover-meta{display:grid;grid-template-columns:repeat(4,auto);gap:48px;border-top:1px solid var(--rule);padding-top:24px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .cover-meta strong{display:block;color:var(--ink);font-family:'Inter',sans-serif;font-size:13.5px;font-weight:500;letter-spacing:0;text-transform:none;margin-top:6px}
+
+  /* SECTION */
+  section.sec{padding:110px 0;border-bottom:1px solid var(--rule)}
+  .sec-head{display:grid;grid-template-columns:280px 1fr;gap:60px;margin-bottom:60px;align-items:start}
+  .sec-num{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);padding-top:8px}
+  .sec-title{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(36px,5vw,64px);line-height:1;letter-spacing:-.022em;margin:0 0 16px;color:var(--ink)}
+  .sec-title em{font-style:italic;color:var(--accent);font-weight:300}
+  .sec-lede{font-family:'Fraunces',serif;font-style:italic;font-weight:380;font-size:18px;line-height:1.55;color:var(--ink-2);max-width:680px;margin:0}
+
+  /* LOGO */
+  .logo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+  .logo-cell{padding:60px 40px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;min-height:220px;position:relative}
+  .logo-cell.cream{background:var(--paper)}
+  .logo-cell.warm{background:var(--paper-2)}
+  .logo-cell.dark{background:var(--ink)}
+  .logo-cell .logo-mark{font-family:'Fraunces',serif;font-weight:600;font-size:32px;letter-spacing:-.01em;color:var(--ink)}
+  .logo-cell.dark .logo-mark{color:var(--paper)}
+  .logo-cell .logo-mark .dot{color:var(--accent)}
+  .logo-cell .lab{position:absolute;top:18px;left:24px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .logo-cell.dark .lab{color:rgba(245,241,234,.6)}
+  .logo-rules{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px}
+  .logo-rule{padding:28px;border:1px solid var(--rule);background:var(--paper-2)}
+  .logo-rule h4{font-family:'Fraunces',serif;font-weight:400;font-size:20px;letter-spacing:-.005em;margin:0 0 10px;color:var(--ink)}
+  .logo-rule h4 em{font-style:italic;color:var(--accent);font-weight:380}
+  .logo-rule p{font-size:14px;line-height:1.6;color:var(--ink-2);margin:0}
+  .logo-rule.dont{border-left:3px solid var(--accent-2)}
+  .logo-rule.do{border-left:3px solid var(--accent)}
+
+  /* COLORS */
+  .palette-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:1px}
+  .palette-row.full{grid-template-columns:repeat(2,1fr)}
+  .palette-row.support{grid-template-columns:repeat(3,1fr)}
+  .swatch{padding:36px 32px 28px;display:flex;flex-direction:column;justify-content:space-between;min-height:280px;position:relative}
+  .swatch .role{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;margin-bottom:auto}
+  .swatch .name{font-family:'Fraunces',serif;font-weight:380;font-size:32px;letter-spacing:-.012em;line-height:1.05;margin:60px 0 8px}
+  .swatch .desc{font-size:13px;line-height:1.55;margin:0 0 18px;opacity:.78}
+  .swatch .codes{display:grid;grid-template-columns:1fr;gap:4px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;line-height:1.55}
+  .swatch .codes div{display:flex;justify-content:space-between;gap:12px}
+  .swatch .codes .k{opacity:.55}
+
+  .sw-ink{background:var(--ink);color:var(--paper)}
+  .sw-ink .role{color:var(--accent-soft)}
+  .sw-paper{background:var(--paper);color:var(--ink)}
+  .sw-paper .role{color:var(--accent)}
+  .sw-paper2{background:var(--paper-2);color:var(--ink)}
+  .sw-paper2 .role{color:var(--accent)}
+  .sw-amber{background:var(--accent);color:var(--paper)}
+  .sw-amber .role{color:var(--accent-soft)}
+  .sw-choco{background:var(--accent-2);color:var(--paper)}
+  .sw-choco .role{color:var(--accent-soft)}
+  .sw-cream{background:var(--accent-soft);color:var(--ink)}
+  .sw-cream .role{color:var(--accent-2)}
+  .sw-rule{background:var(--rule);color:var(--ink)}
+  .sw-rule .role{color:var(--accent-2)}
+  .sw-muted{background:var(--muted);color:var(--paper)}
+  .sw-muted .role{color:var(--accent-soft)}
+  .sw-ink2{background:var(--ink-2);color:var(--paper)}
+  .sw-ink2 .role{color:var(--accent-soft)}
+
+  .palette-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:32px 0 16px;display:flex;align-items:center;gap:12px}
+  .palette-label::before{content:"";width:24px;height:1px;background:var(--accent)}
+
+  .palette-rules{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .pr-card{padding:28px;border:1px solid var(--rule);background:var(--paper-2)}
+  .pr-card h4{font-family:'Fraunces',serif;font-weight:400;font-size:20px;margin:0 0 10px;color:var(--ink);letter-spacing:-.005em}
+  .pr-card h4 em{font-style:italic;color:var(--accent);font-weight:380}
+  .pr-card p{font-size:13.5px;line-height:1.6;color:var(--ink-2);margin:0}
+  .pr-card .ratio{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;display:block}
+
+  /* TYPOGRAPHY */
+  .type-block{padding:48px 40px;border:1px solid var(--rule);background:var(--paper);margin-bottom:24px}
+  .type-block.dark{background:var(--ink);color:var(--paper)}
+  .type-meta{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;border-bottom:1px solid var(--rule);padding-bottom:20px}
+  .type-block.dark .type-meta{border-color:rgba(245,241,234,.18)}
+  .type-meta-l h4{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 8px;font-weight:500}
+  .type-meta-l h3{font-family:'Fraunces',serif;font-weight:380;font-size:42px;letter-spacing:-.018em;margin:0;line-height:1}
+  .type-block.dark .type-meta-l h3{color:var(--paper)}
+  .type-meta-r{font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.7;letter-spacing:.04em;color:var(--muted);text-align:right}
+  .type-block.dark .type-meta-r{color:rgba(245,241,234,.65)}
+  .type-meta-r b{color:var(--ink);font-weight:500}
+  .type-block.dark .type-meta-r b{color:var(--paper)}
+
+  .type-display{font-family:'Fraunces',serif;font-weight:340;font-size:96px;line-height:.92;letter-spacing:-.025em;margin:0 0 36px;color:var(--ink)}
+  .type-display em{font-style:italic;color:var(--accent);font-weight:300}
+  .type-block.dark .type-display{color:var(--paper)}
+  .type-block.dark .type-display em{color:var(--accent-soft)}
+
+  .type-scale{display:grid;grid-template-columns:120px 1fr;gap:16px 32px;align-items:baseline;border-top:1px solid var(--rule);padding-top:24px}
+  .type-block.dark .type-scale{border-color:rgba(245,241,234,.18)}
+  .type-scale .ts-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.05em;color:var(--muted);padding-top:8px}
+  .type-block.dark .type-scale .ts-tag{color:rgba(245,241,234,.55)}
+  .type-scale .ts-sample{font-family:'Fraunces',serif;color:var(--ink);margin:0;line-height:1}
+  .type-block.dark .type-scale .ts-sample{color:var(--paper)}
+  .type-scale .ts-sample em{font-style:italic;color:var(--accent);font-weight:300}
+  .type-block.dark .type-scale .ts-sample em{color:var(--accent-soft)}
+
+  .body-block .type-display{font-family:'Inter',sans-serif;font-weight:300;font-size:46px;letter-spacing:-.018em;line-height:1.05}
+  .body-block .ts-sample{font-family:'Inter',sans-serif;font-weight:400}
+  .body-block .ts-sample.bold{font-weight:600}
+  .body-block .ts-sample.med{font-weight:500}
+
+  .mono-block .type-display{font-family:'JetBrains Mono',monospace;font-size:42px;letter-spacing:.04em;font-weight:400}
+  .mono-block .ts-sample{font-family:'JetBrains Mono',monospace}
+
+  .pairing{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:32px}
+  .pairing-cell{padding:32px 28px;background:var(--paper)}
+  .pairing-cell.dark{background:var(--ink);color:var(--paper)}
+  .pairing-cell .eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+  .pairing-cell.dark .eyebrow{color:var(--accent-soft)}
+  .pairing-cell h4{font-family:'Fraunces',serif;font-weight:380;font-size:28px;letter-spacing:-.012em;margin:0 0 8px;line-height:1.05}
+  .pairing-cell h4 em{font-style:italic;color:var(--accent);font-weight:340}
+  .pairing-cell.dark h4 em{color:var(--accent-soft)}
+  .pairing-cell p{font-size:13.5px;line-height:1.6;color:var(--ink-2);margin:0}
+  .pairing-cell.dark p{color:rgba(245,241,234,.78)}
+
+  /* VOICE */
+  .voice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:48px}
+  .voice-card{padding:36px 32px;border:1px solid var(--rule);background:var(--paper-2);position:relative}
+  .voice-card .vc-num{font-family:'Fraunces',serif;font-style:italic;font-size:48px;font-weight:300;color:var(--accent);line-height:.85;margin-bottom:14px}
+  .voice-card h4{font-family:'Fraunces',serif;font-weight:400;font-size:24px;letter-spacing:-.012em;margin:0 0 8px;color:var(--ink)}
+  .voice-card h4 em{font-style:italic;color:var(--accent);font-weight:380}
+  .voice-card p{font-size:14.5px;line-height:1.65;color:var(--ink-2);margin:0 0 14px}
+  .voice-card .quote{font-family:'Fraunces',serif;font-style:italic;font-size:16px;line-height:1.55;color:var(--ink);padding:14px 16px;background:var(--paper);border-left:2px solid var(--accent);margin:0}
+  .voice-card .quote::before{content:""}
+
+  .dodont{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:32px}
+  .dodont-col{padding:36px 32px}
+  .dodont-col.do{background:var(--paper-2)}
+  .dodont-col.dont{background:#f0e8df}
+  .dodont-col h4{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;margin:0 0 18px;font-weight:500;display:flex;align-items:center;gap:10px}
+  .dodont-col.do h4{color:var(--accent-2)}
+  .dodont-col.dont h4{color:var(--accent)}
+  .dodont-col h4::before{content:"";width:24px;height:2px;background:currentColor}
+  .dodont-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px}
+  .dodont-col li{font-size:14.5px;line-height:1.55;color:var(--ink-2);padding-left:22px;position:relative;font-family:'Fraunces',serif;font-style:italic}
+  .dodont-col.do li::before{content:"✓";position:absolute;left:0;color:var(--accent-2);font-weight:600;font-style:normal;font-family:'Inter',sans-serif}
+  .dodont-col.dont li::before{content:"✕";position:absolute;left:0;color:var(--accent);font-weight:600;font-style:normal;font-family:'Inter',sans-serif}
+
+  /* PILLARS */
+  .pillar-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+  .pillar{background:var(--paper);padding:48px 44px;display:flex;flex-direction:column;gap:14px;min-height:280px;position:relative;transition:background .3s}
+  .pillar:hover{background:var(--paper-2)}
+  .pillar .p-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;color:var(--accent);text-transform:uppercase;font-weight:500}
+  .pillar h3{font-family:'Fraunces',serif;font-weight:380;font-size:36px;letter-spacing:-.018em;margin:0;line-height:1;color:var(--ink)}
+  .pillar h3 em{font-style:italic;color:var(--accent);font-weight:340}
+  .pillar .belief{font-family:'Fraunces',serif;font-style:italic;font-size:17px;line-height:1.45;color:var(--accent-2);margin:8px 0 0;font-weight:380}
+  .pillar p{font-size:14.5px;line-height:1.65;color:var(--ink-2);margin:0}
+  .pillar .proof{margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);padding-top:18px;border-top:1px solid var(--rule);font-weight:500}
+
+  /* MESSAGING */
+  .msg-block{padding:40px 36px;background:var(--ink);color:var(--paper);margin-bottom:20px}
+  .msg-block.cream{background:var(--paper-2);color:var(--ink)}
+  .msg-block.amber{background:var(--accent);color:var(--paper)}
+  .msg-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:14px;display:flex;align-items:center;gap:10px;font-weight:500}
+  .msg-block.cream .msg-eyebrow{color:var(--accent)}
+  .msg-eyebrow::before{content:"";width:24px;height:1px;background:currentColor}
+  .msg-headline{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(28px,3.6vw,48px);line-height:1.05;letter-spacing:-.02em;margin:0 0 14px}
+  .msg-headline em{font-style:italic;color:var(--accent-soft);font-weight:300}
+  .msg-block.cream .msg-headline em{color:var(--accent)}
+  .msg-body{font-size:16px;line-height:1.6;color:rgba(245,241,234,.9);margin:0;max-width:780px}
+  .msg-block.cream .msg-body{color:var(--ink-2)}
+  .msg-body strong{font-weight:600}
+  .msg-block .alt{margin-top:24px;padding-top:20px;border-top:1px solid rgba(245,241,234,.18);font-family:'Fraunces',serif;font-style:italic;font-size:18px;line-height:1.5;color:var(--accent-soft)}
+  .msg-block.cream .alt{border-color:var(--rule);color:var(--accent-2)}
+  .msg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px}
+  .msg-card{padding:28px;background:var(--paper-2);border:1px solid var(--rule)}
+  .msg-card .lab{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;font-weight:500}
+  .msg-card p{font-family:'Fraunces',serif;font-weight:400;font-size:18px;line-height:1.45;color:var(--ink);margin:0;letter-spacing:-.005em}
+  .msg-card p em{font-style:italic;color:var(--accent);font-weight:380}
+
+  /* AUDIENCE */
+  .aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .aud{padding:32px 28px;background:var(--paper);border:1px solid var(--rule);border-top:3px solid var(--accent)}
+  .aud .lab{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-weight:500}
+  .aud h4{font-family:'Fraunces',serif;font-weight:400;font-size:24px;letter-spacing:-.01em;margin:0 0 14px;color:var(--ink);line-height:1.1}
+  .aud ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+  .aud li{font-size:13.5px;line-height:1.5;color:var(--ink-2);padding-left:16px;position:relative}
+  .aud li::before{content:"·";position:absolute;left:4px;color:var(--accent);font-weight:700}
+
+  /* SAMPLE COPY */
+  .samples{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .sample{padding:36px 32px;border:1px solid var(--rule);background:var(--paper)}
+  .sample .ctx{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;font-weight:500}
+  .sample .head{font-family:'Fraunces',serif;font-weight:380;font-size:30px;line-height:1.05;letter-spacing:-.014em;margin:0 0 14px;color:var(--ink)}
+  .sample .head em{font-style:italic;color:var(--accent);font-weight:340}
+  .sample .body{font-size:14.5px;line-height:1.65;color:var(--ink-2);margin:0}
+  .sample .body strong{color:var(--ink);font-weight:600}
+
+  /* FOOTER */
+  footer.brand-foot{padding:80px 0 60px;background:var(--ink);color:var(--paper)}
+  footer.brand-foot .container{display:grid;grid-template-columns:1.4fr 1fr;gap:60px;align-items:end}
+  footer.brand-foot .ff-mark{font-family:'Fraunces',serif;font-weight:600;font-size:36px;letter-spacing:-.012em}
+  footer.brand-foot .ff-mark .dot{color:var(--accent)}
+  footer.brand-foot .ff-line{font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:rgba(245,241,234,.7);margin:14px 0 0}
+  footer.brand-foot .ff-meta{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,241,234,.55);text-align:right;line-height:1.8}
+  footer.brand-foot .ff-meta b{display:block;color:var(--paper);font-family:'Inter',sans-serif;font-size:12.5px;font-weight:500;letter-spacing:.05em;text-transform:none;margin-top:4px}
+
+  @media (max-width:920px){
+    .container{padding:0 24px}
+    .sec-head{grid-template-columns:1fr;gap:24px}
+    .logo-grid,.palette-row,.palette-row.support,.palette-row.full,.pillar-grid,.aud-grid,.msg-grid,.pairing,.samples,.voice-grid,.palette-rules,.logo-rules,.dodont{grid-template-columns:1fr}
+    .cover-meta{grid-template-columns:1fr 1fr;gap:24px}
+    .type-display{font-size:56px !important}
+    .body-block .type-display{font-size:32px !important}
+    footer.brand-foot .container{grid-template-columns:1fr}
+    footer.brand-foot .ff-meta{text-align:left}
+  }
+</style>
+</head>
+<body>
+<template id="__bundler_thumbnail" data-bg-color="#f5f1ea">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#f5f1ea"/>
+    <text x="600" y="430" text-anchor="middle" font-family="Georgia, serif" font-size="160" font-weight="600" fill="#1a1f2e" letter-spacing="-4">FS<tspan fill="#b45309">.</tspan></text>
+    <text x="600" y="510" text-anchor="middle" font-family="monospace" font-size="20" letter-spacing="6" fill="#6b7280">BRAND · GUIDELINES · v4.0</text>
+  </svg>
+</template>
+
+<!-- COVER -->
+<section class="cover" data-screen-label="01 Cover">
+  <div class="container">
+    <div class="eyebrow">Brand Guidelines · v4.0 · 2026</div>
+    <h1>Fallon <em>Scott.</em></h1>
+    <p class="lede">The complete brand system for Fallon Scott Consulting. Mission architecture, color, typography, voice, tone, pillars, messaging, buyer tiers, and products: everything required to build new surfaces (decks, slides, social, video, print) without losing the brand's center of gravity.</p>
+    <div class="cover-meta">
+      <div>Built for<strong>Fallon Scott Consulting</strong></div>
+      <div>System version<strong>4.0 · June 2026</strong></div>
+      <div>Designed by<strong>F28 Studio</strong></div>
+      <div>Audience<strong>Founders. Operators. Builders.</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 MISSION ARCHITECTURE -->
+<style>
+  .mission-stack{display:flex;flex-direction:column;border:1px solid var(--rule);margin-top:8px}
+  .mission-row{background:var(--paper);padding:32px 34px}
+  .mission-row + .mission-row{border-top:1px solid var(--rule)}
+  .mission-tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;display:block;margin-bottom:13px}
+  .mission-line{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(26px,3.3vw,42px);line-height:1.07;letter-spacing:-.02em;color:var(--ink);margin:0 0 14px;text-wrap:balance}
+  .mission-line em{font-style:italic;color:var(--accent)}
+  .mission-note{font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:var(--ink-2);margin:0;max-width:780px;text-wrap:pretty}
+  .mission-diagram{background:var(--ink);padding:48px 32px;display:flex;flex-direction:column;align-items:center;margin-top:8px}
+  .md-node{text-align:center;color:var(--paper);font-family:'Fraunces',serif;font-weight:400;letter-spacing:-.01em;padding:16px 28px;border:1px solid rgba(245,241,234,.18);max-width:700px;line-height:1.12}
+  .md-node span{display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,241,234,.45);font-weight:400;margin-top:9px;line-height:1.4}
+  .md-node--mission{font-size:30px;color:var(--accent-soft);border-color:rgba(180,83,9,.55)}
+  .md-node--protest{font-size:23px}
+  .md-node--method{font-size:18px;line-height:1.32;font-style:italic;color:rgba(245,241,234,.92)}
+  .md-conn{width:1px;height:26px;background:rgba(245,241,234,.28)}
+  .md-split{display:flex;gap:36px}
+  .md-leaf{text-align:center;color:var(--paper);border:1px solid rgba(245,241,234,.18);padding:16px 34px;font-family:'Fraunces',serif;font-size:19px}
+  .md-leaf strong{font-weight:500;color:var(--accent-soft)}
+  .md-leaf span{display:block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,241,234,.45);font-weight:400;margin-top:6px}
+  @media(max-width:640px){.md-split{flex-direction:column;gap:18px}.mission-row{padding:26px 22px}.mission-diagram{padding:36px 20px}}
+</style>
+<section class="sec" data-screen-label="01 Mission">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-num">01 / Mission architecture</div>
+      <div>
+        <h2 class="sec-title">Built to <em>Last.</em></h2>
+        <p class="sec-lede">The brand has three sentences. They go on the homepage, in the anchor video, in every pitch, every podcast intro, every keynote. Mission, protest, method: the entire brand in one breath. Memorize them.</p>
+      </div>
+    </div>
+
+    <div class="mission-stack">
+      <div class="mission-row">
+        <span class="mission-tag">The mission · the why</span>
+        <h3 class="mission-line">Built to Last.</h3>
+        <p class="mission-note">The thing that makes the work matter. Every product, every service, every piece of content is in service of this: making sure what founders sacrificed for actually outlasts them, through the sale, through the succession, through the growth.</p>
+      </div>
+      <div class="mission-row">
+        <span class="mission-tag">The protest · the call to action</span>
+        <h3 class="mission-line">No Systems, <em>No Peace.</em></h3>
+        <p class="mission-note">The frustration. It is so simple to fix. The people who refuse to fix it are what make this necessary. They will not have peace, and neither will you, until they do.</p>
+      </div>
+      <div class="mission-row">
+        <span class="mission-tag">The method · the how</span>
+        <h3 class="mission-line">Systems are the prerequisite to sustainability, scalability, and <em>sellability.</em></h3>
+        <p class="mission-note">The operational translation of the mission. It belongs on the website, the pitch deck, every piece of content. Every pillar is a more specific version of this one sentence.</p>
+      </div>
+    </div>
+
+    <h4 class="palette-label" style="margin-top:48px">The architecture</h4>
+    <div class="mission-diagram">
+      <div class="md-node md-node--mission">Built to Last<span>the mission · the why · the thing that makes you cry</span></div>
+      <div class="md-conn"></div>
+      <div class="md-node md-node--protest">No Systems, No Peace<span>the protest · the frustration · the call to action</span></div>
+      <div class="md-conn"></div>
+      <div class="md-node md-node--method">Systems are the prerequisite to sustainability, scalability, and sellability.<span>the method · the how · the operational translation</span></div>
+      <div class="md-conn"></div>
+      <div class="md-split">
+        <div class="md-leaf"><strong>Pillars</strong><span>the how, specifically</span></div>
+        <div class="md-leaf"><strong>Products</strong><span>the what, specifically</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 LOGO -->
+<section class="sec" data-screen-label="02 Logo">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-num">02 / Logotype</div>
+      <div>
+        <h2 class="sec-title">The <em>wordmark.</em></h2>
+        <p class="sec-lede">A serif logotype with one accent: the period. The dot is the only place the brand allows itself a single, deliberate moment of color. It signals finality: a sentence, a system, a decision made.</p>
+      </div>
+    </div>
+
+    <div class="logo-grid">
+      <div class="logo-cell cream">
+        <span class="lab">Primary · cream ground</span>
+        <div class="logo-mark">Fallon Scott<span class="dot">.</span></div>
+      </div>
+      <div class="logo-cell warm">
+        <span class="lab">Secondary · warm ground</span>
+        <div class="logo-mark">Fallon Scott<span class="dot">.</span></div>
+      </div>
+      <div class="logo-cell dark">
+        <span class="lab">Inverse · dark ground</span>
+        <div class="logo-mark">Fallon Scott<span class="dot">.</span></div>
+      </div>
+    </div>
+
+    <div class="logo-rules">
+      <div class="logo-rule do">
+        <h4><em>Do</em></h4>
+        <p>Set in Fraunces 600. Keep the period accent (#B45309). Maintain x-height of clear space on all sides. Never let nav or imagery touch the wordmark. Pair only with the approved color grounds.</p>
+      </div>
+      <div class="logo-rule dont">
+        <h4>Don't</h4>
+        <p>Don't recolor the period. Don't add a tagline lockup beneath it. Don't substitute a sans-serif. Don't stretch, italicize the wordmark, or apply effects (shadow, outline, gradient).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 COLOR -->
+<section class="sec" data-screen-label="03 Color">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-num">03 / Color system</div>
+      <div>
+        <h2 class="sec-title">A small palette, <em>used with discipline.</em></h2>
+        <p class="sec-lede">Two grounds (ink + cream), two accents (burnt amber + chocolate), and one warm highlight (vanilla cream). The palette is intentionally tight. Restraint is the look.</p>
+      </div>
+    </div>
+
+    <!-- PRIMARY -->
+    <div class="palette-label">Primary · The brand's two grounds</div>
+    <div class="palette-row full">
+      <div class="swatch sw-ink">
+        <div class="role">Primary 01 · Ink</div>
+        <div>
+          <h3 class="name">Ink Navy</h3>
+          <p class="desc">Headlines, primary buttons, dark sections. The serious, grown-up ground. Used wherever the brand needs gravity.</p>
+          <div class="codes">
+            <div><span class="k">HEX</span><span>#1A1F2E</span></div>
+            <div><span class="k">RGB</span><span>26 · 31 · 46</span></div>
+            <div><span class="k">CMYK</span><span>71 · 67 · 49 · 51</span></div>
+            <div><span class="k">VAR</span><span>--ink</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="swatch sw-paper">
+        <div class="role">Primary 02 · Paper</div>
+        <div>
+          <h3 class="name">Bone Cream</h3>
+          <p class="desc">The default canvas. Warm, paper-like, lower glare than white. Use as page background, card surface, and for body copy on dark grounds.</p>
+          <div class="codes">
+            <div><span class="k">HEX</span><span>#F5F1EA</span></div>
+            <div><span class="k">RGB</span><span>245 · 241 · 234</span></div>
+            <div><span class="k">CMYK</span><span>3 · 4 · 8 · 0</span></div>
+            <div><span class="k">VAR</span><span>--paper</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCENTS -->
+    <div class="palette-label">Accent · Earned warmth, never decoration</div>
+    <div class="palette-row support">
+      <div class="swatch sw-amber">
+        <div class="role">Accent 01 · Burnt Amber</div>
+        <div>
+          <h3 class="name">Burnt Amber</h3>
+          <p class="desc">The brand's signature warm. Italic emphasis, accent dots, link underlines, primary CTA hover. Used sparingly. It should always feel like a moment.</p>
+          <div class="codes">
+            <div><span class="k">HEX</span><span>#B45309</span></div>
+            <div><span class="k">RGB</span><span>180 · 83 · 9</span></div>
+            <div><span class="k">CMYK</span><span>20 · 70 · 100 · 9</span></div>
+            <div><span class="k">VAR</span><span>--accent</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="swatch sw-choco">
+        <div class="role">Accent 02 · Chocolate</div>
+        <div>
+          <h3 class="name">Deep Chocolate</h3>
+          <p class="desc">For full-section grounds (problems, pain, framework). Adds depth without going to black. Pairs with cream type and the vanilla highlight.</p>
+          <div class="codes">
+            <div><span class="k">HEX</span><span>#8B3A07</span></div>
+            <div><span class="k">RGB</span><span>139 · 58 · 7</span></div>
+            <div><span class="k">CMYK</span><span>30 · 79 · 100 · 27</span></div>
+            <div><span class="k">VAR</span><span>--accent-2</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="swatch sw-cream">
+        <div class="role">Accent 03 · Vanilla</div>
+        <div>
+          <h3 class="name">Vanilla Cream</h3>
+          <p class="desc">The warm highlight. Italic emphasis on dark grounds, micro-eyebrows, accent-soft on chocolate. The "glow" of the palette.</p>
+          <div class="codes">
+            <div><span class="k">HEX</span><span>#F3D9A7</span></div>
+            <div><span class="k">RGB</span><span>243 · 217 · 167</span></div>
+            <div><span class="k">CMYK</span><span>4 · 13 · 38 · 0</span></div>
+            <div><span class="k">VAR</span><span>--accent-soft</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPPORTS -->
+    <div class="palette-label">Support · Structure, hierarchy, breathing room</div>
+    <div class="palette-row support">
+      <div class="swatch sw-ink2">
+        <div class="role">Support · Slate</div>
+        <div>
+          <h3 class="name">Slate Ink</h3>
+          <p class="desc">Body copy, secondary headlines, sub-text on cream. A softer ink that prevents the page from feeling weighted.</p>
+          <div class="codes">
+            <div><span class="k">HEX</span><span>#2A3142</span></div>
+            <div><span class="k">VAR</span><span>--ink-2</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="swatch sw-paper2">
+        <div class="role">Support · Warm Cream</div>
+        <div>
+          <h3 class="name">Warm Bone</h3>
+          <p class="desc">Section dividers, card backgrounds, marquee bands. Slightly warmer than Paper for layered surfaces.</p>
+          <div class="codes">
+            <div><span class="k">HEX</span><span>#EDE7DC</span></div>
+            <div><span class="k">VAR</span><span>--paper-2</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="swatch sw-rule">
+        <div class="role">Support · Rule</div>
+        <div>
+          <h3 class="name">Rule Tan</h3>
+          <p class="desc">Hairlines, dividers, low-contrast borders. Never a fill; always a 1px boundary holding the page together.</p>
+          <div class="codes">
+            <div><span class="k">HEX</span><span>#D8CFBF</span></div>
+            <div><span class="k">VAR</span><span>--rule</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- USAGE RULES -->
+    <div class="palette-rules">
+      <div class="pr-card">
+        <span class="ratio">Ratio · 60 / 30 / 10</span>
+        <h4>The <em>cream-first rule</em></h4>
+        <p>~60% cream + warm cream grounds. ~30% ink (dark sections, type, buttons). ~10% accents combined. Never invert the ratio.</p>
+      </div>
+      <div class="pr-card">
+        <span class="ratio">Accent · The italic moment</span>
+        <h4>Amber on <em>emphasis only</em></h4>
+        <p>Burnt amber appears in italic Fraunces emphasis, link hovers, the period in the wordmark, and the accent dot before eyebrows. Not decoration.</p>
+      </div>
+      <div class="pr-card">
+        <span class="ratio">Inversion · Dark sections</span>
+        <h4>Chocolate ground = <em>vanilla type</em></h4>
+        <p>When sections invert to chocolate or ink, body type goes to cream and italic emphasis becomes vanilla; never amber on chocolate (clash).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 TYPOGRAPHY -->
+<section class="sec" data-screen-label="04 Typography">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-num">04 / Typography</div>
+      <div>
+        <h2 class="sec-title">A serif, a sans, <em>a monospace.</em></h2>
+        <p class="sec-lede">Three families. Each does one job. Fraunces is the voice. Inter is the hand. JetBrains Mono is the receipt: the small, precise marker that gives the brand its operator-grade texture.</p>
+      </div>
+    </div>
+
+    <!-- DISPLAY -->
+    <div class="type-block">
+      <div class="type-meta">
+        <div class="type-meta-l">
+          <h4>Display + Headlines</h4>
+          <h3>Fraunces</h3>
+        </div>
+        <div class="type-meta-r">
+          <b>Variable serif</b><br/>
+          Weights 300–600 in use<br/>
+          Italic = brand emphasis<br/>
+          Optical sizing on · SOFT axis 30
+        </div>
+      </div>
+      <p class="type-display">Systems before <em>hires.</em></p>
+      <div class="type-scale">
+        <div class="ts-tag">XL · 96 / 92 / -2.5%</div>
+        <p class="ts-sample" style="font-size:64px;font-weight:340">Fundable. Scalable. <em>Sellable.</em></p>
+        <div class="ts-tag">L · 48 / 50 / -2%</div>
+        <p class="ts-sample" style="font-size:42px;font-weight:380">Three steps to <em>stress-free delegation.</em></p>
+        <div class="ts-tag">M · 32 / 40 / -1%</div>
+        <p class="ts-sample" style="font-size:28px;font-weight:400">Operators don't decorate. They <em>install.</em></p>
+        <div class="ts-tag">S · 22 / 32 / -.5%</div>
+        <p class="ts-sample" style="font-size:20px;font-weight:400">Quote pull · italicized for brand voice.</p>
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="type-block body-block">
+      <div class="type-meta">
+        <div class="type-meta-l">
+          <h4>Body + UI</h4>
+          <h3 style="font-family:'Inter',sans-serif;font-weight:500;letter-spacing:-.018em">Inter</h3>
+        </div>
+        <div class="type-meta-r">
+          <b>Sans-serif workhorse</b><br/>
+          Weights 300, 400, 500, 600, 700<br/>
+          Body 400 / Bold 600<br/>
+          Tracking optimized for screen
+        </div>
+      </div>
+      <p class="type-display">The body of the brand. Quiet, precise, easy to read.</p>
+      <div class="type-scale">
+        <div class="ts-tag">Lede · 20 / 32</div>
+        <p class="ts-sample" style="font-size:18px;line-height:1.6">If you can't tell a new hire WHO to be, WHAT to do, and HOW you want it done, they'll fail.</p>
+        <div class="ts-tag">Body · 16 / 26</div>
+        <p class="ts-sample" style="font-size:15px;line-height:1.65">Most founders don't have a hiring problem. They have a system problem, and the SOP Suite is the prerequisite to fixing it.</p>
+        <div class="ts-tag">Bold · 600</div>
+        <p class="ts-sample bold" style="font-size:15px;line-height:1.65">Build the system before you spend a dollar on payroll, human or AI.</p>
+        <div class="ts-tag">Small · 13 / 20</div>
+        <p class="ts-sample" style="font-size:13px;line-height:1.55;color:var(--muted)">Footnote, caption, micro-copy. Used for receipts and scaffold detail.</p>
+      </div>
+    </div>
+
+    <!-- MONO -->
+    <div class="type-block dark mono-block">
+      <div class="type-meta">
+        <div class="type-meta-l">
+          <h4 style="color:var(--accent-soft)">Eyebrows + Tags</h4>
+          <h3 style="font-family:'JetBrains Mono',monospace;font-size:36px;letter-spacing:.04em;font-weight:500">JetBrains Mono</h3>
+        </div>
+        <div class="type-meta-r">
+          <b style="color:var(--paper)">Operator-grade monospace</b><br/>
+          Weights 400, 500<br/>
+          Eyebrows tracked +.22em uppercase<br/>
+          Used for section nums, tags, receipts
+        </div>
+      </div>
+      <p class="type-display" style="color:var(--accent-soft)">— 03 / WHY THIS EXISTS</p>
+      <div class="type-scale">
+        <div class="ts-tag" style="color:rgba(245,241,234,.55)">Eyebrow · 11 / .22em</div>
+        <p class="ts-sample" style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft);font-weight:500">— FREE DOWNLOAD · HIRE-READINESS CHECKLIST</p>
+        <div class="ts-tag" style="color:rgba(245,241,234,.55)">Tag · 10 / .18em</div>
+        <p class="ts-sample" style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);background:rgba(217,119,87,.12);border:1px solid rgba(217,119,87,.35);padding:5px 8px;display:inline-block;font-weight:600">1A · OFFLOAD</p>
+        <div class="ts-tag" style="color:rgba(245,241,234,.55)">Stat · 14 / .04em</div>
+        <p class="ts-sample" style="font-size:14px;letter-spacing:.04em;color:var(--paper);font-weight:400">$998 · v2 launch · Save $499</p>
+      </div>
+    </div>
+
+    <!-- PAIRING -->
+    <h4 class="palette-label" style="margin-top:48px">Pairing in the wild</h4>
+    <div class="pairing">
+      <div class="pairing-cell">
+        <div class="eyebrow">— Cream ground</div>
+        <h4>The <em>operator's</em> ground.</h4>
+        <p>Fraunces in italic 340, Inter body 400, mono eyebrow tracked 0.22em. The default page state.</p>
+      </div>
+      <div class="pairing-cell dark">
+        <div class="eyebrow">— Ink ground</div>
+        <h4>The <em>contrast</em> moment.</h4>
+        <p>Vanilla replaces amber for italic emphasis. Body copy lifts to 78% cream. Eyebrows go vanilla, not amber.</p>
+      </div>
+      <div class="pairing-cell" style="background:var(--accent-2);color:var(--paper)">
+        <div class="eyebrow" style="color:var(--accent-soft)">— Chocolate ground</div>
+        <h4 style="color:var(--paper)">The <em style="color:var(--accent-soft)">pain</em> ground.</h4>
+        <p style="color:rgba(245,241,234,.85)">Used only for confrontational sections. Same type rules as ink: cream body, vanilla emphasis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 VOICE -->
+<section class="sec" data-screen-label="05 Voice">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-num">05 / Voice + Tone</div>
+      <div>
+        <h2 class="sec-title">Direct. Operator-grade. <em>Warm without sentiment.</em></h2>
+        <p class="sec-lede">A friend who used to do internal audit. Specific over abstract. Names what's broken without performing concern. Italic clauses for the parts that matter, never bold, never exclaimed.</p>
+      </div>
+    </div>
+
+    <!-- VOICE PILLARS -->
+    <div class="voice-grid">
+      <div class="voice-card">
+        <div class="vc-num">01</div>
+        <h4>Plain-spoken, <em>never preachy</em></h4>
+        <p>The brand says what it means. No jargon, no consultant-ese, no thought-leader trance. Short sentences carry weight; long ones earn their length.</p>
+        <p class="quote">"You can't delegate clarity you don't have."</p>
+      </div>
+      <div class="voice-card">
+        <div class="vc-num">02</div>
+        <h4>Specific over <em>abstract</em></h4>
+        <p>Numbers, names, sequence. Whenever a sentence could go vague or concrete, it goes concrete. "Collapse 28 steps to 20," not "streamline operations."</p>
+        <p class="quote">"Give me 20 minutes and I'll find you $20,000 of operational inefficiency."</p>
+      </div>
+      <div class="voice-card">
+        <div class="vc-num">03</div>
+        <h4>Diagnoses, then <em>directs</em></h4>
+        <p>Always names the symptom before naming the fix. The reader should feel seen first, sold to second. We earn the prescription.</p>
+        <p class="quote">"Most founders don't have a hiring problem. They have a system problem."</p>
+      </div>
+      <div class="voice-card">
+        <div class="vc-num">04</div>
+        <h4>Italic for <em>emphasis only</em></h4>
+        <p>The italicized clause is the brand's only audible inflection. One per paragraph, two per page. It is the equivalent of a hand on the table, not a pointed finger.</p>
+        <p class="quote">"Build the system <em style="color:var(--accent)">before</em> you spend a dollar on payroll."</p>
+      </div>
+    </div>
+
+    <!-- DO / DONT -->
+    <h4 class="palette-label" style="margin-top:48px">Voice in practice</h4>
+    <div class="dodont">
+      <div class="dodont-col do">
+        <h4>Do say</h4>
+        <ul>
+          <li>"Three steps to delegation. Most founders skip the first two."</li>
+          <li>"Give me 20 minutes and I'll find you $20,000 of inefficiency."</li>
+          <li>"The business lives in your head, and you can feel the weight of it."</li>
+          <li>"Build the system before you spend a dollar on payroll."</li>
+          <li>"Operators don't decorate. They install."</li>
+        </ul>
+        <p style="font-size:13px;color:var(--ink-2);margin-top:14px;font-style:italic;font-family:'Fraunces',serif">No em dashes. Use periods or semicolons. Em dashes signal AI-written copy.</p>
+        <p style="font-size:13px;color:var(--ink-2);margin-top:10px;font-style:italic;font-family:'Fraunces',serif">Lead client-facing language with the outcome, not the audit. Externally, lead with <em>"architect before automate."</em> The audit lives inside the architect step; reveal it second, never as the opening pitch.</p>
+        <p style="font-size:13px;color:var(--ink-2);margin-top:10px;font-style:italic;font-family:'Fraunces',serif">Lead with the story, then the framework. Stories sell. State the principle <em>after</em> the reader has already seen themselves in the example.</p>
+      </div>
+      <div class="dodont-col dont">
+        <h4>Don't say</h4>
+        <ul>
+          <li>"Unlock your business potential with proven strategies."</li>
+          <li>"We partner with visionary leaders to deliver outcomes."</li>
+          <li>"Transformative. Synergistic. Best-in-class. Holistic."</li>
+          <li>"Empower your team to thrive in today's landscape!"</li>
+          <li>"Let's hop on a discovery call to see if we're a fit 🚀"</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TONE BY CONTEXT -->
+    <h4 class="palette-label" style="margin-top:48px">Tone by surface</h4>
+    <div class="msg-grid">
+      <div class="msg-card">
+        <div class="lab">Hero / Manifesto</div>
+        <p>Decisive. <em>Quotable.</em> Italic-led. Short, weighted sentences.</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">Pain / Diagnosis</div>
+        <p>Plain, almost <em>flat.</em> Naming, not selling. The reader should recognize themselves.</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">Methodology / How</div>
+        <p>Sequential. Numbered. <em>Operator-grade.</em> No metaphor unless it earns its keep.</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">Pricing / CTA</div>
+        <p>Direct. <em>Receipted.</em> Numbers in mono. No exclamation points. No urgency theater.</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">Bio / About</div>
+        <p>First-person, restrained. <em>Credentials as proof,</em> not posture. CPA. Lean Six Sigma. Built it.</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">Email / DM</div>
+        <p>Short paragraphs. One ask per message. <em>Plain greetings.</em> No "I hope this finds you well."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05B THE CORE JOB -->
+<section class="sec" data-screen-label="05b Core job">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-num">05.5 / The core job</div>
+      <div>
+        <h2 class="sec-title">Simplify. Streamline. <em>Connect.</em></h2>
+        <p class="sec-lede">Before the core job, there is the mission: <em>Built to Last.</em> Every simplification, every streamlined process, every connected system is in service of businesses and lives that outlast the people who built them. This is the most basic truth of the work; every other message is a more specific version of it.</p>
+      </div>
+    </div>
+
+    <div class="msg-block cream">
+      <div class="msg-eyebrow">— The job in one sentence</div>
+      <h3 class="msg-headline">Fallon simplifies, streamlines, and connects the way a business runs, <em>end to end</em>, from how a customer first hears about you through to how you keep them.</h3>
+    </div>
+
+    <div class="msg-grid" style="margin-top:24px">
+      <div class="msg-card">
+        <div class="lab">— Simplify · the steps</div>
+        <p>Does this step need to <em>exist at all?</em> Eliminate the unnecessary.</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">— Streamline · the path</div>
+        <p>What's the <em>straightest line</em> from A to B? Remove the zigzag.</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">— Connect · the wiring</div>
+        <p>Do the systems talk, or is a <em>human</em> the switchboard operator? End the silos.</p>
+      </div>
+    </div>
+
+    <h4 class="palette-label" style="margin-top:48px">Reframes locked into the brand language</h4>
+    <div class="palette-rules">
+      <div class="pr-card">
+        <span class="ratio">Chaos vs inefficiency</span>
+        <h4>You don't have to be <em>drowning</em> to be in danger</h4>
+        <p>Chaos is loud. Inefficiency is quiet, and it's the bigger market because those founders don't know they need help. If you're just fine, so is your competition. Fine is not a moat.</p>
+      </div>
+      <div class="pr-card">
+        <span class="ratio">The switchboard operator</span>
+        <h4>You're paying people to be <em>software</em></h4>
+        <p>Disconnected systems get bridged by a human plugging wires by hand all day. The fix isn't one platform for everything; it's the data flowing between the right tools without a person in the middle.</p>
+      </div>
+      <div class="pr-card">
+        <span class="ratio">Lean Six Sigma · waste</span>
+        <h4>Don't document or automate <em>waste</em></h4>
+        <p>You can't automate your way out of an un-optimized process. Document a disjointed one and your SOP library doubles. Automate 28 steps that should be 20 and you pay to execute waste faster. Simplify and connect first.</p>
+      </div>
+      <div class="pr-card">
+        <span class="ratio">The scale warning</span>
+        <h4>Small leak, <em>big flood</em></h4>
+        <p>Inefficiency doesn't stay the size it is today. A $20K/year leak becomes a $200K structural problem at scale; it survives growth and gets carried up the curve. Fix it while it's a checkup, not open-heart surgery.</p>
+      </div>
+      <div class="pr-card">
+        <span class="ratio">The differentiator</span>
+        <h4>Optimize <em>inside</em> a step</h4>
+        <p>Most consultants collapse 28 steps to 20. Good ones say which to automate. Almost nobody opens a single step and optimizes inside it. You can only do that by having lived inside it.</p>
+      </div>
+      <div class="pr-card">
+        <span class="ratio">The confidence line</span>
+        <h4>$20K in <em>20 minutes</em></h4>
+        <p>Give me 20 minutes and a description of how your business runs, and I can find you $20,000 of operational inefficiency. It scales monthly or annually by company size.</p>
+      </div>
+    </div>
+
+    <div class="msg-block" style="margin-top:24px">
+      <div class="msg-eyebrow">— How it relates to the frameworks</div>
+      <p class="msg-body">The core job (simplify, streamline, connect) is the <strong>what</strong>. The 4A Framework is the <strong>how</strong>. "Architect before automate" is the client-facing positioning. The 7 Stages of the Client Journey is the structure used in the audit. The <strong>why</strong> is freedom: fundable, scalable, sellable, so the founder is <em>free.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 BRAND PILLARS -->
+<section class="sec" data-screen-label="06 Pillars">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-num">06 / Brand pillars</div>
+      <div>
+        <h2 class="sec-title">Seven <em>load-bearing</em> pillars.</h2>
+        <p class="sec-lede">These pillars are the HOW. They sit beneath the Built to Last mission, and every one is a specific answer to a single question: how do you build something that lasts? Everything the brand says, ships, or refuses comes back to one of them.</p>
+      </div>
+    </div>
+
+    <p style="font-family:'Fraunces',serif;font-style:italic;font-size:16px;line-height:1.55;color:var(--ink-2);max-width:880px;margin:0 0 28px">These pillars are the <strong style="font-style:normal;font-weight:600;color:var(--ink)">how</strong>. They sit beneath the Built to Last mission. Every pillar is a specific answer to the question: <em>how do you build something that lasts?</em></p>
+
+    <div class="pillar-grid">
+      <div class="pillar" style="grid-column:1 / -1">
+        <span class="p-num">— Pillar 01 · The why</span>
+        <h3>Legacy and business <em>continuity.</em></h3>
+        <p class="belief">"Documentation is not administrative housekeeping. It is the act of making sure the work was worth it."</p>
+        <p>The emotional anchor. Key-person risk. The grandfather who built a dump-truck company that helped pave Houston, and watched it die with him because the secret sauce was never written down. The military spouse. The medical mom. Knowledge transfer is the prerequisite to delegation, delegation is the prerequisite to continuity, and continuity is the prerequisite to Built to Last. This is the pillar every other pillar serves.</p>
+        <span class="proof">Proof · the grandfather story · key-person risk · The Life Brief · "built to outlast burnout, the sale, and you"</span>
+      </div>
+      <div class="pillar">
+        <span class="p-num">— Pillar 02 · Method</span>
+        <h3>Diagnose first: audit before <em>architecture.</em></h3>
+        <p class="belief">"The audit always comes before the architecture."</p>
+        <p>You cannot fix what you have not diagnosed. The audit comes before the architecture, every time. Internally this is the language of the method: audit before architect. Client-facing, it leads as architect before automate. Same sequence, two registers.</p>
+        <span class="proof">Proof · the 7 Stages of the Customer Journey · the diagnostic-first intake · AI Assessment</span>
+      </div>
+      <div class="pillar">
+        <span class="p-num">— Pillar 03 · Method</span>
+        <h3>Knowledge transfer is the <em>prerequisite.</em></h3>
+        <p class="belief">"The wealth transfer only happens if the knowledge transfer happens first."</p>
+        <p>More human and more visual than "documentation." Knowledge transfer is what is actually happening when a founder writes a process down: they move what lives in their head into a system, a hire, an AI, a buyer, a family member. If you do not transfer the knowledge, no one can carry it forward.</p>
+        <span class="proof">Proof · the SOP Suite · the exit-ready seller · "your SOPs are your AI's training data"</span>
+      </div>
+      <div class="pillar">
+        <span class="p-num">— Pillar 04 · Method</span>
+        <h3>Architect before <em>automate.</em></h3>
+        <p class="belief">"Automation on a broken process is not efficiency. It is amplified chaos."</p>
+        <p>The external-facing sequence that protects clients from expensive mistakes. Tools come last. The foundation comes first. Most AI help wires automation before anyone diagnosed the business or drew the spec; an architect decides what scales, what's safe, what connects, and what it should cost before a single tool is touched.</p>
+        <span class="proof">Proof · the 4A Framework · integrator-vs-architect · AI Integration page</span>
+      </div>
+      <div class="pillar">
+        <span class="p-num">— Pillar 05 · Method</span>
+        <h3>Humans and AI work together <em>by design.</em></h3>
+        <p class="belief">"Humans and AI work together by design. Not as a compromise."</p>
+        <p>Not a hedge, a design principle. AI handles what is repeatable. Humans handle what requires judgment. The work is figuring out which is which and building the bridge between them, so people do their highest-value thinking and the machine carries the rest.</p>
+        <span class="proof">Proof · AI Systems Architecture · the risk-aware lens · "AI where it earns its place, humans where they belong"</span>
+      </div>
+      <div class="pillar">
+        <span class="p-num">— Pillar 06 · The number</span>
+        <h3>The manual <em>tax.</em></h3>
+        <p class="belief">"What is the manual tax costing you?"</p>
+        <p>The objective math of what doing it by hand actually costs. Delivered like a neutral auditor revealing a number, not a coach hyping a transformation. It is the bridge from emotional to rational: once the cost is on the table, the decision makes itself.</p>
+        <span class="proof">Proof · the ROI calculator · "$20K in 20 minutes" · the AI Assessment</span>
+      </div>
+      <div class="pillar" style="grid-column:1 / -1">
+        <span class="p-num">— Pillar 07 · The toolkit</span>
+        <h3>Frameworks: the <em>F28 method.</em></h3>
+        <p class="belief">"Frameworks make complexity actionable."</p>
+        <p>The named systems that turn the beliefs into steps anyone can follow. Dump, Document, Delegate. The SSSSS framework (Stuck, Screen, SOP, Skill, Schedule). The 6-Step Optimization. The 7 Stages of the Customer Journey. The 4A Framework (Audit, Architect, Approve, Automate). A framework is how a conviction becomes a deliverable.</p>
+        <span class="proof">Proof · Dump · Document · Delegate · SSSSS · 6-Step Optimization · 7 Stages · 4A</span>
+      </div>
+    </div>
+
+    <p style="font-family:'Fraunces',serif;font-style:italic;font-size:16px;line-height:1.55;color:var(--ink-2);max-width:880px;margin:32px 0 0">A note on terms: these are <em>brand</em> pillars, the load-bearing beliefs. They're distinct from the content pillars in the calendar, which are topic buckets. The beliefs generate the topics; don't expect a one-to-one match.</p>
+  </div>
+</section>
+
+<!-- 07 MESSAGING -->
+<section class="sec" data-screen-label="07 Messaging">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-num">07 / Messaging framework</div>
+      <div>
+        <h2 class="sec-title">What the brand <em>says</em> when it has fifteen seconds.</h2>
+        <p class="sec-lede">Tagline. Positioning. Three pitch lengths. Use these as the source of truth on slides, decks, social, podcasts, intros, sales calls, and proposal first lines.</p>
+      </div>
+    </div>
+
+    <!-- TAGLINE -->
+    <div class="msg-block">
+      <div class="msg-eyebrow">— Tagline · the brain</div>
+      <h3 class="msg-headline">Free and <em>funded.</em></h3>
+      <p class="msg-body">The North Star, one sentence: get founders <strong>free</strong> through systems that make the company <strong>funded</strong>. Two outcomes, alliterated, universal. Use on hero, decks, podcast hook, LinkedIn one-liners.</p>
+      <div class="alt">Alt taglines (rotation): <em>Architect before automate.</em> · <em>Systems before hires.</em> · <em>Foundations. Funding. Freedom.</em> · <em>Productive and profitable.</em></div>
+    </div>
+
+    <!-- POSITIONING -->
+    <div class="msg-block cream">
+      <div class="msg-eyebrow">— Positioning · 1 sentence</div>
+      <h3 class="msg-headline">A fractional COO who safely and strategically <em>architects the systems</em> that make a founder-led business fundable, scalable, and sellable.</h3>
+      <p class="msg-body">Use as the meta description, About section opener, cold-pitch first line, and bio anchor. <strong>Never edit the order</strong> of fundable / scalable / sellable. The rhythm is part of the brand.</p>
+    </div>
+
+    <!-- THREE PITCH LENGTHS -->
+    <div class="msg-grid" style="margin-top:32px">
+      <div class="msg-card">
+        <div class="lab">— 15 seconds</div>
+        <p>"I'm a fractional COO. I safely and strategically architect the systems that make a founder-led business <em>fundable, scalable, and sellable</em>, before they spend their next dollar on payroll or AI."</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">— 30 seconds</div>
+        <p>"I work with founders who've outgrown their own brain. There are three ways in: do it yourself with the SOP Suite, get diagnosed, or fix it with me as a fractional COO. CPA, Lean Six Sigma, formerly KPMG and Delta. <em>I optimize and connect your operations before we automate anything.</em>"</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">— 60 seconds</div>
+        <p>"Most founders don't have a hiring problem or an AI problem. They have a system problem. I simplify, streamline, and connect the system first, then automate with human or AI delegation on top. The work follows four steps: audit, architect, approve, automate. Three ways to start: the self-serve SOP Suite, a fixed-scope diagnostic, or a hands-on fractional COO engagement. <em>Do it in that order and you get a business that's ready to fund, scale, or sell.</em>"</p>
+      </div>
+    </div>
+
+    <!-- 4A FRAMEWORK -->
+    <h4 class="palette-label" style="margin-top:48px">The 4A Framework · the method, named</h4>
+    <div class="msg-block">
+      <div class="msg-eyebrow">— Audit. Architect. Approve. Automate.</div>
+      <h3 class="msg-headline">Four steps to a successful integration. <em>An A is shaped like a 4.</em></h3>
+      <div class="msg-grid" style="margin-top:24px">
+        <div class="msg-card"><div class="lab">— 1 · Audit</div><p>What's actually there. The 7 Stages of the Client Journey; leadership <em>and</em> the people doing the work.</p></div>
+        <div class="msg-card"><div class="lab">— 2 · Architect</div><p>The plan. Current state vs future state, designed around the vision and the <em>P&amp;L</em>, risk mitigated before it's built in.</p></div>
+        <div class="msg-card"><div class="lab">— 3 · Approve</div><p>The mockup. Stakeholders sign off before anything is built. <em>This is what prevents the adoption problem.</em></p></div>
+        <div class="msg-card"><div class="lab">— 4 · Automate</div><p>The build. AI where it earns its place, automation where AI is overkill, documented so it <em>runs without you.</em></p></div>
+      </div>
+      <div class="alt">Adoption is not a fifth A. It's the outcome Approve protects. Keep it at four.</div>
+    </div>
+    <p style="font-family:'Fraunces',serif;font-style:italic;font-size:16px;line-height:1.55;color:var(--ink-2);max-width:880px;margin:20px 0 0">Two phrases, same sequence. "Audit before architect" is the internal, methodology language; "architect before automate" is the <em>client-facing lead.</em> It earns the nod instead of the wince, and the audit lives inside the architect step.</p>
+
+    <!-- PROOF LINES -->
+    <h4 class="palette-label" style="margin-top:48px">Alliteration is a brand device</h4>
+    <p style="font-family:'Fraunces',serif;font-style:italic;font-size:18px;line-height:1.55;color:var(--ink-2);max-width:880px;margin:0 0 20px">Fallon's voice leans hard on alliterated pairs. Use them deliberately: a single alliterated phrase per surface, never stacked. They're the brand's most quotable building block.</p>
+    <div class="msg-grid">
+      <div class="msg-card">
+        <div class="lab">— Outcomes pair</div>
+        <p>"Productive <em>and</em> profitable."</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">— Promise pair</div>
+        <p>"Free <em>and</em> funded."</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">— Approach (internal)</div>
+        <p>"Audit. <em>Build.</em> Optimize."</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">— The 4A Framework</div>
+        <p>"Audit. Architect. <em>Approve.</em> Automate."</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">— Client-facing lead</div>
+        <p>"Architect <em>before</em> automate."</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">— North Star trio</div>
+        <p>"Foundations. <em>Funding.</em> Freedom."</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">— Investor trio</div>
+        <p>"Fundable. Scalable. <em>Sellable.</em>"</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">— Investor-readiness</div>
+        <p>"Your ops aren't <em>investor-grade.</em>"</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">— Sales action trio</div>
+        <p>"Find. <em>Fix.</em> Stay."</p>
+      </div>
+    </div>
+
+    <h4 class="palette-label" style="margin-top:48px">Proof lines · use as receipts, never marketing</h4>
+    <div class="msg-grid">
+      <div class="msg-card">
+        <div class="lab">Credential</div>
+        <p>"CPA. Lean Six Sigma. Formerly KPMG and Delta."</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">Receipt</div>
+        <p>"60+ engagements streamlining and connecting operations end to end."</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">Operator</div>
+        <p>"Built training systems for a 6,000-person team."</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">Receipt</div>
+        <p>"Process maps for 60+ founder-led businesses."</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">Three ways in</div>
+        <p>"Three ways in: do it yourself, diagnose it, or fix it with me."</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">Investor readiness</div>
+        <p>"Your ops aren't <em>investor-grade.</em> A buyer or VC sees daylight between what you have and what you're worth."</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">Refusal</div>
+        <p>"I don't run a hiring agency. I install the system that makes the next hire actually pay you back."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 AUDIENCE -->
+<section class="sec" data-screen-label="08 Audience">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-num">08 / Audience</div>
+      <div>
+        <h2 class="sec-title">Who the brand is <em>actually for.</em></h2>
+        <p class="sec-lede">Three concentric circles. The brand speaks loudest to the inner circle. Outer-circle audiences encounter the brand through the SOP Suite, content, and referrals.</p>
+      </div>
+    </div>
+
+    <div class="aud-grid">
+      <div class="aud">
+        <div class="lab">— Tier 01 · Primary</div>
+        <h4>The bottlenecked founder</h4>
+        <ul>
+          <li>$1M–$10M revenue, service-based or product-led</li>
+          <li>Founder-led, 3–25 employees</li>
+          <li>Has hired and been burned by it</li>
+          <li>Cannot take a real vacation; the business lives in their head</li>
+          <li>Knows they need systems, not sure how</li>
+          <li>Wants to fund, scale, or sell what they built</li>
+          <li>Buys: diagnostic, fractional COO engagement</li>
+        </ul>
+      </div>
+      <div class="aud">
+        <div class="lab">— Tier 02 · Secondary</div>
+        <h4>The operator inside the company</h4>
+        <ul>
+          <li>COO, integrator, OBM, head of ops</li>
+          <li>Brought in to fix what the founder couldn't</li>
+          <li>Buys the SOP Suite to install themselves</li>
+          <li>Influences the engagement decision</li>
+          <li>Becomes a referral source</li>
+          <li>Buys: SOP Suite, AI engagements</li>
+        </ul>
+      </div>
+      <div class="aud">
+        <div class="lab">— Tier 03 · Tertiary</div>
+        <h4>The peer, the platform, and the integrator</h4>
+        <ul>
+          <li>Other fractional COOs, OBMs, consultants</li>
+          <li>Podcasts, conferences, peer founders</li>
+          <li>AI integrators from cohorts who can wire tools but have never audited a business</li>
+          <li>A partnership market: they keep the client and the build; Fallon provides the architecture and audit lens</li>
+          <li>Refers, partners, cites the brand as gold-standard</li>
+          <li>Buys: workshops, partnerships, speaking, white-label / referral architecture</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 BUYER TIERS -->
+<section class="sec" data-screen-label="09 Buyer tiers">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-num">09 / Buyer tiers</div>
+      <div>
+        <h2 class="sec-title">Four buyers. <em>Four stages.</em></h2>
+        <p class="sec-lede">The brand speaks to four buyers at four stages. The stage matters more than the revenue number. A $5M company with no SOPs is a Foundations buyer. A $500K company preparing for acquisition is an Exit-Ready Seller.</p>
+      </div>
+    </div>
+
+    <div class="aud-grid" style="grid-template-columns:1fr 1fr">
+      <div class="aud">
+        <div class="lab">— Tier 01 · Foundations buyer · pre-$1M to $3M</div>
+        <h4>Grew faster than the foundation</h4>
+        <ul>
+          <li>Built on hustle and loyalty; the first real hires exposed every gap the original team papered over</li>
+          <li>Pain: new hires can't be trained because nothing is written down</li>
+          <li>Hook: <em>"Your business grew faster than the foundation underneath it."</em></li>
+          <li>Buys: SOP Suite, Foundations engagement</li>
+        </ul>
+      </div>
+      <div class="aud">
+        <div class="lab">— Tier 02 · Optimization buyer · $3M to $15M</div>
+        <h4>Systems built for a smaller company</h4>
+        <ul>
+          <li>Has some systems; they were built for a smaller version of the business</li>
+          <li>Pain: 30 people and still the bottleneck. AI tools that don't work. The same problems every quarter</li>
+          <li>Hook: <em>"You have 30 people. You still can't take 30 days off. That's not a team problem."</em></li>
+          <li>Buys: Optimization engagement, AI Systems Architecture</li>
+        </ul>
+      </div>
+      <div class="aud">
+        <div class="lab">— Tier 03 · Investor-ready buyer · $10M+</div>
+        <h4>Defending operations to outside eyes</h4>
+        <ul>
+          <li>Preparing for a funding round or defending operations in diligence</li>
+          <li>Pain: investors want to see systems, not heroics. Due diligence reveals the gaps</li>
+          <li>Hook: <em>"Fundable is not a feeling. It is a standard."</em></li>
+          <li>Buys: Fractional COO engagement</li>
+        </ul>
+      </div>
+      <div class="aud">
+        <div class="lab">— Tier 04 · Exit-ready seller · any revenue</div>
+        <h4>Transferring, not defending</h4>
+        <ul>
+          <li>Built something real over many years; ready to sell, but everything lives in their head</li>
+          <li>Pain: about to leave money on the table because the business can't run without them</li>
+          <li>Hook: <em>"The wealth transfer only happens if the knowledge transfer happens first."</em></li>
+          <li>The distinction: not defending operations to get funded, transferring them to get paid. Selling as-is versus selling with renovations</li>
+          <li>Buys: SOP Suite, Fractional COO engagement, exit preparation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 PRODUCTS -->
+<section class="sec" data-screen-label="10 Products">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-num">10 / Products + services</div>
+      <div>
+        <h2 class="sec-title">What the brand <em>sells.</em></h2>
+        <p class="sec-lede">One ladder, five rungs. Each product is a different depth of the same work: get the knowledge out, build the system, make it run without you. The full detail lives on the website; this is the brand-guide summary.</p>
+      </div>
+    </div>
+
+    <div class="msg-grid">
+      <div class="msg-card">
+        <div class="lab">The SOP Suite · $998</div>
+        <p>Self-serve delegation framework for founders. Three bundles, the Dump / Document / Delegate method, and an AI-readiness layer. Your SOPs become training data for humans and AI. <em>fallonscott.com/sop-suite</em></p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">The Life Brief · July 4, 2026</div>
+        <p>The personal version of the SOP Suite. Part A: life organization (household SOPs, house manager, routines). Part B: life continuity (medical care plans, financial documents, end-of-life knowledge transfer). Same three-step framework, <em>different prompts.</em></p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">Build With Me · cohort, ~July 2026</div>
+        <p>A three-week live build. Dump, Document, Delegate, with Fallon. $297 to $497 range. Upsells to the SOP Suite at close.</p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">AI Assessment · $197</div>
+        <p>A 60-minute diagnostic that calculates the cost of your manual processes. The entry point to the AI systems work. <em>The manual tax, on the table.</em></p>
+      </div>
+      <div class="msg-card">
+        <div class="lab">Fractional COO engagement · scoped</div>
+        <p>Scoped to the business. 8 to 12 weeks. Full audit, architecture, and implementation. Discovery call required.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 SAMPLE COPY -->
+<section class="sec" data-screen-label="11 Sample copy">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-num">11 / Sample copy</div>
+      <div>
+        <h2 class="sec-title">The brand <em>in the wild.</em></h2>
+        <p class="sec-lede">Example surfaces with all the rules applied: type, color, voice, italic emphasis, mono receipts. Use these as templates for new decks, social, and sales material.</p>
+      </div>
+    </div>
+
+    <div class="samples">
+      <div class="sample">
+        <div class="ctx">— Hero · Landing page</div>
+        <h3 class="head">Integrating AI is the easy part. Architecting it <em>safely</em> is the hard part.</h3>
+        <p class="body">Anyone can wire a tool. Architecting it for your business, what scales, what's safe, what connects to what you already have, is the part that gets skipped. <strong>We audit, architect, approve, then automate.</strong> In that order.</p>
+      </div>
+      <div class="sample">
+        <div class="ctx">— Slide · Deck title</div>
+        <h3 class="head">You hired a contractor. You needed an <em>architect.</em></h3>
+        <p class="body">Most AI help is tool-fluent, not business-fluent. They build before they diagnose. <strong>The 4A Framework fixes the order:</strong> Audit. Architect. Approve. Automate.</p>
+      </div>
+      <div class="sample">
+        <div class="ctx">— Email subject + opener</div>
+        <h3 class="head" style="font-size:24px">Re: <em>your AI rollout skipped a step.</em></h3>
+        <p class="body">Not a tool problem. A sequence problem. Most integrators automate before anyone architected the system underneath. Here's the role you didn't know you skipped.</p>
+      </div>
+      <div class="sample">
+        <div class="ctx">— Social · LinkedIn one-liner</div>
+        <h3 class="head" style="font-size:26px">You'd never let a contractor build without plans. So why automate a business <em>without an architect?</em></h3>
+        <p class="body">Audit. Architect. Approve. Automate. <strong>Skip a step</strong> and you get an expensive system nobody uses.</p>
+      </div>
+      <div class="sample">
+        <div class="ctx">— Bio · Speaker / Podcast</div>
+        <h3 class="head" style="font-size:26px">Fallon Scott is a fractional COO and operations architect who safely and strategically architects the systems that make a founder-led business <em>fundable, scalable, and sellable.</em></h3>
+        <p class="body">CPA. Lean Six Sigma auditor. Formerly KPMG and Delta. <strong>I optimize and connect operations before anyone automates them.</strong></p>
+      </div>
+      <div class="sample">
+        <div class="ctx">— Pricing · Receipt line</div>
+        <h3 class="head" style="font-size:26px">$998 · v2 launch · <em>save $499.</em></h3>
+        <p class="body">First released in 2021, before AI. v2 rebuilds every template and adds new AI-readiness frameworks. Limited pricing before it returns to full price.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 CONTENT THROUGH-LINE -->
+<section class="sec" data-screen-label="12 Content">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-num">12 / Content through-line</div>
+      <div>
+        <h2 class="sec-title">Watch me <em>build in real time.</em></h2>
+        <p class="sec-lede">The meta-narrative that sits above every pillar. The build is the content. Five businesses stop competing for attention and become five episodes of one show: how this operator builds.</p>
+      </div>
+    </div>
+
+    <div class="msg-block cream">
+      <div class="msg-eyebrow">— The through-line</div>
+      <h3 class="msg-headline">It's documentation, <em>not creation.</em></h3>
+      <p class="msg-body">Fallon is already building: the fractional COO practice, Claude-designed sites, Makenzie House, the SOP Suite, Baller and the Builder. Instead of five plates spinning, they become five episodes of one show. It never runs out of material because she builds whether or not the camera is on. <strong>"This is what I built last week. This is what I built today."</strong></p>
+    </div>
+
+    <h4 class="palette-label" style="margin-top:48px">Channel architecture · each platform has one job</h4>
+    <div class="aud-grid">
+      <div class="aud">
+        <div class="lab">— TikTok</div>
+        <h4>The documentary</h4>
+        <ul>
+          <li>30 to 60 seconds, raw and relatable</li>
+          <li>Talking head, not the polished site aesthetic</li>
+          <li>"What I built, how it helped, what I used"</li>
+          <li>Land a point in 1 to 2 minutes</li>
+        </ul>
+      </div>
+      <div class="aud">
+        <div class="lab">— YouTube</div>
+        <h4>The long-form build</h4>
+        <ul>
+          <li>3 to 5 minutes; the full process</li>
+          <li>"Built this in Claude Design, here are the prompts"</li>
+          <li>TikTok teases, YouTube delivers</li>
+          <li>Also hosts "Field Notes from the operator's mouth"</li>
+        </ul>
+      </div>
+      <div class="aud">
+        <div class="lab">— Substack</div>
+        <h4>Operator's Field Notes</h4>
+        <ul>
+          <li>The written field notes</li>
+          <li>Deeper essays, behind-the-engagement breakdowns</li>
+          <li>Each piece repurposes to a YouTube long-form plus a Short</li>
+          <li>~30 min/week repurpose habit</li>
+        </ul>
+      </div>
+      <div class="aud">
+        <div class="lab">— LinkedIn</div>
+        <h4>The polished proof</h4>
+        <ul>
+          <li>Short-form video, underserved niche</li>
+          <li>Early-adopter advantage</li>
+          <li>The credible, professional layer</li>
+        </ul>
+      </div>
+      <div class="aud">
+        <div class="lab">— Instagram</div>
+        <h4>The warm-audience hub</h4>
+        <ul>
+          <li>Business page, reactivated after suspension</li>
+          <li>Clean slate; old content did not restore</li>
+          <li>Personal: @thefallonrice</li>
+          <li>Recommendation: align the business handle to fallonscott.com</li>
+        </ul>
+      </div>
+      <div class="aud">
+        <div class="lab">— How the pillars map</div>
+        <h4>Every belief is a build to watch</h4>
+        <ul>
+          <li>Operator's lens: "watch me do the work"</li>
+          <li>Risk-aware: "watch me catch what others miss"</li>
+          <li>Architect before automate: "watch me plan before I build"</li>
+          <li>The mission: "watch a business outlast its founder"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="brand-foot">
+  <div class="container">
+    <div>
+      <div class="ff-mark">Fallon Scott<span class="dot">.</span></div>
+      <p class="ff-line">Architect before automate. Free and funded.</p>
+    </div>
+    <div class="ff-meta">
+      Brand Guidelines · v4.0<b>June 2026</b>
+      Maintained by F28 Studio<b>For Fallon Scott Consulting</b>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

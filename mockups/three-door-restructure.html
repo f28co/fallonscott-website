@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Three-Door Restructure — Mockup v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ink:#1a1f2e; --ink-2:#2a3142; --paper:#f5f1ea; --paper-2:#ede7dc;
+    --rule:#d8cfbf; --muted:#6b7280; --accent:#b45309; --accent-2:#8b3a07; --accent-soft:#f3d9a7;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+  .container{max-width:1240px;margin:0 auto;padding:0 32px}
+  .serif{font-family:'Fraunces',serif}
+  a{color:inherit;text-decoration:none}
+
+  .note{max-width:1240px;margin:0 auto;padding:14px 20px;background:#1a1f2e;color:#f5f1ea;font-size:13.5px;line-height:1.5;border-left:4px solid var(--accent)}
+  .note b{color:var(--accent-soft)}
+  .pagehdr{background:var(--accent-2);color:#fff;text-align:center;padding:30px 20px;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.28em;text-transform:uppercase}
+  .pagehdr span{display:block;font-family:'Fraunces',serif;font-size:30px;letter-spacing:-.01em;text-transform:none;margin-top:8px;font-weight:400}
+
+  .section-num{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.15em;color:var(--muted);margin-bottom:8px;text-transform:uppercase}
+  .section-title{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(36px,5vw,60px);line-height:1.02;letter-spacing:-.02em;margin:0 0 18px;max-width:980px}
+  .section-title em{font-style:italic;color:var(--accent);font-weight:300}
+  .section-lede{font-size:18px;line-height:1.55;color:var(--ink-2);max-width:760px;margin:0 0 44px}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;font-size:14px;font-weight:500;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);transition:.2s;cursor:pointer}
+  .btn.amber{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn.ghost{background:transparent;color:var(--ink)}
+
+  /* HERO */
+  .hero{background:#0d111c;color:#fff;padding:120px 0 90px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(13,17,28,.96),rgba(13,17,28,.72) 55%,rgba(13,17,28,.1) 92%)}
+  .hero .container{position:relative;z-index:2;max-width:860px}
+  .hero .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,241,234,.65);margin-bottom:24px}
+  .hero h1{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(40px,6vw,82px);line-height:1.0;letter-spacing:-.02em;margin:0 0 26px}
+  .hero h1 em{font-style:italic;color:var(--accent-soft);font-weight:300}
+  .hero h1 em.amber{color:var(--accent)}
+  .hero-sub{max-width:620px;font-size:20px;line-height:1.55;color:rgba(245,241,234,.85);margin:0 0 34px}
+  .hero-sub strong{color:#fff;font-weight:600}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero .btn.ghost{color:#fff;border-color:rgba(255,255,255,.4)}
+
+  /* THREE DOORS */
+  .doors{background:var(--paper);padding:120px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .doors h2.section-title em{color:var(--accent)}
+  .door-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+  .door{position:relative;background:var(--paper-2);border:1px solid var(--rule);padding:36px 32px;display:flex;flex-direction:column;gap:16px;transition:transform .25s,border-color .25s,box-shadow .25s}
+  .door:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 28px 50px -32px rgba(26,31,46,.25)}
+  .door .dn{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .door h3{font-family:'Fraunces',serif;font-weight:400;font-size:30px;line-height:1.05;letter-spacing:-.015em;margin:0;color:var(--ink)}
+  .door h3 em{font-style:italic;color:var(--accent);font-weight:300}
+  .door .sub{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .door p{font-size:14.5px;line-height:1.6;color:var(--ink-2);margin:0}
+  .door .price{font-family:'Fraunces',serif;font-size:30px;color:var(--ink);margin-top:auto;padding-top:16px;border-top:1px solid var(--rule)}
+  .door .price small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .door .scoped{font-family:'Fraunces',serif;font-size:22px;font-style:italic;color:var(--accent-2)}
+  .door .da{color:var(--accent);font-weight:600;display:inline-flex;align-items:center;gap:7px;font-size:14px;margin-top:4px}
+  .door.featured{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .door.featured h3,.door.featured .price{color:#fff}
+  .door.featured h3 em,.door.featured .dn,.door.featured .da{color:var(--accent-soft)}
+  .door.featured p{color:rgba(245,241,234,.82)}
+  .door.featured .price{border-top-color:rgba(245,241,234,.18)}
+  .door.featured .price small,.door.featured .sub{color:rgba(245,241,234,.55)}
+  .door .flag{position:absolute;top:-11px;left:32px;background:var(--accent);color:#fff;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;padding:5px 12px;border-radius:3px}
+
+  /* STAKES */
+  .stakes{background:var(--paper-2);padding:120px 0;border-top:1px solid var(--rule)}
+  .stakes-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px}
+  .stakes-col{padding:40px 36px;border:1px solid var(--rule)}
+  .stakes-col.fail{background:var(--accent-2);color:#fff}
+  .stakes-col.success{background:#fff;color:var(--ink)}
+  .stakes-col .lab{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.8}
+  .stakes-col.success .lab{color:var(--accent)}
+  .stakes-col h3{font-family:'Fraunces',serif;font-weight:400;font-size:28px;margin:10px 0 22px}
+  .stakes-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px}
+  .stakes-col li{font-size:14.5px;line-height:1.5}
+  .stakes-col.fail li{color:rgba(255,255,255,.9)}
+  .stakes-col.success li{color:var(--ink-2)}
+
+  /* DIAGNOSTICS */
+  .diag-sec{background:var(--paper-2);padding:120px 0;border-top:1px solid var(--rule)}
+  .diag-skip{font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:var(--accent-2);margin:0 0 44px}
+  .diag-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+  .diag-card{padding:44px 40px;display:flex;flex-direction:column;gap:14px}
+  .diag-card.a{background:var(--accent);color:#fff}
+  .diag-card.b{background:var(--accent-2);color:#fff}
+  .diag-card .dn{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+  .diag-card h3{font-family:'Fraunces',serif;font-weight:400;font-size:34px;line-height:1.02;margin:0;color:#fff}
+  .diag-card h3 em{font-style:italic;color:rgba(255,255,255,.85);font-weight:300}
+  .diag-card .q{font-family:'Fraunces',serif;font-style:italic;font-size:19px;color:#fff;margin:0}
+  .diag-card p{font-size:15px;line-height:1.6;color:rgba(255,255,255,.9);margin:0}
+  .diag-card .price{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:#fff;margin-top:auto;padding-top:16px;border-top:1px solid rgba(255,255,255,.25)}
+  .diag-card .btn{margin-top:14px;background:#fff;color:var(--ink);border-color:#fff;align-self:flex-start}
+
+  /* CAPABILITIES with Learn more */
+  .cap{background:var(--paper);padding:120px 0;border-top:1px solid var(--rule)}
+  .cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px}
+  .cap-card{background:var(--paper-2);border:1px solid var(--rule);padding:34px 32px;display:flex;flex-direction:column;gap:6px}
+  .cap-card h3{font-family:'Fraunces',serif;font-weight:400;font-size:26px;margin:0;color:var(--ink)}
+  .cap-card .when{font-family:'Fraunces',serif;font-style:italic;font-size:16px;color:var(--accent-2);margin:0 0 10px}
+  .cap-card p.body{font-size:15px;line-height:1.6;color:var(--ink-2);margin:0}
+  .cap-card .learn{margin-top:16px;align-self:flex-start;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--accent);background:transparent;border:1px solid var(--accent);border-radius:999px;padding:9px 18px;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+  .cap-card .learn:hover{background:var(--accent);color:#fff}
+  .cap-card .aibox{margin-top:16px;padding:16px 18px;background:var(--ink);color:rgba(245,241,234,.85);border-radius:2px;font-size:13.5px;line-height:1.55}
+  .cap-card .aibox a{color:var(--accent-soft);font-weight:600;display:inline-block;margin-top:8px}
+
+  /* MODAL */
+  .modal-overlay{position:fixed;inset:0;background:rgba(13,17,28,.72);backdrop-filter:blur(4px);z-index:200;display:none;align-items:center;justify-content:center;padding:24px}
+  .modal-overlay.open{display:flex}
+  .modal{background:var(--paper);max-width:620px;width:100%;max-height:86vh;overflow-y:auto;border-radius:4px;padding:48px 44px;position:relative;box-shadow:0 40px 80px -20px rgba(0,0,0,.5)}
+  .modal .x{position:absolute;top:20px;right:22px;font-size:26px;line-height:1;color:var(--muted);background:none;border:none;cursor:pointer}
+  .modal .mn{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .modal h3{font-family:'Fraunces',serif;font-weight:400;font-size:38px;line-height:1.02;margin:8px 0 6px;color:var(--ink)}
+  .modal .when{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--accent-2);margin:0 0 22px}
+  .modal ul{list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:column;gap:14px}
+  .modal li{font-size:15.5px;line-height:1.5;color:var(--ink-2);padding-left:26px;position:relative}
+  .modal li::before{content:"→";position:absolute;left:0;color:var(--accent);font-weight:600}
+  .modal .mfoot{border-top:1px solid var(--rule);padding-top:20px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .modal .mfoot .scoped{font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:var(--accent-2)}
+
+  /* PRODUCTIVE + PROFITABLE */
+  .ppr{background:var(--ink);color:#fff;padding:100px 0;text-align:center}
+  .ppr .label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:18px}
+  .ppr h3{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(30px,4vw,52px);line-height:1.1;letter-spacing:-.018em;margin:0;max-width:1000px;margin-inline:auto}
+  .ppr h3 em{font-style:italic;color:var(--accent-soft);font-weight:300}
+
+  /* GOING ALL IN ON AI */
+  .aihand{background:var(--ink);color:var(--paper);padding:110px 0;border-top:1px solid rgba(245,241,234,.1)}
+  .aihand h2{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(32px,4vw,52px);line-height:1.03;letter-spacing:-.018em;margin:0 0 18px;color:#fff;max-width:880px}
+  .aihand h2 em{font-style:italic;color:var(--accent-soft);font-weight:300}
+  .aihand p{font-size:18px;line-height:1.6;color:rgba(245,241,234,.8);max-width:720px;margin:0 0 28px}
+
+  /* CLOSER */
+  .cta{background:var(--ink);color:var(--paper);padding:130px 0;position:relative;overflow:hidden}
+  .cta-bg-text{position:absolute;left:0;right:0;bottom:-30px;font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(120px,20vw,300px);line-height:.85;color:var(--accent-2);opacity:.16;white-space:nowrap;text-align:center;pointer-events:none}
+  .cta-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+  .cta h2{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(40px,5.5vw,72px);line-height:1;letter-spacing:-.02em;margin:0 0 22px}
+  .cta h2 em{font-style:italic;color:var(--accent-soft);font-weight:300}
+  .cta p{font-size:18px;line-height:1.6;color:rgba(245,241,234,.78);margin:0;max-width:460px}
+  .cta-key-line{font-family:'Fraunces',serif;font-style:italic;font-size:21px;color:var(--accent-soft);margin:22px 0 0}
+  .cta-cards{display:flex;flex-direction:column;gap:12px}
+  .cta-card{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:20px 24px;background:rgba(245,241,234,.05);border:1px solid rgba(245,241,234,.14);border-radius:2px;transition:.25s}
+  .cta-card:hover{background:rgba(245,241,234,.1);transform:translateY(-2px)}
+  .cta-card .kick{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-soft);display:block;margin-bottom:7px}
+  .cta-card h4{font-family:'Fraunces',serif;font-weight:400;font-size:21px;margin:0 0 4px}
+  .cta-card p{font-size:13px;color:rgba(245,241,234,.65);max-width:none}
+  .cta-card .arr{font-size:20px;color:var(--accent-soft)}
+
+  /* step fix */
+  .stepfix{background:var(--ink);color:var(--paper);padding:90px 0}
+  .stepfix .sn{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--accent-soft);text-transform:uppercase}
+  .stepfix h3{font-family:'Fraunces',serif;font-weight:400;font-size:30px;margin:8px 0 12px}
+  .stepfix p{font-size:17px;line-height:1.6;color:rgba(245,241,234,.85);margin:0;max-width:760px}
+  .stepfix .old{color:rgba(245,241,234,.4);text-decoration:line-through;font-size:14px;margin-top:10px}
+
+  @media(max-width:900px){
+    .door-grid,.cap-grid,.cta-inner,.stakes-grid,.diag-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="pagehdr">Mockup v2 · nothing shipped yet
+  <span class="serif">The Three-Door Restructure</span>
+</div>
+
+<!-- ============ HOMEPAGE ============ -->
+<div class="pagehdr" style="background:var(--ink)">Homepage · fallonscott.com</div>
+
+<div class="note"><b>1 · HERO SUBHEAD (update only).</b> H1 unchanged. Long subhead replaced with one promise. The payload phrase is <b>"runs without you."</b></div>
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Fractional COO · Operations · Lean Six Sigma · CPA</div>
+    <h1>You can't <em>scale</em> chaos.<br/>You can't <em>sell</em> CEO dependency.<br/><em class="amber">Systems fix both.</em></h1>
+    <p class="hero-sub">I build the operational systems that make your business <strong>fundable, scalable, and sellable.</strong> So it runs without you.</p>
+    <div class="hero-cta">
+      <a class="btn amber">Book a Discovery Call →</a>
+      <a class="btn ghost">See how this works ↓</a>
+    </div>
+  </div>
+</section>
+
+<div class="note">Between here and the doors, <b>KEPT:</b> the Quiz and the "Where are you actually?" phases (+ the calculator bar stays under the phases).</div>
+
+<div class="note"><b>2 · THE THREE DOORS (updated).</b> New header: the three verbs are orange so the three ways to start pop. SOP door now explains what the Suite IS. Both diagnostics are $1,500, so Door 02 shows a clean $1,500. Door 02 lightly featured ("Most start here").</div>
+<section class="doors">
+  <div class="container">
+    <div class="section-num">04 / Where to start</div>
+    <h2 class="section-title"><em>Do it</em> yourself. <em>Diagnose it.</em> Or <em>fix it</em> with me.</h2>
+    <p class="section-lede">Three ways in, ordered by how much you want on your plate. Not sure which? The diagnostic tells you. Already know? Start where you are.</p>
+    <div class="door-grid">
+      <div class="door">
+        <span class="dn">Door 01</span>
+        <span class="sub">Do it yourself</span>
+        <h3>The <em>SOP Suite.</em></h3>
+        <p>You haven't documented the basics yet, the SOPs that train and equip either your team or your technology to do the work. You've got the time and the will to build it yourself, so I'll hand you the exact system and templates I install with private clients. You do the doing.</p>
+        <div class="price">$998<small>v2 launch · lifetime access</small></div>
+        <span class="da">Explore the SOP Suite →</span>
+      </div>
+      <div class="door featured">
+        <span class="flag">Most start here</span>
+        <span class="dn">Door 02</span>
+        <span class="sub">Diagnose it</span>
+        <h3>The <em>Diagnostic.</em></h3>
+        <p>Audit before we architect. We look at your people and your processes before we fix anything. You walk away with a prioritized fix list and the real cost of staying where you are.</p>
+        <div class="price">$1,500<small>fixed · credited toward an engagement</small></div>
+        <span class="da">Book a Diagnostic →</span>
+      </div>
+      <div class="door">
+        <span class="dn">Door 03</span>
+        <span class="sub">Fix it with me</span>
+        <h3>Fractional <em>COO.</em></h3>
+        <p>You know it's broken and don't have time to figure it out alone. I come inside the business and we build it together. Systems, dashboards, right people in right seats, AI where it earns its place.</p>
+        <div class="price"><span class="scoped">Scoped to your business</span></div>
+        <span class="da">Explore working together →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="note"><b>Homepage order from here down (your decisions):</b> Meet your guide → Framework (Foundations·Funding·Freedom) → Receipts → Manifesto ("Free and funded") → <b>FAQ (moved UP)</b> → <b>Who I work with (kept, near bottom)</b> → <b>What's at stake (kept, near bottom, copy fixed below)</b> → Closer. <b>REMOVED:</b> Investor-grade bridge, granular "Problems I solve." <b>MOVED to Services page:</b> the Productive + Profitable beat.</div>
+
+<div class="note"><b>3 · WHAT'S AT STAKE (kept, copy fix).</b> You hated "Here's what gets locked in." Negative side reworded to name the setbacks plainly. Juxtaposition with "what becomes possible" kept.</div>
+<section class="stakes">
+  <div class="container">
+    <div class="section-num">What's actually at stake</div>
+    <h2 class="section-title">Build the system, or <em>build a job you own.</em></h2>
+    <p class="section-lede">No middle option. Either the business runs without you, or you run it until you can't anymore.</p>
+    <div class="stakes-grid">
+      <div class="stakes-col fail">
+        <span class="lab">Without the system</span>
+        <h3>Here's what it's costing you.</h3>
+        <ul>
+          <li>Capital won't deploy. Investors and lenders pass on businesses that depend on the founder.</li>
+          <li>You can't scale past yourself. Every new client adds load to the same one person.</li>
+          <li>Hiring is a gamble. Wrong people, wrong seats, no rubric, no onboarding.</li>
+          <li>Turnover is a tax. Every loss costs three months of someone else's productivity.</li>
+          <li>Marketing and sales live in your head. The day you stop showing up, revenue stops.</li>
+          <li>There's no exit. Just a job you happen to own, and one you can't sell.</li>
+        </ul>
+      </div>
+      <div class="stakes-col success">
+        <span class="lab">With the system</span>
+        <h3>Here's what becomes possible.</h3>
+        <ul>
+          <li>Capital deploys. Lenders, investors, and acquirers see a real business, not a personality.</li>
+          <li>You scale on margin, not on hours. Headcount adds output, not chaos.</li>
+          <li>Hiring becomes repeatable. Right person, right seat, every time.</li>
+          <li>Retention follows. People know what they're walking into and what success looks like.</li>
+          <li>Marketing and sales run with or without you. Revenue stops being a personality test.</li>
+          <li>You get a graceful exit, on your terms. Stay, step back, or walk away cleanly.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="note"><b>4 · THE CLOSER (restored to original 4 doors).</b> Back to all four ways in. The word "DOOR 01/02…" labels are dropped so it doesn't clash with the three doors above. "30 minutes" corrected to <b>15 minutes.</b></div>
+<section class="cta">
+  <div class="cta-bg-text serif">Find it. Fix it.</div>
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <div class="section-num" style="color:rgba(245,241,234,.5)">Get in touch</div>
+        <h2>You're holding <em>the key.</em></h2>
+        <p>Four ways in. No pitch, no pressure. Pick the one that fits where you are right now.</p>
+        <p class="cta-key-line">"Walk through the door, or keep building a business that depends on you to unlock it."</p>
+      </div>
+      <div class="cta-cards">
+        <a class="cta-card"><div><span class="kick">Book a call</span><h4>Book a Discovery Call</h4><p>15 minutes. No pitch. We figure out if it's a fit.</p></div><span class="arr">↗</span></a>
+        <a class="cta-card"><div><span class="kick">No call yet</span><h4>Inquire (no call yet)</h4><p>Quick form. I'll reply within two business days.</p></div><span class="arr">↗</span></a>
+        <a class="cta-card"><div><span class="kick">Self-serve</span><h4>The SOP Suite</h4><p>Install the system yourself. $998 launch. Lifetime access.</p></div><span class="arr">↗</span></a>
+        <a class="cta-card"><div><span class="kick">On stage</span><h4>Book Fallon to Speak</h4><p>Keynotes, workshops, panels. Media kit on request.</p></div><span class="arr">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES PAGE ============ -->
+<div class="pagehdr" style="background:var(--accent-2)">Services page · /work-with-me</div>
+
+<div class="note"><b>5 · SERVICES HERO (update — lead with outcome).</b></div>
+<section class="hero" style="min-height:0;padding:120px 0 80px">
+  <div class="container">
+    <div class="eyebrow">Operations · AI Integration · SOP Suite</div>
+    <h1>Operations that run <em>without you.</em></h1>
+    <p class="hero-sub">Build it yourself, get it diagnosed, or fix it with me. The outcome is the same: a business that's <strong>fundable, scalable, and sellable.</strong></p>
+    <div class="hero-cta">
+      <a class="btn amber">Book a Discovery Call →</a>
+      <a class="btn ghost">See how the work happens ↓</a>
+    </div>
+  </div>
+</section>
+
+<div class="note"><b>6 · "HOW THE WORK HAPPENS" (one fix).</b> Step 2 gets the visibility layer added.</div>
+<section class="stepfix">
+  <div class="container">
+    <div class="sn">Step 02 · Build the systems</div>
+    <h3>Build the right thing for the right gap.</h3>
+    <p>Process maps. SOPs. <em style="color:var(--accent-soft);font-style:normal;font-weight:600">Dashboards and KPIs.</em> Automations and AI agents. Hiring infrastructure. The right build for the right gap.</p>
+    <p class="old">Old: Process maps. SOPs. Automations and AI agents. Hiring infrastructure. (no visibility layer)</p>
+  </div>
+</section>
+
+<div class="note"><b>7 · THE THREE DOORS</b> — same as homepage (not redrawn). Door 02 button → "See the diagnostics ↓", Door 03 → "What this can include ↓".</div>
+
+<div class="note"><b>8 · THE DIAGNOSTICS (dedicated section).</b> Both $1,500 now (Right People, Right Seats corrected from $2,500 → $1,500 everywhere).</div>
+<section class="diag-sec">
+  <div class="container">
+    <div class="section-num">Section 04 · The diagnostics</div>
+    <h2 class="section-title">Not sure if it's your people or your <em>processes?</em> We find out first.</h2>
+    <p class="diag-skip">(If you already know where you are, skip ahead. The diagnostic is for when you're not sure.)</p>
+    <div class="diag-grid">
+      <div class="diag-card a">
+        <span class="dn">Diagnostic A</span>
+        <h3>Right People, <em>Right Seats.</em></h3>
+        <p class="q">Is it your people?</p>
+        <p>Who's here, what roles should exist against your goals, and a gap analysis: promote, retrain, redeploy, or transition.</p>
+        <div class="price">$1,500 fixed · credited toward an engagement</div>
+        <a class="btn">Book this diagnostic →</a>
+      </div>
+      <div class="diag-card b">
+        <span class="dn">Diagnostic B</span>
+        <h3>Automate the <em>Admin.</em></h3>
+        <p class="q">Is it your processes?</p>
+        <p>Every manual task, hand-off, and between-platform gap, with a risk lens on where automation creates exposure, not just efficiency.</p>
+        <div class="price">$1,500 fixed · credited toward an engagement</div>
+        <a class="btn">Book this diagnostic →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="note"><b>9 · INSIDE "FIX IT WITH ME" — with "Learn more" modals (the new idea).</b> Cards stay high-level and clean. Each "Learn more" opens a popup with the full bullet list from the old package. <b>Click them, they work.</b> No prices anywhere.</div>
+<section class="cap">
+  <div class="container">
+    <div class="section-num">Section 05 · Inside "Fix it with me"</div>
+    <h2 class="section-title">Every engagement is scoped to <em>where you are.</em></h2>
+    <p class="section-lede">If you're not sure, the diagnostic tells you. If you already know, start where you are. Depending on what we find, the build leans into one or more of these:</p>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <h3>Build the foundation</h3>
+        <p class="when">when it all lives in your head</p>
+        <p class="body">Process maps, SOPs, role clarity, the documents that make you replaceable.</p>
+        <button class="learn" data-modal="foundation">Learn more +</button>
+      </div>
+      <div class="cap-card">
+        <h3>Optimize what exists</h3>
+        <p class="when">when systems are duct-taped</p>
+        <p class="body">Audit the gaps, rewire the tools, automate the repeatable work.</p>
+        <button class="learn" data-modal="optimize">Learn more +</button>
+        <div class="aibox">Automating admin and integrating AI is one of the ways we optimize, architected against your P&amp;L, not bolted on top.<br/><a>Going all-in on AI? See AI Integration →</a></div>
+      </div>
+      <div class="cap-card">
+        <h3>Build visibility</h3>
+        <p class="when">when you're flying on instinct</p>
+        <p class="body">KPIs, dashboards, and the weekly rhythm that answers "how's the business doing" in 60 seconds.</p>
+        <button class="learn" data-modal="visibility">Learn more +</button>
+      </div>
+      <div class="cap-card">
+        <h3>Scale the team</h3>
+        <p class="when">when headcount is the next move</p>
+        <p class="body">Hiring infrastructure, onboarding, performance systems. Right people, right seats.</p>
+        <button class="learn" data-modal="scale">Learn more +</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="note"><b>10 · PRODUCTIVE + PROFITABLE beat (moved here from the homepage).</b></div>
+<section class="ppr">
+  <div class="container">
+    <div class="label">The promise underneath every engagement</div>
+    <h3>Optimized processes mean enhanced <em>productivity</em> AND enhanced <em>profitability.</em></h3>
+  </div>
+</section>
+
+<div class="note"><b>11 · "GOING ALL-IN ON AI?" (collapsed handoff).</b> The big 3-tier block + calculator stays only on the AI Integration page.</div>
+<section class="aihand">
+  <div class="container">
+    <h2>AI integration is one of the ways we fix it. It also has its <em>own path.</em></h2>
+    <p>Inside a Fix-it-with-me engagement, AI shows up where it earns its place. But if AI is the reason you're here, there's a dedicated page, assessment, build, and retainer, with the full CPA and auditor lens.</p>
+    <a class="btn amber">Explore AI Integration →</a>
+  </div>
+</section>
+
+<div class="note">After this, <b>KEPT:</b> Partnerships and the page CTA. Grind → Grow → Go already lives here. AI Integration + SOP Suite pages untouched.</div>
+
+<div class="pagehdr" style="background:var(--accent-2)">End of mockup · approve or mark up, then I ship</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="overlay">
+  <div class="modal" id="modal">
+    <button class="x" id="closeModal">&times;</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+  var DETAIL = {
+    foundation: {
+      mn: "Build the foundation", h3: "Build the foundation",
+      when: "when it all lives in your head",
+      items: [
+        "F28 Process Map (current-state + optimized)",
+        "Full SOP suite by function with department overviews",
+        "Role &amp; responsibility ownership maps",
+        "Operational Manifesto, the soul of the company",
+        "AI-queryable knowledge database, seeded from your internal and external communications (Slack, Teams, client emails, etc.)"
+      ]
+    },
+    optimize: {
+      mn: "Optimize what exists", h3: "Optimize what exists",
+      when: "when systems are duct-taped",
+      items: [
+        "Full process audit, the gap between perceived and actual",
+        "Current-vs-optimized maps with annotations",
+        "Automation strategy, Zapier, Make, AI agents, tied to your client journey",
+        "AI workflow build (Claude projects, prompt libraries, agents)",
+        "Right people, right seats review"
+      ]
+    },
+    visibility: {
+      mn: "Build visibility", h3: "Build visibility",
+      when: "when you're flying on instinct",
+      items: [
+        "KPI definition by function, against benchmark",
+        "Custom Airtable dashboards (or a simple Sheet build for lighter stacks)",
+        "Trailing metrics, cash, ops, HR, marketing, capacity flags",
+        "Weekly review cadence + leadership scorecard",
+        "Answer 'how's the business doing' in 60 seconds, with data"
+      ]
+    },
+    scale: {
+      mn: "Scale the team", h3: "Scale the team",
+      when: "when headcount is the next move",
+      items: [
+        "Full hiring infrastructure, guide, rubric, qualifications",
+        "Standardized, non-biased structured interview cadence",
+        "Onboarding workflow + first-30-day plan",
+        "Performance management system, review cadence, scorecards, promotion criteria",
+        "Admin setup, payroll, W-9/W-8BEN, US vs. offshore compliance",
+        "Offshore recruiting framework + distributed team management"
+      ]
+    }
+  };
+  var overlay = document.getElementById('overlay');
+  var body = document.getElementById('modalBody');
+  function openModal(key){
+    var d = DETAIL[key]; if(!d) return;
+    var lis = d.items.map(function(i){return '<li>'+i+'</li>';}).join('');
+    body.innerHTML = '<div class="mn">'+d.mn+'</div><h3>'+d.h3+'</h3><p class="when">'+d.when+'</p><ul>'+lis+'</ul>'+
+      '<div class="mfoot"><span class="scoped">Scoped to your business</span><a class="btn amber">Book a Discovery Call →</a></div>';
+    overlay.classList.add('open');
+  }
+  document.querySelectorAll('.learn').forEach(function(b){
+    b.addEventListener('click', function(){ openModal(b.getAttribute('data-modal')); });
+  });
+  document.getElementById('closeModal').addEventListener('click', function(){ overlay.classList.remove('open'); });
+  overlay.addEventListener('click', function(e){ if(e.target===overlay) overlay.classList.remove('open'); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') overlay.classList.remove('open'); });
+</script>
+
+</body>
+</html>

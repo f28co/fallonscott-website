@@ -11,3 +11,12 @@
 /carryon  /carryon.html  200
 /life-brief  /carryon.html  301
 /life-brief.html  /carryon.html  301
+
+# One URL per page: extensionless URLs go to the .html URL the canonical tags and sitemap use
+/about  /about.html  301
+/work-with-me  /work-with-me.html  301
+/ai-systems  /ai-systems.html  301
+/speaking  /speaking.html  301
+/resources  /resources.html  301
+/privacy  /privacy.html  301
+/terms  /terms.html  301

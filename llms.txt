@@ -27,6 +27,6 @@ fallonscott.com is Fallon's founder site: her story, point of view, speaking and
 Engagement pricing is scoped after a discovery call. The SOP Suite is the only published price.
 
 ## Contact
-- Discovery call: https://portal.f28agency.com/public/appointment-scheduler/5cbbff6daf73631c179eafad/schedule
+- Discovery call: https://api.leadconnectorhq.com/widget/booking/KnykdcbHVhz2rrJJi1y4
 - Email: info@f28co.com
 - Location: Atlanta, Georgia (worldwide engagements)

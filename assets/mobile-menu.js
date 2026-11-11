@@ -124,7 +124,7 @@
 
     var foot = document.createElement('div');
     foot.className = 'mm-foot';
-    foot.innerHTML = '<span>Find it. Fix it. Stay until it sticks.</span><a href="https://portal.f28agency.com/public/appointment-scheduler/5cbbff6daf73631c179eafad/schedule" target="_blank" rel="noopener">Contact →</a>';
+    foot.innerHTML = '<span>Find it. Fix it. Stay until it sticks.</span><a href="https://api.leadconnectorhq.com/widget/booking/KnykdcbHVhz2rrJJi1y4" target="_blank" rel="noopener">Contact →</a>';
     overlay.appendChild(foot);
 
     // Close X button in top-right of overlay

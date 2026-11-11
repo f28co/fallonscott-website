@@ -90,13 +90,11 @@
  "@type": "OfferCatalog",
  "name": "Operations Engagements",
  "itemListElement": [
- {"@type":"Offer","name":"Foundations","description":"For businesses where everything lives in someone's head. Documentation, hiring infrastructure, AI knowledge base.","price":"4500","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"4500","priceCurrency":"USD","unitText":"month"}},
- {"@type":"Offer","name":"Optimization","description":"For teams running on outdated, duct-taped systems. Tool consolidation, SOPs, automation.","price":"5000","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"5000","priceCurrency":"USD","unitText":"month"}},
- {"@type":"Offer","name":"Visibility","description":"For founders flying on instinct. KPIs, dashboards, leading and trailing metrics.","price":"4000","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"4000","priceCurrency":"USD","unitText":"month"}},
- {"@type":"Offer","name":"Scale (People)","description":"For founders ready to grow without burning out. International talent recruiting, role design, distributed-team management.","price":"4500","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"4500","priceCurrency":"USD","unitText":"month"}},
- {"@type":"Offer","name":"Right People, Right Seats Diagnostic","description":"2–3 week role + seat audit including performance review process gap analysis.","price":"2500","priceCurrency":"USD"},
- {"@type":"Offer","name":"Automate the Admin Diagnostic","description":"2–3 week AI + automation audit with a risk lens, where to automate, where automation creates exposure.","price":"1500","priceCurrency":"USD"},
- {"@type":"Offer","name":"The SOP Suite","description":"Self-serve digital product. Three bundles: Process Optimization, Full SOP, New Hire Onboarding. Walkthrough videos, fillable templates, prioritization plan.","price":"998","priceCurrency":"USD","url":"https://fallonscott.com/sop-suite.html"}
+ {"@type": "Offer", "name": "Operational Assessment", "description": "Paid clarity on where the operation stands and what to fix first, scoped after a discovery call."},
+ {"@type": "Offer", "name": "Operational Acceleration", "description": "One targeted operational project delivered by the F28 & Co. team, typically 4 to 12 weeks."},
+ {"@type": "Offer", "name": "Operational Transformation", "description": "A full operating-system build: process, people, platforms and performance, typically 6 to 18 months."},
+ {"@type": "Offer", "name": "Fractional COO Leadership", "description": "Fallon Scott in the operating seat on an ongoing retainer. Two seats at a time."},
+ {"@type": "Offer", "name": "The SOP Suite", "description": "Self-serve system for documenting, prioritizing and delegating the work in a business. Part 1: Dump and Part 2: Document, with Part 3: Delegate as an add-on."}
  ]
  }
  },
@@ -812,14 +810,13 @@ footer.site-foot .sf-bottom{display:flex;justify-content:space-between;font-size
 footer.site-foot .sf-bottom a{color:rgba(245,241,234,.7);text-decoration:none}
 @media(max-width:900px){footer.site-foot .sf-grid{grid-template-columns:1fr 1fr}}
 </style>
-<!-- SOP-PAUSE (delete this line to show the SOP Suite again) --><style>a[href*="sop-suite"],#sopBanner{display:none!important}</style><script>document.addEventListener("DOMContentLoaded",function(){document.body.classList.add("banner-off")});</script>
 </head>
 <body data-screen-label="Home" data-hero-layout="fullbleed">
 
 <!-- TOP PROMO BANNER -->
 <div id="sopBanner" style="position:fixed;top:0;left:0;right:0;z-index:60;background:#8b3a07;color:#f5f1ea;padding:11px 24px;font-family:'Inter', sans-serif;font-size:13.5px;display:flex;align-items:center;justify-content:center;gap:24px;border-bottom:1px solid rgba(245,241,234,.18);transition:transform .35s ease">
  <span style="opacity:.9"><span style="font-family:'JetBrains Mono', monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#f3d9a7;margin-right:14px">New · Self-Serve</span> Not ready for a fractional COO? Build the system yourself.</span>
- <a href="sop-suite.html" style="color:#f5f1ea;text-decoration:none;font-weight:600;border-bottom:1px solid #f3d9a7;padding-bottom:1px;white-space:nowrap">The SOP Suite is live <span style="color:#f3d9a7">→</span></a>
+ <a href="sop-suite.html" style="color:#f5f1ea;text-decoration:none;font-weight:600;border-bottom:1px solid #f3d9a7;padding-bottom:1px;white-space:nowrap">SOP Suite v2: join the waitlist <span style="color:#f3d9a7">→</span></a>
  <button onclick="document.getElementById('sopBanner').style.display='none';document.body.classList.add('banner-off');try{localStorage.setItem('sopBannerHidden','1')}catch(e){}" aria-label="Dismiss" style="background:transparent;border:none;color:#f5f1ea;opacity:.55;cursor:pointer;font-size:18px;line-height:1;padding:0 4px;font-family:inherit;position:absolute;right:18px;top:50%;transform:translateY(-50%)" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.55'">×</button>
 </div>
 <script>(function(){try{if(localStorage.getItem('sopBannerHidden')==='1'){document.body.classList.add('banner-off');var b=document.getElementById('sopBanner');if(b)b.style.display='none';}}catch(e){}})();</script>
@@ -1361,7 +1358,7 @@ footer.site-foot .sf-bottom a{color:rgba(245,241,234,.7);text-decoration:none}
     <span class="dn">Door 02</span><span class="sub">Diagnose it</span>
     <h3>The <em>Diagnostic.</em></h3>
     <p>Audit before we architect. We look at your people and your processes before we fix anything. You walk away with a prioritized fix list and the real cost of staying where you are.</p>
-    <div class="price">$1,500<small>fixed · credited toward an engagement</small></div>
+    <div class="price"><span class="scoped">Starts with a discovery call</span></div>
     <span class="da">Book a Diagnostic →</span>
    </a>
    <a class="door" href="work-with-me.html">

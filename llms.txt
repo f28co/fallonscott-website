@@ -1,36 +1,32 @@
 # Fallon Scott
 
-> Fractional COO and operations architect. Simplifies, streamlines, and connects how a founder-led business runs end to end, then safely and strategically architects the systems that make it fundable, scalable, and sellable. Architect before automate: audit and optimize the process before layering on AI or automation, so you never document or pay to automate waste. CPA, Lean Six Sigma, ex-KPMG and Delta Air Lines Internal Audit. Co-founder of Makenzie House (11× revenue in 12 months).
+> Fallon Scott, CPA, is a fractional COO and the founder and principal of F28 & Co. (https://f28co.com), the Atlanta operations consulting firm that builds businesses able to grow beyond their founders. Auditor turned operator: former KPMG auditor and founding member of Delta Air Lines' Internal Audit and Enterprise Risk Management practice. CPA and Lean Six Sigma certified. Co-founder of The Makenzie House, a wedding and event venue that grew revenue 11x in 12 months.
+
+fallonscott.com is Fallon's founder site: her story, point of view, speaking and the SOP Suite. Services, the team and partners live on f28co.com. F28 & Co. has an in-house team plus vetted partners; Fallon sets direction and personally leads select engagements. She holds two fractional COO seats at a time.
 
 ## Core pages
+- [Home](https://fallonscott.com/): Who Fallon is and how to work with her and F28 & Co.
+- [About](https://fallonscott.com/about.html): Career story. KPMG (2010 to 2012), Delta Air Lines Internal Audit and ERM (2012 to 2015), sales and marketing leadership scaling a 6,000-person team (2015 to 2019), F28 Agency and then F28 & Co. with 60+ process engagements (2019 to present), The Makenzie House co-founder (2022 to present).
+- [AI readiness](https://fallonscott.com/ai-systems.html): Fallon's view on where AI earns its place, the manual-work cost calculator, AI maturity levels, and why governance comes before integration. Services: https://f28co.com/ai-readiness/
+- [SOP Suite](https://fallonscott.com/sop-suite.html): Self-serve system to document, prioritize and delegate the work in a business. Walkthrough videos, masterlist, prioritization plan, fillable SOP templates. $998.
+- [Built to Transfer](https://fallonscott.com/built-to-transfer.html): Free 5-minute Exit Readiness check for owners who want a business that can run, sell or transfer without them.
+- [Speaking](https://fallonscott.com/speaking.html): Keynotes, workshops, panels and podcasts on operations, AI readiness, key-person risk and exit readiness.
+- [Work with me](https://fallonscott.com/work-with-me.html): Ways to engage.
+- [FAQ](https://fallonscott.com/faq.html)
+- [Resources](https://fallonscott.com/resources.html): Articles, frameworks and field notes.
 
-- [Home](https://fallonscott.com/): Overview of services, packages, story, and ways to engage.
-- [About](https://fallonscott.com/about.html): Full career chronology — KPMG (2010–2012) → Delta Internal Audit (2012–2015) → sales/marketing leadership scaling a 6,000-person team (2015–2019) → F28 Agency, 60+ engagements streamlining workflows and connecting operations end to end (2019–present) → Makenzie House co-founder, 11× revenue (2022–present).
-- [SOP Suite](https://fallonscott.com/sop-suite.html): Self-serve digital product, $998 launch. Three bundles plus walkthrough videos, fillable templates, masterlist, prioritization plan, optimization calculator.
-- [Speaking](https://fallonscott.com/speaking.html): Keynotes, workshops, panels, podcast features.
+## F28 & Co. service areas (https://f28co.com/what-we-cover/)
+- Operations & Process: fractional COO, operational assessments, process maps, SOPs, AI and automation
+- Talent & Team: hiring systems, org design, training and LMS, recruiting; executive search through partners
+- Technology & Security: AI readiness and governance, ISO/IEC 42001 and 27001 readiness, cybersecurity, custom platforms
+- Sales & Marketing: strategy, SEO, GEO and AI visibility; brand, PR and paid ads through partners
+- Financial Management: CPA-led financial operations; bookkeeping, tax and fractional CFO through partners
+- Succession & Exit: exit readiness, owner-dependency reduction, succession; valuation and M&A through partners
+- Growth Capital & Funding and Legal, Risk & Compliance: through vetted partners, with F28 preparing the operation
 
-## Pages
-- /index.html — Home
-- /work-with-me.html — Services hub (three doors: do it yourself, diagnose it, or fix it with the Ops Partner)
-- /ai-systems.html — AI Integration (audit-first AI buildouts)
-- /sop-suite.html — SOP Suite (self-serve digital product, $998 v2 launch)
-- /about.html — About Fallon Scott
-- /speaking.html — Speaking & Podcasting
-- /faq.html — Frequently asked questions
-- /resources.html — Articles, frameworks, and field notes
-
-## Ways to work together
-
-Three doors at the top level:
-- Do it yourself — The SOP Suite. Self-serve digital product. $998 launch (regular $1,497).
-- Diagnose it — fixed-scope diagnostics, $1,500 each, credited toward an engagement:
-  - Right People, Right Seats Diagnostic — role + seat audit, people and role gaps.
-  - Automate the Admin Diagnostic — manual-task and automation audit with a risk lens.
-- Fix it with me — The Ops Partner engagement. Four operational models inside it (Assessment, Acceleration, Transformation, Operational Leadership). Everything is scoped after a discovery call; pricing follows what the business actually needs. Rough shape: a targeted Acceleration runs about 4–12 weeks, a full Transformation about 3–6 months.
-
-Only public prices: The SOP Suite ($998) and the diagnostics ($1,500 each). Engagement pricing is scoped after a discovery call.
+Engagement pricing is scoped after a discovery call. The SOP Suite is the only published price.
 
 ## Contact
-
-Email: hello@fallonscott.com
-Location: Atlanta, Georgia (worldwide engagements)
+- Discovery call: https://portal.f28agency.com/public/appointment-scheduler/5cbbff6daf73631c179eafad/schedule
+- Email: info@f28co.com
+- Location: Atlanta, Georgia (worldwide engagements)

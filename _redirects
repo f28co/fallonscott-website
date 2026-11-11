@@ -1,8 +1,3 @@
-# SOP-PAUSE: delete these 5 lines to bring the SOP Suite page back
-/sop-suite.html  /  302!
-/sop-suite  /  302!
-/sop-bundle  /  302!
-/sop  /  302!
 /sop-bundle  /sop-suite.html  301
 /sop  /sop-suite.html  301
 /work  /index.html#work  301
